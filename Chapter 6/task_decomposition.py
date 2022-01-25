@@ -29,7 +29,7 @@ def process(data: typing.List[int]) -> typing.Tuple[int, float]:
     return max_val, avg_val
 
 
-def process_concurrently(data: typing.List[int]):
+def process_concurrently(data: typing.List[int]) -> typing.Tuple[int, float]:
     # creating a process pool (Python have problems with running CPU-bound operations using threads)
     executor = concurrent.futures.ProcessPoolExecutor()
     # starting two threads concurrently
