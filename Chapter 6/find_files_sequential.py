@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
+
+#
+""""""
+
 import os
 import time
-import typing
+import typing as T
 
 
 def search_file(file_name: str, search_string: str) -> bool:
@@ -13,12 +17,12 @@ def search_file(file_name: str, search_string: str) -> bool:
     return False
 
 
-def search_files(files: typing.List[str], search_string: str) -> None:
+def search_files(files: T.List[str], search_string: str) -> None:
     for file_name in files:
         print(file_name)
         result = search_file(user_input + os.sep + file_name, search_string)
         if result:
-            print("found string in file %s" % file_name)
+            print(f"Found string in file {file_name}")
 
 
 if __name__ == "__main__":

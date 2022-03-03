@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+
 """Implementing the game program using threads without multitasking using blocking thread"""
+import sys
 import time
-import sys, select
+import select
 from threading import Thread
 
 
@@ -15,7 +17,7 @@ class Task(Thread):
             self.func()
 
 
-def get_user_input():
+def get_user_input() -> str:
     # getting the next user input
     i, o, e = select.select([sys.stdin], [], [], 1)
     if i:
@@ -24,23 +26,27 @@ def get_user_input():
         return user_input
 
 
-def compute_game_world():
+def compute_game_world() -> None:
     # computing the internal game world
     print("computing")
     time.sleep(0.5)
 
 
-def render_next_screen():
+def render_next_screen() -> None:
     # rendering the next screen of the program
     print("rendering\n")
     time.sleep(0.5)
 
 
-if __name__ == "__main__":
-    getUserInputTask = Task(get_user_input)
-    computeGameWorldTask = Task(compute_game_world)
-    renderNextScreenTask = Task(render_next_screen)
+def arcade_machine() -> None:
+    get_user_input_task = Task(get_user_input)
+    compute_game_world_task = Task(compute_game_world)
+    render_next_screen_task = Task(render_next_screen)
 
-    getUserInputTask.run()
-    computeGameWorldTask.run()
-    renderNextScreenTask.run()
+    get_user_input_task.run()
+    compute_game_world_task.run()
+    render_next_screen_task.run()
+
+
+if __name__ == "__main__":
+    arcade_machine()

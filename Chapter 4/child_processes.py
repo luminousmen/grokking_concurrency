@@ -4,18 +4,19 @@ import os
 
 
 def child():
-    print("Hello from child",  os.getpid())
+    print(f"Hello from child PID: {os.getpid()}")
     os._exit(0)
 
 
-def parent():
-    for i in range(5):
+def parent(num_children: int):
+    for i in range(num_children):
         newpid = os.fork()
         if newpid == 0:
             child()
         else:
-            print("Hello from parent", os.getpid(), newpid)
+            print(f"Hello from parent PID: {os.getpid()}, {newpid}")
 
 
 if __name__ == "__main__":
-    parent()
+    num_children = 5
+    parent(num_children)

@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+
+# find_files_concurrent.py
+""""""
+
 import os
 import time
 import concurrent.futures
-import typing
+import typing as T
 
 
 def search_file(file_name: str, search_string: str) -> bool:
@@ -14,7 +18,7 @@ def search_file(file_name: str, search_string: str) -> bool:
     return False
 
 
-def search_files(files: typing.List[str], search_string: str) -> None:
+def search_files(files: T.List[str], search_string: str) -> None:
     executor = concurrent.futures.ThreadPoolExecutor()
 
     # starting threads concurrently
@@ -25,7 +29,7 @@ def search_files(files: typing.List[str], search_string: str) -> None:
 
     for thread, file_name in threads:
         if thread.result():
-            print("found string in file %s" % file_name)
+            print(f"Found string in file {file_name}")
 
 
 if __name__ == "__main__":

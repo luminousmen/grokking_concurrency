@@ -1,30 +1,34 @@
 #!/usr/bin/env python3
+
+#
 """Counting votes using Fork/Join pattern"""
-import typing
+
+import typing as T
 import random
 from math import ceil
 from threading import Thread
 
 
 class StaffMember(Thread):
-    def __init__(self, blanks: typing.List[int]):
+    def __init__(self, votes: T.List[int]) -> None:
         super().__init__()
-        self.blanks = blanks
+        self.votes = votes
         self.total = {}
 
-    def run(self):
-        for blank in self.blanks:
-            if self.total.get(blank):
-                self.total[blank] += 1
+    def run(self) -> None:
+        for vote in self.votes:
+            if self.total.get(vote):
+                self.total[vote] += 1
             else:
-                self.total[blank] = 1
+                self.total[vote] = 1
 
 
-def process_blanks(blanks: typing.List[int]) -> None:   
+def process_votes(votes: T.List[int]) -> None:
     jobs = []
-    vote_count = len(blanks)
+    vote_count = len(votes)
     member_count = 3
-    vote_per_pile = ceil(vote_count/member_count)
+    vote_per_pile = ceil(vote_count / member_count)
+
     for i in range(member_count):
         pile = blanks[i * vote_per_pile:i * vote_per_pile + vote_per_pile]
         p = StaffMember(pile)
@@ -51,4 +55,4 @@ def process_blanks(blanks: typing.List[int]) -> None:
 if __name__ == "__main__":
     # generating a huge list of votes
     blanks = [random.randint(1, 10) for _ in range(100000)]
-    process_blanks(blanks)
+    process_votes(blanks)

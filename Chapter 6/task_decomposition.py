@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
+
+#
 """Simple task parallelism example"""
 import time
-import typing
+import typing as T
 import random
 import concurrent.futures
 
 
-def maximum(data: typing.List[int]) -> int:
+def maximum(data: T.List[int]) -> int:
     max_val = data[0]
     for i in data[1:]:
         if i > max_val:
@@ -14,7 +16,7 @@ def maximum(data: typing.List[int]) -> int:
     return max_val
 
 
-def avg(data: typing.List[int]) -> float:
+def avg(data: T.List[int]) -> float:
     sum_val = 0
     count_val = 0
     for i in data:
@@ -23,13 +25,13 @@ def avg(data: typing.List[int]) -> float:
     return sum_val / count_val
 
 
-def process(data: typing.List[int]) -> typing.Tuple[int, float]:
+def process(data: T.List[int]) -> T.Tuple[int, float]:
     max_val = maximum(data)
     avg_val = avg(data)
     return max_val, avg_val
 
 
-def process_concurrently(data: typing.List[int]) -> typing.Tuple[int, float]:
+def process_concurrently(data: T.List[int]) -> T.Tuple[int, float]:
     # creating a process pool (Python have problems with running CPU-bound operations using threads)
     executor = concurrent.futures.ProcessPoolExecutor()
     # starting two threads concurrently

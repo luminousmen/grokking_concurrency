@@ -4,12 +4,12 @@
 import os
 import math
 import time
-import typing
+import typing as T
 import hashlib
 import multiprocessing as mp
 
 
-def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> typing.List[str]:
+def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> T.List[str]:
     combinations = []
     if not max_number:
         # calculating maximum number based on the length
@@ -19,7 +19,7 @@ def get_combinations(*, length: int, min_number: int = 0, max_number: int = None
         str_num = str(i)
         # fill in the missing numbers with zeros
         zeros = "0" * (length - len(str_num))
-        combinations.append(''.join((zeros, str_num)))
+        combinations.append("".join((zeros, str_num)))
     return combinations
 
 
@@ -45,7 +45,7 @@ def crack_password(crypto_hash: str, length: int, min_number: int, max_number: i
             break
 
 
-def get_break_points(num_cores: int, length: int) -> typing.List[typing.Tuple[int, int]]:
+def get_break_points(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
     max_number = int(math.pow(10, length) - 1)
     break_points = []
     # creating a range of numbers for each process     

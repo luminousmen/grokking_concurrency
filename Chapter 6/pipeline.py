@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+#
 """Task parallelism using Pipeline processing pattern"""
 import time
 from multiprocessing import Queue
@@ -6,11 +8,11 @@ from threading import Thread
 
 
 class ProduceThread(Thread):
-    def __init__(self, out_queue):
+    def __init__(self, out_queue: Queue) -> None:
         super().__init__()
         self.out_queue = out_queue
 
-    def run(self):
+    def run(self) -> None:
         for msg in range(100):
             print(f"GENERATING: {msg}")
             time.sleep(1)
@@ -20,18 +22,18 @@ class ProduceThread(Thread):
 
 
 class ProcessThread(Thread):
-    def __init__(self, in_queue, out_queue):
+    def __init__(self, in_queue: Queue, out_queue: Queue) -> None:
         super().__init__()
         self.in_queue = in_queue
         self.out_queue = out_queue
 
-    def process(self, msg):
+    def process(self, msg) -> None:
         print(f"PROCESSING: {msg}")
         time.sleep(2)
         msg = msg * 2
         return msg
 
-    def run(self):
+    def run(self) -> None:
         while True:
             # get the message from the previous stage.
             msg = self.in_queue.get()
@@ -42,15 +44,15 @@ class ProcessThread(Thread):
 
 
 class ConsumeThread(Thread):
-    def __init__(self, in_queue):
+    def __init__(self, in_queue: Queue) -> None:
         super().__init__()
         self.in_queue = in_queue
 
-    def consume(self, msg):
+    def consume(self, msg: str) -> None:
         time.sleep(1)
         print(f"RECEIVED: {msg}")
 
-    def run(self):
+    def run(self) -> None:
         while True:
             # get the message from the previous stage
             msg = self.in_queue.get()
@@ -59,7 +61,7 @@ class ConsumeThread(Thread):
 
 
 class Pipeline:
-    def run_parallel(self):
+    def run_parallel(self) -> None:
         queues = [Queue() for _ in range(2)]
         threads = [
             ProduceThread(queues[0]),
