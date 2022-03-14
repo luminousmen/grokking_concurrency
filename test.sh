@@ -12,7 +12,7 @@ scripts=(
     "./Chapter 8/race_condition_fixed.py"
 #    "./Chapter 8/deadlock.py"
     "./Chapter 8/semaphore.py"
-    "./Chapter 8/starvation.py"
+#    "./Chapter 8/starvation.py"
     "./Chapter 8/race_condition.py"
     "./Chapter 8/deadlock_arbitrator.py"
     "./Chapter 8/deadlock_hierarchy.py"
