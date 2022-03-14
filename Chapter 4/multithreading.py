@@ -9,6 +9,7 @@ import threading
 
 def cpu_waster(i: int) -> None:
     """Wasting the processor time, professionally"""
+    # getting current thread name
     name = threading.current_thread().getName()
     print(f"{name} doing {i} work")
     time.sleep(3)
@@ -28,7 +29,9 @@ def main(num_threads: int) -> None:
 
     print(f"Starting {num_threads} CPU wasters...")
     for i in range(num_threads):
-        threading.Thread(target=cpu_waster, args=(i,)).start()
+        # creating and starting the thread
+        thread = threading.Thread(target=cpu_waster, args=(i,))
+        thread.start()
 
     display_threads()
 

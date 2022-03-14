@@ -47,17 +47,17 @@ def process_concurrently(data: T.List[int]) -> T.Tuple[int, float]:
 if __name__ == "__main__":
     data = [random.randint(1, 100) for _ in range(10000)]
     print("Processing sequentially...")
-    start_time = time.time()
+    start_time = time.perf_counter()
     max_val, avg_val = process(data)
     print(f"Max: {max_val}, Avg: {avg_val}")
 
-    process_time = time.time() - start_time
+    process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")
 
-    start_time = time.time()
+    start_time = time.perf_counter()
     print("Processing concurrently...")
     max_val, avg_val = process_concurrently(data)
     print(f"Max: {max_val}, Avg: {avg_val}")
 
-    process_time = time.time() - start_time
+    process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")

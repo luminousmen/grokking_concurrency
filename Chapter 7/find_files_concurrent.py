@@ -18,7 +18,7 @@ def search_file(file_name: str, search_string: str) -> bool:
     return False
 
 
-def search_files(files: T.List[str], search_string: str) -> None:
+def search_files_concurrently(files: T.List[str], search_string: str) -> None:
     executor = concurrent.futures.ThreadPoolExecutor()
 
     # starting threads concurrently
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     files = os.listdir(user_input)
     search_string = input("What word are you trying to find?: ")
 
-    start_time = time.time()
-    search_files(files, search_string)
-    process_time = time.time() - start_time
+    start_time = time.perf_counter()
+    search_files_concurrently(files, search_string)
+    process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")

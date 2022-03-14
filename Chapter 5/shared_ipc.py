@@ -62,18 +62,18 @@ def main() -> None:
     arr = Array("i", [-1] * 10)
 
     # setup processes
-    procs = [
+    processes = [
         ProcessOne(arr),
         ProcessTwo(arr)
     ]
 
     # start processes
-    for proc in procs:
-        proc.start()
+    for process in processes:
+        process.start()
 
     # run to completion
-    for proc in procs:
-        proc.join()
+    for process in processes:
+        process.join()
 
 
 if __name__ == "__main__":

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+
 """Implementing the game program using threads utilizing multitasking with time sharing"""
-import collections
-import itertools
-import select
+
 import sys
 import time
+import select
+import collections
+import itertools
 import typing as T
 from threading import Thread, Event
 

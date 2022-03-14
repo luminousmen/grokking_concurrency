@@ -56,7 +56,6 @@ if __name__ == "__main__":
 
     # initialization
     bank_account = UnsyncedBankAccount()
-    bank_account.deposit(1000)
 
     # test unsynced bank account
     for _ in range(10):

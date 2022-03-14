@@ -1,4 +1,4 @@
-name: Testing code
+name: Scripts are runnable
 
 on:
   push:
@@ -28,7 +28,6 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: for f in *.py; do python "$f"; done
+    - name: Make sure that the scripts are runnable
+      run: ./test.sh
       shell: bash
-      

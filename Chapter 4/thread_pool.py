@@ -14,7 +14,9 @@ class Worker(Thread):
         self.tasks = tasks
 
     def run(self) -> None:
+        # running the thread indefinitely
         while True:
+            # getting the tasks from queue and execute
             func, args, kargs = self.tasks.get()
             try:
                 func(*args, **kargs)
@@ -26,9 +28,12 @@ class Worker(Thread):
 class ThreadPool:
     """Pool of threads consuming tasks from a queue"""
     def __init__(self, num_threads: int) -> None:
+        # setting up the queue to put tasks
         self.tasks = queue.Queue(num_threads)
         self.num_threads = num_threads
-        for _ in range(self.num_threads): 
+
+        # create long-running threads
+        for _ in range(self.num_threads):
             worker = Worker(self.tasks)
             worker.setDaemon(True)
             worker.start()

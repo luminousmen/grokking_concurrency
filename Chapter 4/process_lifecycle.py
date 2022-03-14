@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Two processes lifecycle example"""
+
+"""Process lifecycle example"""
 
 import time
 from multiprocessing import Process

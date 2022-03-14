@@ -7,7 +7,7 @@ from multiprocessing import Queue
 from threading import Thread
 
 
-class ProduceThread(Thread):
+class ChassisEngineer(Thread):
     def __init__(self, out_queue: Queue) -> None:
         super().__init__()
         self.out_queue = out_queue
@@ -21,13 +21,13 @@ class ProduceThread(Thread):
             self.out_queue.put(msg)
 
 
-class ProcessThread(Thread):
+class EngineEngineer(Thread):
     def __init__(self, in_queue: Queue, out_queue: Queue) -> None:
         super().__init__()
         self.in_queue = in_queue
         self.out_queue = out_queue
 
-    def process(self, msg) -> None:
+    def process(self, msg: int) -> int:
         print(f"PROCESSING: {msg}")
         time.sleep(2)
         msg = msg * 2
@@ -43,7 +43,7 @@ class ProcessThread(Thread):
             self.out_queue.put(out)
 
 
-class ConsumeThread(Thread):
+class Inspector(Thread):
     def __init__(self, in_queue: Queue) -> None:
         super().__init__()
         self.in_queue = in_queue
@@ -64,9 +64,9 @@ class Pipeline:
     def run_parallel(self) -> None:
         queues = [Queue() for _ in range(2)]
         threads = [
-            ProduceThread(queues[0]),
-            ProcessThread(queues[0], queues[1]),
-            ConsumeThread(queues[1])
+            ChassisEngineer(queues[0]),
+            EngineEngineer(queues[0], queues[1]),
+            Inspector(queues[1])
         ]
 
         for thread in threads:

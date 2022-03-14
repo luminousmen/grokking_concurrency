@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
+
 """Forking child processes in Python"""
+
 import os
 
 
@@ -8,7 +10,8 @@ def child():
     os._exit(0)
 
 
-def parent(num_children: int):
+def parent(num_children: int) -> None:
+    """Forking the current process"""
     for i in range(num_children):
         newpid = os.fork()
         if newpid == 0:

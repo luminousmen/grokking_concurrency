@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """Program for cracking the password consisting with only numbers using brute force approach concurrently"""
 
 import os
@@ -10,6 +11,7 @@ import multiprocessing as mp
 
 
 def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> T.List[str]:
+    """Generate all possible password combinations"""
     combinations = []
     if not max_number:
         # calculating maximum number based on the length
@@ -23,9 +25,14 @@ def get_combinations(*, length: int, min_number: int = 0, max_number: int = None
     return combinations
 
 
+def get_crypto_hash(password: str) -> str:
+    """Calculating cryptographic hash of the password"""
+    return hashlib.sha256(password.encode()).hexdigest()
+
+
 def check_password(expected_crypto_hash: str, password: str) -> bool:
     # calculating cryptographic hash of the password
-    crypto_hash = hashlib.sha256(password.encode()).hexdigest()  
+    crypto_hash = get_crypto_hash(password)
     # compare the resulted cryptographic hash with the one stored on the system
     if expected_crypto_hash.upper() == crypto_hash.upper():
         return True
@@ -33,6 +40,7 @@ def check_password(expected_crypto_hash: str, password: str) -> bool:
 
 
 def crack_password(crypto_hash: str, length: int, min_number: int, max_number: int, event) -> None:
+    """Brute force the password combinations"""
     combinations = get_combinations(length=length, min_number=min_number, max_number=max_number)
     print(f"Processing {len(combinations)} combinations from {min_number} to {max_number} in process {os.getpid()}")
     for combination in combinations:
@@ -46,6 +54,7 @@ def crack_password(crypto_hash: str, length: int, min_number: int, max_number: i
 
 
 def get_break_points(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
+    """Splitting the passwords into batches using break points"""
     max_number = int(math.pow(10, length) - 1)
     break_points = []
     # creating a range of numbers for each process     
@@ -55,6 +64,7 @@ def get_break_points(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
 
 
 def crack_password_parallel(crypto_hash: str, length: int) -> None:
+    """Orchestrate cracking the password between different processes"""
     # getting number of available processors
     num_cores = mp.cpu_count()
     # creating a pool of processes
@@ -66,7 +76,7 @@ def crack_password_parallel(crypto_hash: str, length: int) -> None:
     break_points = get_break_points(num_cores, length)
 
     print(f"Processing number combinations concurrently")
-    start_time = time.time()
+    start_time = time.perf_counter()
 
     # processing each batch in a separate process concurrently
     pool.starmap(crack_password, [(crypto_hash, length, start, stop, event) for start, stop in break_points])
@@ -77,7 +87,7 @@ def crack_password_parallel(crypto_hash: str, length: int) -> None:
     # terminate all the processes in the pool once the password found
     pool.terminate()
 
-    process_time = time.time() - start_time
+    process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")
 
 
