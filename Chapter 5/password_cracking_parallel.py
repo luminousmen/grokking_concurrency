@@ -55,11 +55,11 @@ def crack_password(crypto_hash: str, length: int, min_number: int, max_number: i
 
 def get_break_points(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
     """Splitting the passwords into batches using break points"""
-    max_number = int(math.pow(10, length) - 1)
+    max_number = int(math.pow(10, length))
     break_points = []
     # creating a range of numbers for each process     
     for i in range(num_cores):  
-        break_points.append((math.ceil(max_number/num_cores * i), math.ceil(max_number/num_cores * (i + 1))))
+        break_points.append((math.ceil(max_number/num_cores * i), math.ceil(max_number/num_cores * (i + 1)) - 1))
     return break_points
 
 
