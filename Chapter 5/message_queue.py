@@ -1,22 +1,20 @@
 import os
 import time
-import queue
-from multiprocessing import Process
+from multiprocessing import Process, Queue
 
 
-def process_queue(queue: queue.Queue) -> None:
+def process_queue(queue: Queue) -> None:
     while not queue.empty():
         # getting new data for processing from the queue
         item = queue.get()
         print("{} removed {} from the queue".format(os.getpid(), item))
-        queue.task_done()
         time.sleep(2)
 
 
 if __name__ == "__main__":
     # creating a queue and putting integer number into it to process
-    q = queue.Queue()
-    for i in range(5):
+    q = Queue()
+    for i in range(10):
         q.put(i)
 
     processes = []

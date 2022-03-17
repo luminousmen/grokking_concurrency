@@ -25,7 +25,8 @@ scripts=(
     "./Chapter 4/multithreading.py"
     "./Chapter 5/shared_ipc.py"
     "./Chapter 5/password_cracking_parallel.py"
-    "./Chapter 5/message_ipc.py"
+    "./Chapter 5/message_queue.py"
+    "./Chapter 5/pipe.py"
 #    "./Chapter 2/password_cracking_sequential.py"
 )
 
