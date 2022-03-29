@@ -1,24 +1,39 @@
-from multiprocessing import Process, Pipe
+#!/usr/bin/env python3
+
+""" Using pipes for IPC """
+
+import os
+from multiprocessing import Process
 
 
 def send_hello(conn):
-    conn.send("Hello!")
-    conn.close()
+    # opening stream for writing
+    w = os.fdopen(conn, 'w')
+    print("Sending hello...")
+    w.write("Hello!")
+    # close the writer file descriptor
+    w.close()
+    print("Child closing")
 
 
 def get_hello(conn):
-    msg = conn.recv()
-    print(msg)
+    # opening stream for reading
+    r = os.fdopen(conn)
+    print("Reading hello...")
+    # reading 6 bytes ~ 6 char symbols - just enough to get hello
+    msg = r.read(6)
+    print(f"We got: {msg}")
 
 
 if __name__ == '__main__':
-    receiver_conn, sender_conn = Pipe()
-    sender = Process(target=send_hello, args=(sender_conn,))
-    receiver = Process(target=get_hello, args=(receiver_conn,))
+    # file descriptors for reading and writing
+    reader_conn, writer_conn = os.pipe()
+    reader = Process(target=send_hello, args=(writer_conn,))
+    writer = Process(target=get_hello, args=(reader_conn,))
 
     processes = [
-        sender,
-        receiver
+        writer,
+        reader
     ]
     for process in processes:
         process.start()

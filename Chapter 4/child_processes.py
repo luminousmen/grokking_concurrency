@@ -5,21 +5,28 @@
 import os
 
 
-def child():
-    print(f"Hello from child PID: {os.getpid()}")
+def run_child() -> None:
+    """Running some logic inside child process"""
+    print("Child: I am the child process")
+    print(f"Child: Child’s PID: {os.getpid()}")
+    print(f"Child: Parent’s PID: {os.getppid()}")
+    # stopping the child process to not waste resources
     os._exit(0)
 
 
-def parent(num_children: int) -> None:
+def start_parent(num_children: int) -> None:
     """Forking the current process"""
     for i in range(num_children):
         newpid = os.fork()
         if newpid == 0:
-            child()
+            run_child()
         else:
-            print(f"Hello from parent PID: {os.getpid()}, {newpid}")
+            # PID of the parent process should remain the same
+            print("Parent : I am the parent process")
+            print(f"Parent : Parent’s PID: {os.getpid()}")
+            print(f"Parent : Child’s PID: {newpid}")
 
 
 if __name__ == "__main__":
-    num_children = 5
-    parent(num_children)
+    num_children = 3
+    start_parent(num_children)

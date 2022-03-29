@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+""" Using message queues for IPC """
+
 import os
 import time
 from multiprocessing import Process, Queue

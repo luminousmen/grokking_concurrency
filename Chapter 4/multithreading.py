@@ -5,6 +5,7 @@
 import os
 import time
 import threading
+from threading import Thread
 
 
 def cpu_waster(i: int) -> None:
@@ -30,7 +31,7 @@ def main(num_threads: int) -> None:
     print(f"Starting {num_threads} CPU wasters...")
     for i in range(num_threads):
         # creating and starting the thread
-        thread = threading.Thread(target=cpu_waster, args=(i,))
+        thread = Thread(target=cpu_waster, args=(i,))
         thread.start()
 
     display_threads()
