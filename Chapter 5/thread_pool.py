@@ -54,7 +54,7 @@ def cpu_waster(i: int) -> None:
     time.sleep(3)
 
 
-if __name__ == "__main__":
+def main() -> None:
     pool = ThreadPool(5)
     for i in range(20):
         pool.add_task(cpu_waster, i)
@@ -64,3 +64,5 @@ if __name__ == "__main__":
     print("All work completed")
 
 
+if __name__ == "__main__":
+    main()

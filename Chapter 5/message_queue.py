@@ -15,7 +15,7 @@ def process_queue(queue: Queue) -> None:
         time.sleep(2)
 
 
-if __name__ == "__main__":
+def main() -> None:
     # creating a queue and putting integer number into it to process
     q = Queue()
     for i in range(10):
@@ -30,3 +30,7 @@ if __name__ == "__main__":
 
     for thread in processes:
         thread.join()
+
+
+if __name__ == "__main__":
+    main()

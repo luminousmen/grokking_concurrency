@@ -6,37 +6,40 @@ import os
 from multiprocessing import Process
 
 
-def send_hello(conn):
+def send(conn):
     # opening stream for writing
-    w = os.fdopen(conn, 'w')
-    print("Sending hello...")
-    w.write("Hello!")
+    w = os.fdopen(conn, "w")
+    print("Sending rubber duck...")
+    w.write("Rubber duck")
     # close the writer file descriptor
     w.close()
-    print("Child closing")
 
 
-def get_hello(conn):
+def receive(conn):
     # opening stream for reading
     r = os.fdopen(conn)
-    print("Reading hello...")
-    # reading 6 bytes ~ 6 char symbols - just enough to get hello
-    msg = r.read(6)
-    print(f"We got: {msg}")
+    print("Reading...")
+    # reading 11 bytes ~ 11 char symbols - just enough to get a "rubber duck"
+    msg = r.read(11)
+    print(f"Received: {msg}")
 
 
-if __name__ == '__main__':
+def main() -> None:
     # file descriptors for reading and writing
-    reader_conn, writer_conn = os.pipe()
-    reader = Process(target=send_hello, args=(writer_conn,))
-    writer = Process(target=get_hello, args=(reader_conn,))
+    receiver_conn, sender_conn = os.pipe()
+    receiver = Process(target=receive, args=(receiver_conn,))
+    sender = Process(target=send, args=(sender_conn,))
 
     processes = [
-        writer,
-        reader
+        sender,
+        receiver
     ]
     for process in processes:
         process.start()
 
     for process in processes:
         process.join()
+
+
+if __name__ == "__main__":
+    main()

@@ -10,8 +10,6 @@ def run_child() -> None:
     print("Child: I am the child process")
     print(f"Child: Child’s PID: {os.getpid()}")
     print(f"Child: Parent’s PID: {os.getppid()}")
-    # stopping the child process to not waste resources
-    os._exit(0)
 
 
 def start_parent(num_children: int) -> None:
