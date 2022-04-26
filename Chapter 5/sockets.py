@@ -19,7 +19,7 @@ def send():
 
     messages = [b"Hello", b" ", b"world!"]
     for msg in messages:
-        print(f"Send: {msg}")
+        print(f"PID({os.getpid()}): Send: {msg}")
         client.send(msg)
 
     client.close()
@@ -34,7 +34,7 @@ def receive():
     server.bind(SOCK_FILE)
     server.listen()
     
-    print("Listening of incoming messages...")
+    print(f"PID({os.getpid()}): Listening of incoming messages...")
     # accept a connection
     conn, addr = server.accept()
 
@@ -44,7 +44,7 @@ def receive():
         if not data:
             break
         else:
-            print(f"Received: {data}")
+            print(f"PID({os.getpid()}): Received: {data}")
             if "end" == data:
                 break
     

@@ -7,54 +7,34 @@ import time
 from multiprocessing import Process, Array
 
 
-def send(shared_memory: Array) -> None:
-    print(f"PID: {os.getpid()}")
+def write(shared_memory: Array) -> None:
+    for i in range(5):
+        print(f"PID({os.getpid()}): Writing {int(i)}")
+        shared_memory[i-1] = i
 
-    for i in range(10):
-        # attempt to write to our shared memory until succession
+
+def read(shared_memory: Array) -> None:
+    for i in range(5):
+        # try reading the data until succession
         while True:
-            try:
-                print(f"Writing {int(i)}")
-                shared_memory[i-1] = i
-                if i % 6 == 0:
-                    print("Sleeping for 5 seconds")
-                    time.sleep(5)
-                break
-            except:
-                pass
-
-    print("Process 1 finished")
-
-
-def receive(shared_memory: Array) -> None:
-    print(f"PID: {os.getpid()}")
-
-    for i in range(10):
-        while True:
-            try:
-                line = shared_memory[i]
-                if line == -1:
-                    print("Data not available sleeping for 1 second before retrying")
-                    time.sleep(1)
-                    raise
-                print(f"Read: {int(line)}")
-                break
-            except:
-                pass
-
-    print("Process 2 finished")
+            line = shared_memory[i]
+            if line == -1:
+                # data hasn't change - waiting for a second
+                print(f"PID({os.getpid()}): Data not available sleeping for 1 second before retrying")
+                time.sleep(1)
+                continue
+            print(f"PID({os.getpid()}): Read: {int(line)}")
+            break
 
 
 def main() -> None:
-    print(f"PID: {os.getpid()}")
-
     # setup shared memory using Array
-    shared_memory = Array("i", [-1] * 10)
+    shared_memory = Array("i", [-1] * 5)
 
     # setup processes
     processes = [
-        Process(target=receive, args=(shared_memory,)),
-        Process(target=send, args=(shared_memory,))
+        Process(target=read, args=(shared_memory,)),
+        Process(target=write, args=(shared_memory,))
     ]
 
     # start processes

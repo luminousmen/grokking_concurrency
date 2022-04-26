@@ -11,7 +11,7 @@ def process_queue(queue: Queue) -> None:
     while not queue.empty():
         # getting new data for processing from the queue
         item = queue.get()
-        print("{} removed {} from the queue".format(os.getpid(), item))
+        print(f"PID({os.getpid()}): processing {item} from the queue")
         time.sleep(2)
 
 

@@ -8,6 +8,9 @@ import time
 import typing as T
 import hashlib
 import multiprocessing as mp
+# WARNING: Python have problems with running CPU-bound operations using threads so it will not be as efficient as in
+# other languages
+from multiprocessing.pool import ThreadPool
 
 
 def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> T.List[str]:
@@ -67,8 +70,8 @@ def crack_password_parallel(crypto_hash: str, length: int) -> None:
     """Orchestrate cracking the password between different processes"""
     # getting number of available processors
     num_cores = mp.cpu_count()
-    # creating a pool of processes
-    pool = mp.Pool(num_cores)
+    # creating a pool of threads
+    pool = ThreadPool(num_cores)  # for using processes - mp.Pool(num_cores)
     m = mp.Manager()
     event = m.Event()
 
