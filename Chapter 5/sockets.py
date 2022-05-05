@@ -10,7 +10,7 @@ from multiprocessing import Process
 SOCK_FILE = "./mailbox"
 
 
-def send():
+def send() -> None:
     # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
     # conn = is a new socket object usable to send and receive data on the connection
     # addr = is the address bound to the socket *on the other* end of connection
@@ -25,7 +25,7 @@ def send():
     client.close()
 
 
-def receive():
+def receive() -> None:
     # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
     # conn = is a new socket object usable to send and receive data on the connection
     # addr = is the address bound to the socket *on the other* end of connection

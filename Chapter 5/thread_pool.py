@@ -4,6 +4,7 @@
 
 import time
 import queue
+import typing as T
 from threading import Thread, current_thread
 
 
@@ -38,7 +39,7 @@ class ThreadPool:
             worker.setDaemon(True)
             worker.start()
 
-    def add_task(self, func, *args, **kargs) -> None:
+    def add_task(self, func: T.Callable, *args, **kargs) -> None:
         """Add a task to the queue"""
         self.tasks.put((func, args, kargs))
 

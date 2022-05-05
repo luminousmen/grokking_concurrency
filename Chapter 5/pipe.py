@@ -6,7 +6,7 @@ import os
 from multiprocessing import Process
 
 
-def write(conn):
+def write(conn: int) -> None:
     # opening stream for writing
     w = os.fdopen(conn, "w")
     print(f"PID({os.getpid()}): Sending rubber duck...")
@@ -15,7 +15,7 @@ def write(conn):
     w.close()
 
 
-def read(conn):
+def read(conn: int) -> None:
     # opening stream for reading
     r = os.fdopen(conn)
     print(f"PID({os.getpid()}): Reading...")
