@@ -67,6 +67,7 @@ def main() -> None:
         process.start()
 
     for process in processes:
+        # join method that blocks the main process until the child processes has finished
         process.join()
 
     # cleaning up

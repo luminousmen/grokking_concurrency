@@ -43,6 +43,7 @@ def main() -> None:
 
     # run to completion
     for process in processes:
+        # join method that blocks the main process until the child processes has finished
         process.join()
 
 

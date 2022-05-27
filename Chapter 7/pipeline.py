@@ -7,7 +7,7 @@ from multiprocessing import Queue
 from threading import Thread
 
 
-class ChassisEngineer(Thread):
+class Washer(Thread):
     def __init__(self, out_queue: Queue) -> None:
         super().__init__()
         self.out_queue = out_queue
@@ -21,7 +21,7 @@ class ChassisEngineer(Thread):
             self.out_queue.put(msg)
 
 
-class EngineEngineer(Thread):
+class Dryer(Thread):
     def __init__(self, in_queue: Queue, out_queue: Queue) -> None:
         super().__init__()
         self.in_queue = in_queue
@@ -43,7 +43,7 @@ class EngineEngineer(Thread):
             self.out_queue.put(out)
 
 
-class Inspector(Thread):
+class Folder(Thread):
     def __init__(self, in_queue: Queue) -> None:
         super().__init__()
         self.in_queue = in_queue
@@ -64,9 +64,9 @@ class Pipeline:
     def run_parallel(self) -> None:
         queues = [Queue() for _ in range(2)]
         threads = [
-            ChassisEngineer(queues[0]),
-            EngineEngineer(queues[0], queues[1]),
-            Inspector(queues[1])
+            Washer(queues[0]),
+            Dryer(queues[0], queues[1]),
+            Folder(queues[1])
         ]
 
         for thread in threads:

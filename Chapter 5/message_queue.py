@@ -29,6 +29,7 @@ def main() -> None:
         processes.append(process)
 
     for thread in processes:
+        # join method that blocks the main thread until the child threads has finished
         thread.join()
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-#
 """Simple task parallelism example"""
+
 import time
 import typing as T
 import random
@@ -33,7 +33,8 @@ def process(data: T.List[int]) -> T.Tuple[int, float]:
 
 def process_concurrently(data: T.List[int]) -> T.Tuple[int, float]:
     # creating a process pool (Python have problems with running CPU-bound operations using threads)
-    executor = concurrent.futures.ProcessPoolExecutor()
+    # other languages
+    executor = concurrent.futures.ThreadPoolExecutor()
     # starting two threads concurrently
     # DANGER: communication overhead is right here
     max_thread = executor.submit(maximum, data)
