@@ -35,6 +35,7 @@ class Task(Thread):
 
 
 def arcade_machine() -> None:
+    """The main function that implements arcade machine functionality"""
     get_user_input_task = Task(get_user_input)
     compute_game_world_task = Task(compute_game_world)
     render_next_screen_task = Task(render_next_screen)
