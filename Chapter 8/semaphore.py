@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 
-#
-""""""
+"""Implementing parking garage using semaphore for control critical section"""
 
 import time
 import random
 import threading
+import typing as T
 
 TOTAL_SPOTS = 3
 
 
 class Garage:
+    cars: T.List[str]  # list of parked cars
+
     def __init__(self):
         self.semaphore = threading.Semaphore(TOTAL_SPOTS)
         self.cars_lock = threading.Lock()
@@ -19,41 +21,46 @@ class Garage:
     def count_parked_cars(self):
         return len(self.cars)
 
-    def enter(self, car: str) -> None:
-        """entrances call this function when a car wants to enter"""
+    def enter(self, car_name: str) -> None:
+        """Enter the garage"""
         self.semaphore.acquire()
         self.cars_lock.acquire()
-        self.cars.append(car)
+        self.cars.append(car_name)
+        print(f"{car_name} car parked")
         self.cars_lock.release()
 
-    def exit(self, car: str) -> None:
-        """ entrances call this function when a car exits"""
+    def exit(self, car_name: str) -> None:
+        """Car exits the garage"""
         self.cars_lock.acquire()
-        self.cars.remove(car)
+        self.cars.remove(car_name)
+        print(f"{car_name} leaving")
         self.semaphore.release()
         self.cars_lock.release()
 
 
-def park(garage: Garage, car_name: str) -> None:
+def park_car(garage: Garage, car_name: str) -> None:
+    """Emulate parked car behavior"""
     garage.enter(car_name)
-    print(f"{car_name} car parked")
     time.sleep(random.uniform(1, 2))
-    print(f"{car_name} leaving")
     garage.exit(car_name)
 
 
-if __name__ == "__main__":
-    garage = Garage()
-
+def test_garage(garage: Garage, cars_amount: int = 10):
     threads = []
-    # test garage for 10 busy hours straight
-    for car_num in range(10):
-        t = threading.Thread(target=park, args=(garage, f"car-{car_num}"))
+    for car_num in range(cars_amount):
+        t = threading.Thread(target=park_car, args=(garage, f"car-{car_num}"))
         threads.append(t)
         t.start()
 
     for thread in threads:
         thread.join()
 
+
+if __name__ == "__main__":
+    cars_amount = 10
+    garage = Garage()
+    # test garage by concurrently arriving cars
+    test_garage(garage, cars_amount=cars_amount)
+
     print("Number of parked car after a busy day:")
-    print(f"{garage.count_parked_cars()}. Expected: 0")
+    print(f"Actual: {garage.count_parked_cars()}\nExpected: 0")
