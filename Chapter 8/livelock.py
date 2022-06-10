@@ -4,10 +4,9 @@
 
 import time
 from threading import Thread
+from deadlock.lock_with_name import LockWithName
 
-from lock_with_name import LockWithName
-
-THREAD_DELAY = 0.1
+THREAD_DELAY = 1
 dumplings = 20
 
 
@@ -25,17 +24,16 @@ class Philosopher(Thread):
         while dumplings > 0:
             self.left_chopstick.lock.acquire()
             print(f"{self.left_chopstick.name} chopstick grabbed by {self.name}")
-            self.right_chopstick.lock.acquire()
-            print(f"{self.right_chopstick.name} chopstick grabbed by {self.name}")
-
-            dumplings -= 1
-            print(f"{self.name} eat a dumpling. Dumplings left: {dumplings}")
-
-            self.right_chopstick.lock.release()
-            print(f"{self.right_chopstick.name} chopstick released by {self.name}")
+            if self.right_chopstick.lock.locked():
+                print(f"{self.name} cannot get the {self.right_chopstick.name} chopstick, giving up...")
+            else:
+                self.right_chopstick.lock.acquire()
+                print(f"{self.right_chopstick.name} chopstick grabbed by {self.name}")
+                dumplings -= 1
+                print(f"{self.name} eat a dumpling. Dumplings left: {dumplings}")
+                time.sleep(THREAD_DELAY)
+                self.right_chopstick.lock.release()
             self.left_chopstick.lock.release()
-            print(f"{self.left_chopstick.name} chopstick released by {self.name}")
-            time.sleep(THREAD_DELAY)
 
 
 if __name__ == "__main__":

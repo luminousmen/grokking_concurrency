@@ -8,7 +8,7 @@ from threading import Thread
 
 
 class Washer(Thread):
-    def __init__(self, out_queue: Queue) -> None:
+    def __init__(self, out_queue: Queue):
         super().__init__()
         self.out_queue = out_queue
 
@@ -22,7 +22,7 @@ class Washer(Thread):
 
 
 class Dryer(Thread):
-    def __init__(self, in_queue: Queue, out_queue: Queue) -> None:
+    def __init__(self, in_queue: Queue, out_queue: Queue):
         super().__init__()
         self.in_queue = in_queue
         self.out_queue = out_queue
@@ -44,7 +44,7 @@ class Dryer(Thread):
 
 
 class Folder(Thread):
-    def __init__(self, in_queue: Queue) -> None:
+    def __init__(self, in_queue: Queue):
         super().__init__()
         self.in_queue = in_queue
 

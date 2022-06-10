@@ -24,6 +24,7 @@ class Reader(Thread):
             print(f"Thread {self.idx} reading: {counter}")
             time.sleep(random.randrange(1, 3))
             lock.release_read()
+            # simulating some real action here
             time.sleep(0.5)
 
 
@@ -35,6 +36,7 @@ class Writer(Thread):
             print(f"Thread writing...")
             counter += 1
             print(f"New value: {counter}")
+            # simulating some real action here
             time.sleep(random.randrange(1, 3))
             lock.release_write()
 

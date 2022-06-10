@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Three philosophers, thinking and eating sushi - but some has been starving"""
+import time
+from threading import Thread
 
-from threading import Thread, Lock
+from deadlock.lock_with_name import LockWithName
 
-dumplings = 5000
+dumplings = 1000
+THREAD_DELAY = 1e-16
 
 
 class Philosopher(Thread):
-    def __init__(self, name: str, left_chopstick: Lock, right_chopstick: Lock) -> None:
+    def __init__(self, name: str, left_chopstick: LockWithName, right_chopstick: LockWithName):
         super().__init__()
         self.name = name
         self.left_chopstick = left_chopstick
@@ -19,20 +22,27 @@ class Philosopher(Thread):
 
         dumplings_eaten = 0
         while dumplings > 0:
-            with self.left_chopstick:
-                with self.right_chopstick:
-                    if dumplings > 0:
-                        dumplings -= 1
-                        dumplings_eaten += 1
-                        print(f"{self.name} eat a dumpling. Dumplings left: {dumplings}")
-
+            self.left_chopstick.lock.acquire()
+            self.right_chopstick.lock.acquire()
+            if dumplings > 0:
+                dumplings -= 1
+                dumplings_eaten += 1
+                time.sleep(THREAD_DELAY)
+            self.right_chopstick.lock.release()
+            self.left_chopstick.lock.release()
         print(f"{self.name} took {dumplings_eaten} pieces")
 
 
 if __name__ == "__main__":
-    chopstick_a = Lock()
-    chopstick_b = Lock()
+    chopstick_a = LockWithName("chopstick_a")
+    chopstick_b = LockWithName("chopstick_b")
 
-    for thread in range(50):
-        Philosopher("Philosopher #1", chopstick_a, chopstick_b).start()
-        Philosopher("Philosopher #2", chopstick_a, chopstick_b).start()
+    threads = []
+    for i in range(10):
+        threads.append(Philosopher(f"Philosopher #{i}", chopstick_a, chopstick_b))
+
+    for thread in threads:
+        thread.start()
+
+    for thread in threads:
+        thread.join()

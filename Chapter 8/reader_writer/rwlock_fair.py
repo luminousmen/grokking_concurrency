@@ -38,4 +38,3 @@ class RWLockFair:
 
     def release_write(self):
         self.write_lock.release()
-

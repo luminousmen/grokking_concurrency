@@ -9,7 +9,7 @@ from threading import Thread
 
 
 class StaffMember(Thread):
-    def __init__(self, votes: T.List[int]) -> None:
+    def __init__(self, votes: T.List[int]):
         super().__init__()
         self.votes = votes
         self.summary = {}

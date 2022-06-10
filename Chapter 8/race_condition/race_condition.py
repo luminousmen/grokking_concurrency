@@ -14,12 +14,14 @@ THREAD_DELAY = 1e-16
 
 class ATM(Thread):
     """Automated teller machine (ATM) or cash machine"""
-    def __init__(self, bank_account) -> None:
+
+    def __init__(self, bank_account):
         super().__init__()
         self.bank_account = bank_account
 
     def transaction(self) -> None:
         self.bank_account.deposit(10)
+        # simulating some real action here
         time.sleep(0.001)
         self.bank_account.withdraw(10)
 

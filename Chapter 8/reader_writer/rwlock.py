@@ -29,4 +29,3 @@ class RWLock:
 
     def release_write(self):
         self.write_lock.release()
-

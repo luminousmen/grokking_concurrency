@@ -28,7 +28,7 @@ class Worker(Thread):
 
 class ThreadPool:
     """Pool of threads consuming tasks from a queue"""
-    def __init__(self, num_threads: int) -> None:
+    def __init__(self, num_threads: int):
         # setting up the queue to put tasks
         self.tasks = queue.Queue(num_threads)
         self.num_threads = num_threads

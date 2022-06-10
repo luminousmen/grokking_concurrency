@@ -4,6 +4,7 @@
 
 class UnsyncedBankAccount:
     """Bank account without synchronization"""
+
     balance: float
 
     def __init__(self, balance: float = 0):

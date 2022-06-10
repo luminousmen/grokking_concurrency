@@ -6,6 +6,7 @@ from threading import Lock
 
 class SyncedBankAccount:
     """Bank account with synchronization strategy, thread-safe"""
+
     balance: float
 
     def __init__(self, balance: float = 0):

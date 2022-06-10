@@ -38,6 +38,7 @@ class Producer(Thread):
 
             mutex.release()
             full.release()
+            # simulating some real action here
             time.sleep(1)
 
 
@@ -64,6 +65,7 @@ class Consumer(Thread):
 
             mutex.release()
             empty.release()
+            # simulating some real action here
             time.sleep(2)
 
 

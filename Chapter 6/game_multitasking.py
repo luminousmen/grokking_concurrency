@@ -14,7 +14,7 @@ TIME_SLICE = 5  # seconds
 
 
 class Task(Thread):
-    def __init__(self, func: T.Callable[[], None]) -> None:
+    def __init__(self, func: T.Callable[[], None]):
         super().__init__()
         self.paused = True  # Start out paused.
         self.func = func
