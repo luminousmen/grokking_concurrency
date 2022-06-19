@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-"""Search text files that contain a specific search term using data decomposition technique(Loop-level parallelism)"""
+"""Search text files that contain a specific search term using data decomposition
+technique(Loop-level parallelism)"""
 import itertools
 import os
 import time
@@ -31,7 +32,7 @@ def search_files_concurrently(files: T.List[str], search_string: str) -> None:
 if __name__ == "__main__":
     user_input = input("What is the name of your directory: ")
     # removing hidden files just in case
-    files = [f for f in os.listdir(user_input) if not f.startswith('.')]
+    files = [f for f in os.listdir(user_input) if not f.startswith(".")]
     search_string = input("What word are you trying to find?: ")
 
     start_time = time.perf_counter()
