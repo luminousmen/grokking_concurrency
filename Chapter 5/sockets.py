@@ -4,51 +4,52 @@
 
 import socket
 import os.path
-from multiprocessing import Process
+import time
+from threading import Thread, current_thread
 
 # in Unix everything is a file
 SOCK_FILE = "./mailbox"
+BUFFER_SIZE = 1024
 
 
-def send() -> None:
-    # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
-    # conn = is a new socket object usable to send and receive data on the connection
-    # addr = is the address bound to the socket *on the other* end of connection
-    client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    client.connect(SOCK_FILE)
+class Sender(Thread):
+    def run(self) -> None:
+        # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants represent
+        # the socket family and socket type respectively
+        client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        client.connect(SOCK_FILE)
 
-    messages = [b"Hello", b" ", b"world!"]
-    for msg in messages:
-        print(f"PID({os.getpid()}): Send: {msg}")
-        client.send(msg)
+        messages = [b"Hello", b" ", b"world!"]
+        for msg in messages:
+            print(f"Thread({current_thread().ident}): Send: {msg}")
+            client.sendall(msg)
 
-    client.close()
+        client.close()
 
 
-def receive() -> None:
-    # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
-    # conn = is a new socket object usable to send and receive data on the connection
-    # addr = is the address bound to the socket *on the other* end of connection
-    server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    # bind to the socket file
-    server.bind(SOCK_FILE)
-    server.listen()
-    
-    print(f"PID({os.getpid()}): Listening of incoming messages...")
-    # accept a connection
-    conn, addr = server.accept()
+class Receiver(Thread):
+    def run(self) -> None:
+        # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants represent
+        # the socket family and socket type respectively
+        server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        # bind socket to the file
+        server.bind(SOCK_FILE)
+        # let's start listening mode for this socket
+        server.listen()
 
-    while True:
-        # receive data from socket
-        data = conn.recv(1024)
-        if not data:
-            break
-        else:
-            print(f"PID({os.getpid()}): Received: {data}")
-            if "end" == data:
+        print(f"Thread({current_thread().ident}): Listening of incoming messages...")
+        # accept a connection
+        conn, addr = server.accept()
+
+        while True:
+            # receive data from socket
+            data = conn.recv(BUFFER_SIZE)
+            if not data:
                 break
-    
-    server.close()
+            message = data.decode()
+            print(f"Thread({current_thread().ident}): Received: `{message}`")
+
+        server.close()
 
 
 def main() -> None:
@@ -56,19 +57,17 @@ def main() -> None:
     if os.path.exists(SOCK_FILE):
         os.remove(SOCK_FILE)
 
-    receiver = Process(target=receive)
-    sender = Process(target=send)
+    # receiver will create a socket and socket file
+    receiver = Receiver()
+    receiver.start()
+    # waiting till the socket has been created
+    time.sleep(1)
+    sender = Sender()
+    sender.start()
 
-    processes = [
-        receiver,
-        sender,
-    ]
-    for process in processes:
-        process.start()
-
-    for process in processes:
-        # join method that blocks the main process until the child processes has finished
-        process.join()
+    # block the main thread until the child threads has finished
+    for thread in [receiver, sender]:
+        thread.join()
 
     # cleaning up
     os.remove(SOCK_FILE)

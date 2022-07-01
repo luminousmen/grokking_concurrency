@@ -2,49 +2,52 @@
 
 """ Shared IPC """
 
-import os
 import time
-from multiprocessing import Process, Array
+from threading import Thread, current_thread
+
+SIZE = 5
+# setup shared memory
+shared_memory = [-1] * SIZE
 
 
-def write(shared_memory: Array) -> None:
-    for i in range(5):
-        print(f"PID({os.getpid()}): Writing {int(i)}")
-        shared_memory[i-1] = i
+class Producer(Thread):
+    def run(self) -> None:
+        global shared_memory
+        for i in range(SIZE):
+            print(f"Thread({current_thread().ident}): Writing {int(i)}")
+            shared_memory[i - 1] = i
 
 
-def read(shared_memory: Array) -> None:
-    for i in range(5):
-        # try reading the data until succession
-        while True:
-            line = shared_memory[i]
-            if line == -1:
-                # data hasn't change - waiting for a second
-                print(f"PID({os.getpid()}): Data not available sleeping for 1 second before retrying")
-                time.sleep(1)
-                continue
-            print(f"PID({os.getpid()}): Read: {int(line)}")
-            break
+class Consumer(Thread):
+    def run(self) -> None:
+        global shared_memory
+        for i in range(SIZE):
+            # try reading the data until succession
+            while True:
+                line = shared_memory[i]
+                if line == -1:
+                    # data hasn't change - waiting for a second
+                    print(f"Thread({current_thread().ident}): "
+                          f"Data not available sleeping for 1 second before retrying")
+                    time.sleep(1)
+                    continue
+                print(f"Thread({current_thread().ident}): Read: {int(line)}")
+                break
 
 
 def main() -> None:
-    # setup shared memory using Array
-    shared_memory = Array("i", [-1] * 5)
-
-    # setup processes
-    processes = [
-        Process(target=read, args=(shared_memory,)),
-        Process(target=write, args=(shared_memory,))
+    threads = [
+        Consumer(),
+        Producer(),
     ]
 
-    # start processes
-    for process in processes:
-        process.start()
+    # start threads
+    for thread in threads:
+        thread.start()
 
-    # run to completion
-    for process in processes:
-        # join method that blocks the main process until the child processes has finished
-        process.join()
+    # block the main thread until the child threads has finished
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":

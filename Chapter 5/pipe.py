@@ -3,43 +3,56 @@
 """ Using pipes for IPC """
 
 import os
-from multiprocessing import Process
+from threading import Thread, current_thread
 
 
-def write(conn: int) -> None:
-    # opening stream for writing
-    w = os.fdopen(conn, "w")
-    print(f"PID({os.getpid()}): Sending rubber duck...")
-    w.write("Rubber duck")
-    # close the writer file descriptor
-    w.close()
+class Writer(Thread):
+    """Writer thread will write messages into the pipe"""
+    def __init__(self, conn: int):
+        super().__init__()
+        self.conn = conn
+
+    def run(self) -> None:
+        # opening stream for writing
+        pipe = os.fdopen(self.conn, "w")
+        print(f"Thread({current_thread().ident}): Sending rubber duck...")
+        pipe.write("Rubber duck")
+        # close the writer file descriptor
+        pipe.close()
 
 
-def read(conn: int) -> None:
-    # opening stream for reading
-    r = os.fdopen(conn)
-    print(f"PID({os.getpid()}): Reading...")
-    # reading 11 bytes ~ 11 char symbols - just enough to get a "rubber duck"
-    msg = r.read(11)
-    print(f"PID({os.getpid()}): Received: {msg}")
+class Reader(Thread):
+    """Writer thread will write messages into the pipe"""
+    def __init__(self, conn: int):
+        super().__init__()
+        self.conn = conn
+
+    def run(self) -> None:
+        # opening stream for reading
+        pipe = os.fdopen(self.conn)
+        print(f"Thread({current_thread().ident}): Reading...")
+        # reading 11 bytes ~ 11 char symbols - just enough to get a "rubber duck"
+        msg = pipe.readline()
+        print(f"Thread({current_thread().ident}): Received: {msg}")
 
 
 def main() -> None:
     # file descriptors for reading and writing
     reader_conn, writer_conn = os.pipe()
-    reader = Process(target=read, args=(reader_conn,))
-    writer = Process(target=write, args=(writer_conn,))
+    reader = Reader(reader_conn)
+    writer = Writer(writer_conn)
 
-    processes = [
+    threads = [
         writer,
         reader
     ]
-    for process in processes:
-        process.start()
+    # start threads
+    for thread in threads:
+        thread.start()
 
-    for process in processes:
-        # join method that blocks the main process until the child processes has finished
-        process.join()
+    # block the main thread until the child threads has finished
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":

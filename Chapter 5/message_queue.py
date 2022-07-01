@@ -2,36 +2,42 @@
 
 """ Using message queues for IPC """
 
-import os
 import time
-from multiprocessing import Process, Queue
+from queue import Queue
+from threading import Thread, current_thread
 
 
-def process_queue(queue: Queue) -> None:
-    while not queue.empty():
-        # getting new data for processing from the queue
-        item = queue.get()
-        print(f"PID({os.getpid()}): processing {item} from the queue")
-        time.sleep(2)
+class Worker(Thread):
+    def __init__(self, queue: Queue):
+        super().__init__()
+        self.queue = queue
+
+    def run(self) -> None:
+        while not self.queue.empty():
+            # getting new data for processing from the queue
+            item = self.queue.get()
+            print(f"Thread({current_thread().ident}): processing {item} from the queue")
+            time.sleep(2)
 
 
-def main() -> None:
+def main(thread_num: int) -> None:
     # creating a queue and putting integer number into it to process
     q = Queue()
     for i in range(10):
         q.put(i)
 
-    processes = []
-    # running 4 processes to process data from the queue
-    for _ in range(4):
-        process = Process(target=process_queue, args=(q,))
-        process.start()
-        processes.append(process)
+    threads = []
+    # running threads to process data from the queue
+    for _ in range(thread_num):
+        thread = Worker(q)
+        thread.start()
+        threads.append(thread)
 
-    for thread in processes:
-        # join method that blocks the main thread until the child threads has finished
+    # block the main thread until the child threads has finished
+    for thread in threads:
         thread.join()
 
 
 if __name__ == "__main__":
-    main()
+    thread_num = 4
+    main(thread_num)

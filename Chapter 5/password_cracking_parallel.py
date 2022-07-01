@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-"""Program for cracking the password consisting with only numbers using brute force approach concurrently"""
+"""Program for cracking the password consisting with only numbers
+using brute force approach concurrently"""
 
 import os
 import math
@@ -8,8 +9,8 @@ import time
 import typing as T
 import hashlib
 import multiprocessing as mp
-# WARNING: Python have problems with running CPU-bound operations using threads so it will not be as efficient as in
-# other languages
+# WARNING: Python have problems with running CPU-bound operations using threads so it will
+# not be as efficient as in other languages
 from multiprocessing.pool import ThreadPool
 
 

@@ -57,7 +57,7 @@ def cpu_waster(i: int) -> None:
 
 
 def main() -> None:
-    pool = ThreadPool(5)
+    pool = ThreadPool(num_threads=5)
     for i in range(20):
         pool.add_task(cpu_waster, i)
 
