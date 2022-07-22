@@ -17,7 +17,7 @@ def process_votes(votes: T.List[int]) -> T.Dict[int, int]:
 
 
 if __name__ == "__main__":
-    num_candidates = 10
+    num_candidates = 3
     num_voters = 100000
     # generating a huge list of votes
     # each vote is an integer represents the selected candidate
