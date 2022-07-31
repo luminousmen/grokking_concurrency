@@ -31,41 +31,46 @@ class Server:
             self.server_socket.close()
             print("\nServer stopped.")
 
+    def accept(self):
+        try:
+            # accepting the incoming connection
+            # conn = is a new socket object usable to send and receive data on the
+            # connection
+            # addr = is the address bound to the socket on the other end of connection
+            conn, address = self.server_socket.accept()
+            # making this connection non-blocking
+            conn.setblocking(False)
+            self.clients.add(conn)
+            print(f"Connected to {address}")
+        except BlockingIOError:
+            # [Errno 35] Resource temporarily unavailable
+            # indicates that "accept" returned without results
+            pass
+
+    def serve(self, conn):
+        try:
+            data = conn.recv(BUFFER_SIZE)
+            if not data:
+                self.clients.remove(conn)
+                print(f"Connection with {conn.getpeername()} has been closed")
+                conn.close()
+            else:
+                message = data.decode().upper()
+                print(f"Sending message to {conn.getpeername()}")
+                # send a response
+                conn.send(message.encode())
+                # Note: recommended way is to use .sendall(),
+                # but we will stick with send to keep reader's mental model
+        except BlockingIOError:
+            # recv/send returns without data
+            pass
+
     def start(self):
         try:
             while True:
-                try:
-                    # accepting the incoming connection
-                    # conn = is a new socket object usable to send and receive data on the
-                    # connection
-                    # addr = is the address bound to the socket on the other end of connection
-                    conn, (client_host, client_port) = self.server_socket.accept()
-                    # making this connection non-blocking
-                    conn.setblocking(False)
-                    address = f"{client_host}:{client_port}"
-                    self.clients.add(conn)
-                    print(f"Connected to {address}")
-                except BlockingIOError:
-                    # [Errno 35] Resource temporarily unavailable
-                    # indicates that "accept" returned without results
-                    pass
-
-                for conn in self.clients:
-                    try:
-                        data = conn.recv(BUFFER_SIZE)
-                        if not data:
-                            conn.close()
-                            print(f"Connection has been closed")
-                        else:
-                            message = data.decode().upper()
-                            print(f"Sending message")
-                            # send a response
-                            conn.send(message.encode())
-                            # Note: recommended way is to use .sendall(),
-                            # but we will stick with send to keep reader's mental model
-                    except BlockingIOError:
-                        # recv/send returns without data
-                        pass
+                self.accept()
+                for conn in self.clients.copy():
+                    self.serve(conn)
         finally:
             self.server_socket.close()
             print("\nServer stopped.")

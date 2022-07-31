@@ -29,7 +29,7 @@ def knock(event):
     print("Knock, knock.")
     time.sleep(1)
     # adding a next task into the event loop task queue
-    eventloop.events.append("who")
+    event_loop.events.append("who")
 
 
 def who(event):
@@ -38,10 +38,10 @@ def who(event):
 
 
 if __name__ == "__main__":
-    eventloop = EventLoop()
-    eventloop.register_event("knock", knock)
-    eventloop.register_event("who", who)
+    event_loop = EventLoop()
+    event_loop.register_event("knock", knock)
+    event_loop.register_event("who", who)
     # adding several events
     for _ in range(2):
-        eventloop.events.append("knock")
-    eventloop.run_forever()
+        event_loop.events.append("knock")
+    event_loop.run_forever()

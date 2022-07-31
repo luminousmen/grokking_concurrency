@@ -26,32 +26,38 @@ class Server:
             self.server_socket.close()
             print("\nServer stopped.")
 
+    def accept(self):
+        # accepting the incoming connection, blocking
+        # conn = is a new socket object usable to send and receive data on the connection
+        # addr = is the address bound to the socket on the other end of connection
+        conn, address = self.server_socket.accept()
+        print(f"Connected to {address}")
+        return conn
+
+    def serve(self, conn):
+        try:
+            while True:
+                data = conn.recv(BUFFER_SIZE)
+                if not data:
+                    break
+                message = data.decode().upper()
+                print(f"Sending message to {conn.getpeername()}")
+                # send a response
+                conn.send(message.encode())
+                # Note: recommended way is to use .sendall(),
+                # but we will stick with send to keep reader's mental model
+        finally:
+            # server expects the client to close its side of the connection when it’s done.
+            # In a real application, we should use timeout for clients if they don’t send
+            # a request after a certain amount of time.
+            print(f"Connection with {conn.getpeername()} has been closed")
+            conn.close()
+
     def start(self):
         try:
             while True:
-                # accepting the incoming connection, blocking
-                # conn = is a new socket object usable to send and receive data on the connection
-                # addr = is the address bound to the socket on the other end of connection
-                conn, (client_host, client_port) = self.server_socket.accept()
-                address = f"{client_host}:{client_port}"
-                print(f"Connected to {address}")
-                try:
-                    while True:
-                        data = conn.recv(BUFFER_SIZE)
-                        if not data:
-                            break
-                        message = data.decode().upper()
-                        print(f"Sending message to {address}")
-                        # send a response
-                        conn.send(message.encode())
-                        # Note: recommended way is to use .sendall(),
-                        # but we will stick with send to keep reader's mental model
-                finally:
-                    # server expects the client to close its side of the connection when it’s done.
-                    # In a real application, we should use timeout for clients if they don’t send
-                    # a request after a certain amount of time.
-                    conn.close()
-                    print(f"Connection with {address} has been closed")
+                conn = self.accept()
+                self.serve(conn)
         finally:
             self.server_socket.close()
             print("\nServer stopped.")

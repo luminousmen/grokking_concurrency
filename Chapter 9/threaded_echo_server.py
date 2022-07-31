@@ -12,20 +12,19 @@ PORT = 12345  # port to listen on (non-privileged ports are > 1023)
 
 
 class Handler(Thread):
-    def __init__(self, conn, client_host, client_port):
+    def __init__(self, conn):
         super().__init__()
         self.conn = conn
-        self.address = f"{client_host}:{client_port}"
 
     def run(self) -> None:
-        print(f"Connected to {self.address}")
+        print(f"Connected to {self.conn.getpeername()}")
         try:
             while True:
                 data = self.conn.recv(BUFFER_SIZE)
                 if not data:
                     break
                 message = data.decode().upper()
-                print(f"Sending a message to {self.address}")
+                print(f"Sending a message to {self.conn.getpeername()}")
                 # send a response
                 self.conn.send(message.encode())
                 # Note: recommended way is to use .sendall(),
@@ -34,8 +33,8 @@ class Handler(Thread):
             # server expects the client to close its side of the connection when it’s done.
             # In a real application, we should use timeout for clients if they don’t send
             # a request after a certain amount of time.
+            print(f"Connection with {self.conn.getpeername()} has been closed")
             self.conn.close()
-            print(f"Connection with {self.address} has been closed")
 
 
 class Server:
@@ -57,14 +56,18 @@ class Server:
             self.server_socket.close()
             print("\nServer stopped.")
 
+    def accept(self):
+        # accepting the incoming connection, blocking
+        # conn = is a new socket object usable to send and receive data on the connection
+        # addr = is the address bound to the socket on the other end of connection
+        conn, address = self.server_socket.accept()
+        return conn
+
     def start(self):
         try:
             while True:
-                # accepting the incoming connection, blocking
-                # conn = is a new socket object usable to send and receive data on the connection
-                # addr = is the address bound to the socket on the other end of connection
-                conn, (client_host, client_port) = self.server_socket.accept()
-                thread = Handler(conn=conn, client_host=client_host, client_port=client_port)
+                conn = self.accept()
+                thread = Handler(conn=conn)
                 thread.start()
         finally:
             self.server_socket.close()
