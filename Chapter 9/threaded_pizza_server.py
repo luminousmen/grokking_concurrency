@@ -23,10 +23,14 @@ class Handler(Thread):
                 data = self.conn.recv(BUFFER_SIZE)
                 if not data:
                     break
-                message = data.decode().upper()
-                print(f"Sending a message to {self.conn.getpeername()}")
+                try:
+                    order = int(data.decode())
+                    response = f"Thank you for ordering {order} pizzas\n"
+                except ValueError:
+                    response = "Wrong number of orders, please try again\n"
+                print(f"Sending message to {self.conn.getpeername()}")
                 # send a response
-                self.conn.send(message.encode())
+                self.conn.send(response.encode())
                 # Note: recommended way is to use .sendall(),
                 # but we will stick with send to keep reader's mental model
         finally:

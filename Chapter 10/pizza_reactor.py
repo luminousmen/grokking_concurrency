@@ -90,13 +90,20 @@ class Server:
 
     def _on_write(self, conn, message):
         print(f"Sending a message to {conn.getpeername()}")
+        try:
+            order = int(message)
+            response = f"Thank you for ordering {order} pizzas\n"
+        except ValueError:
+            response = "Wrong number of orders, please try again\n"
+        print(f"Sending message to {conn.getpeername()}")
         # send a response
-        conn.send(message.upper().encode())
+        conn.send(response.encode())
         self.event_loop.register_event(conn, selectors.EVENT_READ, self._on_read)
 
     def start(self):
-        # future calls to the self.event_notifier.select() will be notified whether this socket
-        # has any pending accept events from the clients
+        # registering the server socket for the OS to monitor
+        # Once register is done future calls to the self.event_notifier.select() will be notified
+        # whether server socket has any pending accept events from the clients
         self.event_loop.register_event(self.server_socket, selectors.EVENT_READ, self._on_accept)
 
 
