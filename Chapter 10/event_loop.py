@@ -3,6 +3,7 @@
 """Simple single threaded event loop implementation"""
 
 import time
+from typing import Callable
 from collections import deque
 
 
@@ -12,10 +13,13 @@ class EventLoop:
         self.events = deque()
         self.callbacks = {}
 
-    def register_event(self, event, callback):
+    def register_event(self, event: str, callback: Callable):
         self.callbacks[event] = callback
 
-    def run_forever(self):
+    def unregister_event(self, event: str) -> None:
+        del self.callbacks[event]
+
+    def run_forever(self) -> None:
         # running the loop forever
         while True:
             # execute the ready tasks
@@ -25,14 +29,14 @@ class EventLoop:
                 callback(event)
 
 
-def knock(event):
+def knock(event: str) -> None:
     print("Knock, knock.")
     time.sleep(1)
     # adding a next task into the event loop task queue
     event_loop.events.append("who")
 
 
-def who(event):
+def who(event: str) -> None:
     print("Who's there?")
     time.sleep(2)
 

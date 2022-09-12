@@ -1,4 +1,5 @@
-"""Asynchronous socket implementation - same functionality but with asynchronous flavour!"""
+"""Asynchronous socket implementation - same functionality but with
+asynchronous flavour!"""
 
 import selectors
 

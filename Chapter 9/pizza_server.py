@@ -11,7 +11,8 @@ PORT = 12345  # port to listen on (non-privileged ports are > 1023)
 
 class Server:
     def __init__(self):
-        # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
+        # AF_UNIX and SOCK_STREAM are constants represent the protocol and
+        # socket type respectively
         # here we create a TCP/IP socket
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
@@ -34,7 +35,7 @@ class Server:
         print(f"Connected to {address}")
         return conn
 
-    def serve(self, conn):
+    def serve(self, conn: socket) -> None:
         try:
             while True:
                 data = conn.recv(BUFFER_SIZE)

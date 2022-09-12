@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Non-blocking single threaded echo server implementation"""
+"""Non-blocking single threaded pizza server implementation using busy-wait"""
 
 import socket
 
@@ -31,7 +31,7 @@ class Server:
             self.server_socket.close()
             print("\nServer stopped.")
 
-    def accept(self):
+    def accept(self) -> None:
         try:
             # accepting the incoming connection
             # conn = is a new socket object usable to send and receive data on the
@@ -47,7 +47,7 @@ class Server:
             # indicates that "accept" returned without results
             pass
 
-    def serve(self, conn):
+    def serve(self, conn: socket) -> None:
         try:
             data = conn.recv(BUFFER_SIZE)
             if not data:
@@ -71,6 +71,7 @@ class Server:
 
     def start(self):
         try:
+            # infinite polling cycle
             while True:
                 self.accept()
                 for conn in self.clients.copy():

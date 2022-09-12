@@ -1,27 +1,22 @@
+#!/usr/bin/env python3
+
+"""Cooperative pizza server"""
+
 import socket
-import time
 
 from async_socket import AsyncSocket
-from event_loop_with_pool import EventLoop
+from event_loop import EventLoop
 
 BUFFER_SIZE = 1024
 HOST = "127.0.0.1"  # address of the host machine
 PORT = 12345  # port to listen on (non-privileged ports are > 1023)
 
 
-class Kitchen:
-    @staticmethod
-    def cook_pizza(n):
-        print(f"Started cooking {n} pizzas")
-        time.sleep(n)
-        print(f"Fresh {n} pizzas are ready!")
-
-
 class Server:
     def __init__(self, loop):
         self.loop = loop
-        # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
-        # here we create a TCP/IP socket
+        # AF_UNIX and SOCK_STREAM are constants represent the protocol and
+        # socket type respectively here we create a TCP/IP socket
         self.server_socket = AsyncSocket(
             sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM), loop=loop)
         # allows multiple sockets to be bound to an identical socket address
@@ -60,15 +55,11 @@ class Server:
                 try:
                     order = int(data.decode())
                     response = f"Thank you for ordering {order} pizzas\n"
-                    print(f"Sending message to {conn.getpeername()}")
-                    await conn.send(response.encode())
-                    await self.loop.run_in_executor(Kitchen.cook_pizza, order)
-                    print(f"Sending message to {conn.getpeername()}")
-                    await conn.send(f"You order on {order} pizzas is ready!\n".encode())
                 except ValueError:
                     response = "Wrong number of orders, please try again\n"
-                    print(f"Sending message to {conn.getpeername()}")
-                    await conn.send(response.encode())
+                print(f"Sending message to {conn.getpeername()}")
+                # send a response
+                await conn.send(response.encode())
             print(f"Connection with {conn.getpeername()} has been closed")
             conn.close()
         except Exception:

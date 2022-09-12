@@ -1,9 +1,10 @@
-""""""
+"""Event loop implementation with futures, coroutines and ThreadPool"""
 
+import socket
 import selectors
 from collections import deque
 from concurrent.futures import ThreadPoolExecutor
-import socket
+
 from future import Future
 
 BUFFER_SIZE = 1024
@@ -31,11 +32,8 @@ class EventLoop:
         self.handlers = {}
         self.executor = Executor()
 
-    def create_future(self):
-        return Future(loop=self)
-
     def create_future_for_events(self, sock, events):
-        future = self.create_future()
+        future = Future(loop=self)
 
         def handler(sock, active_events):
             self.unregister_event(sock)

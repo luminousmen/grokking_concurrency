@@ -1,7 +1,8 @@
-""""""
+"""Event loop implementation with futures and coroutines"""
 
 import selectors
 from collections import deque
+
 from future import Future
 
 BUFFER_SIZE = 1024
@@ -13,19 +14,6 @@ class EventLoop:
         self.tasks = deque()
         self.handlers = {}
 
-    def create_future(self):
-        return Future(loop=self)
-
-    def create_future_for_events(self, sock, events):
-        future = self.create_future()
-
-        def handler(sock, active_events):
-            self.unregister_event(sock)
-            future.set_result(active_events)
-
-        self.register_event(sock, events, handler)
-        return future
-
     def register_event(self, sock, events, handler):
         self.handlers[sock] = handler
         self.event_notifier.register(sock, events, handler)
@@ -33,6 +21,16 @@ class EventLoop:
     def unregister_event(self, sock):
         self.event_notifier.unregister(sock)
         self.handlers.pop(sock)
+
+    def create_future_for_events(self, sock, events):
+        future = Future(loop=self)
+
+        def handler(sock, active_events):
+            self.unregister_event(sock)
+            future.set_result(active_events)
+
+        self.register_event(sock, events, handler)
+        return future
 
     def add_coroutine(self, co):
         self.tasks.append(co)
