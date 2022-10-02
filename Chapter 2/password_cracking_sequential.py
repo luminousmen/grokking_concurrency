@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 
-"""Program for cracking the password consisting with only numbers using brute force approach sequntially"""
+"""Program for cracking the password consisting with only numbers using brute
+force approach sequentially"""
 
 import time
 import math
 import hashlib
-import typing
+import typing as T
 
 
-def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> typing.List[str]:
+def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []
     if not max_number:
@@ -29,8 +30,8 @@ def get_crypto_hash(password: str) -> str:
     return hashlib.sha256(password.encode()).hexdigest()
 
 
-def check_password(expected_crypto_hash: str, password: str) -> bool:
-    crypto_hash = get_crypto_hash(password)
+def check_password(expected_crypto_hash: str, possible_password: str) -> bool:
+    crypto_hash = get_crypto_hash(possible_password)
     # compare the resulted cryptographic hash with the one stored on the system
     if expected_crypto_hash.upper() == crypto_hash.upper():
         return True
@@ -39,7 +40,7 @@ def check_password(expected_crypto_hash: str, password: str) -> bool:
 
 def crack_password(crypto_hash: str, length: int) -> None:
     """Brute force the password combinations"""
-    print(f"Processing number combinations sequentially")
+    print("Processing number combinations sequentially")
     start_time = time.perf_counter()
     combinations = get_combinations(length=length)
     for combination in combinations:

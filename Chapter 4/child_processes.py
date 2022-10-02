@@ -3,6 +3,7 @@
 """Forking child processes in Python"""
 
 import os
+from multiprocessing import Process
 
 
 def run_child() -> None:
@@ -13,16 +14,12 @@ def run_child() -> None:
 
 
 def start_parent(num_children: int) -> None:
-    """Forking the current process"""
+    """Spawning new processes"""
+    print("Parent : I am the parent process")
+    print(f"Parent : Parent’s PID: {os.getpid()}")
     for i in range(num_children):
-        newpid = os.fork()
-        if newpid == 0:
-            run_child()
-        else:
-            # PID of the parent process should remain the same
-            print("Parent : I am the parent process")
-            print(f"Parent : Parent’s PID: {os.getpid()}")
-            print(f"Parent : Child’s PID: {newpid}")
+        print(f"Starting Process {i}")
+        Process(target=run_child).start()
 
 
 if __name__ == "__main__":

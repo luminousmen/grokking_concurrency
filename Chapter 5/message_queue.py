@@ -8,15 +8,15 @@ from threading import Thread, current_thread
 
 
 class Worker(Thread):
-    def __init__(self, queue: Queue):
-        super().__init__()
+    def __init__(self, queue: Queue, id: int):
+        super().__init__(name=str(id))
         self.queue = queue
 
     def run(self) -> None:
         while not self.queue.empty():
             # getting new data for processing from the queue
             item = self.queue.get()
-            print(f"Thread({current_thread().ident}): processing {item} from the queue")
+            print(f"Thread {current_thread().name} : processing item {item} from the queue")
             time.sleep(2)
 
 
@@ -28,8 +28,8 @@ def main(thread_num: int) -> None:
 
     threads = []
     # running threads to process data from the queue
-    for _ in range(thread_num):
-        thread = Worker(q)
+    for i in range(thread_num):
+        thread = Worker(q, i + 1)
         thread.start()
         threads.append(thread)
 
