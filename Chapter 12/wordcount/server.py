@@ -1,10 +1,11 @@
-from protocol import Protocol, HOST, PORT
+#!/usr/bin/env python3
 
 import os
 import glob
 import asyncio
 
 from scheduler import Scheduler
+from protocol import Protocol, HOST, PORT
 
 
 class Server(Protocol):

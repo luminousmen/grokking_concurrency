@@ -1,4 +1,4 @@
-import time
+#!/usr/bin/env python3
 
 from protocol import Protocol, HOST, PORT
 
@@ -15,7 +15,7 @@ class Worker(Protocol):
         print("Stop the event loop")
         asyncio.get_running_loop().stop()
 
-    def process_command(self, command, data = None):
+    def process_command(self, command, data=None):
         commands = {
             b"map": self.call_mapfn,
             b"reduce": self.call_reducefn,
@@ -30,9 +30,11 @@ class Worker(Protocol):
         print(f"Running map for {filename}")
         with open(filename, "r") as f:
             for line in f:
-                line = re.sub(r"[^\w\s]", "", line)
-                for w in line.split():
-                    yield w, 1
+                words = re.split("\W+", line)
+                for word in words:
+                    word = word.lower()
+                    if word != '':
+                        yield word, 1
 
     def combinefn(self, results):
         for key in results.keys():
@@ -77,7 +79,8 @@ class Worker(Protocol):
         with open(self.get_result_filename(), "w") as f:
             d = json.dumps(results)
             f.write(d)
-        self.send_command(command=b"reducedone", data=(data[0], self.get_result_filename()))
+        self.send_command(command=b"reducedone",
+                          data=(data[0], self.get_result_filename()))
 
 
 def main():
@@ -87,4 +90,6 @@ def main():
     loop.run_forever()
     loop.close()
 
-main()
+
+if __name__ == "__main__":
+    main()
