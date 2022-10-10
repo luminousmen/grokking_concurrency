@@ -28,7 +28,7 @@ class Worker(Protocol):
 
     def mapfn(self, filename):
         print(f"Running map for {filename}")
-        with open(filename, "r") as f:
+        with open(filename, "r", encoding="ISO-8859-1") as f:
             for line in f:
                 words = re.split("\W+", line)
                 for word in words:
