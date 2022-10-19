@@ -16,9 +16,8 @@ def matrix_multiply(A: T.List[T.List[int]], B: T.List[T.List[int]]):
     num_cols_B = len(B[0])
     if num_cols_A != num_rows_B:
         raise ArithmeticError(
-            "Invalid dimensions; Cannot multiply {}x{}*{}x{}".format(
-                num_rows_A, num_cols_A, num_rows_B, num_cols_B
-            )
+            f"Invalid dimensions; Cannot multiply "
+            f"{num_rows_A}x{num_cols_A}*{num_rows_B}x{num_cols_B}"
         )
     C = [[0] * num_cols_B for i in range(num_rows_A)]
     for i in range(num_rows_A):

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from protocol import Protocol, HOST, PORT
-
-import os
-from uuid import uuid4
-import asyncio
-import json
 import re
+import os
+import json
+import asyncio
+from uuid import uuid4
+
+from protocol import Protocol, HOST, PORT
 
 
 class Worker(Protocol):

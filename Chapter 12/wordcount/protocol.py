@@ -1,7 +1,6 @@
 import os
 import asyncio
 import pickle
-import shutil
 
 PORT = 8888
 HOST = "localhost"
@@ -47,7 +46,3 @@ class Protocol(asyncio.Protocol):
     def get_result_filename(self):
         dirname = os.path.dirname(__file__)
         return os.path.join(dirname, RESULT_FILENAME)
-
-    def recreate_temp_dir(self, dirname):
-        shutil.rmtree(dirname, ignore_errors=True)
-        os.makedirs(dirname)

@@ -15,7 +15,7 @@ class Server(Protocol):
 
     def connection_made(self, transport):
         peername = transport.get_extra_info("peername")
-        print("New worker connection from {}".format(peername))
+        print(f"New worker connection from {peername}")
         self.transport = transport
         self.start_new_task()
 
@@ -52,7 +52,7 @@ def main():
     coro = loop.create_server(lambda: Server(scheduler), HOST, PORT)
     server = loop.run_until_complete(coro)
     # Serve requests until Ctrl+C is pressed
-    print("Serving on {}".format(server.sockets[0].getsockname()))
+    print(f"Serving on {server.sockets[0].getsockname()}")
     try:
         loop.run_forever()
     except KeyboardInterrupt:
