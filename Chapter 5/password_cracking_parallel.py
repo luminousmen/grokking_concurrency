@@ -8,7 +8,7 @@ import math
 import time
 import typing as T
 import hashlib
-import multiprocessing as mp
+from multiprocessing import cpu_count, Manager
 # WARNING: Python have problems with running CPU-bound operations using threads so it will
 # not be as efficient as in other languages
 from multiprocessing.pool import ThreadPool
@@ -57,33 +57,33 @@ def crack_password(crypto_hash: str, length: int, min_number: int, max_number: i
             break
 
 
-def get_break_points(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
-    """Splitting the passwords into batches using break points"""
+def get_chunks(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
+    """Splitting the passwords into chunks using break points"""
     max_number = int(math.pow(10, length))
-    break_points = []
+    chunks = []
     # creating a range of numbers for each process     
     for i in range(num_cores):  
-        break_points.append((math.ceil(max_number/num_cores * i), math.ceil(max_number/num_cores * (i + 1)) - 1))
-    return break_points
+        chunks.append((math.ceil(max_number/num_cores * i), math.ceil(max_number/num_cores * (i + 1)) - 1))
+    return chunks
 
 
 def crack_password_parallel(crypto_hash: str, length: int) -> None:
     """Orchestrate cracking the password between different processes"""
     # getting number of available processors
-    num_cores = mp.cpu_count()
+    num_cores = cpu_count()
     # creating a pool of threads
     pool = ThreadPool(num_cores)  # for using processes - mp.Pool(num_cores)
-    m = mp.Manager()
+    m = Manager()
     event = m.Event()
 
     # creates start and stopping points based on the number of cores
-    break_points = get_break_points(num_cores, length)
+    chunks = get_chunks(num_cores, length)
 
     print(f"Processing number combinations concurrently")
     start_time = time.perf_counter()
 
-    # processing each batch in a separate process concurrently
-    pool.starmap(crack_password, [(crypto_hash, length, start, stop, event) for start, stop in break_points])
+    # processing each chunk in a separate process concurrently
+    pool.starmap(crack_password, [(crypto_hash, length, start, stop, event) for start, stop in chunks])
     pool.close()
 
     # waiting for the event to be set - to find a password
