@@ -7,10 +7,14 @@ import queue
 import typing as T
 from threading import Thread, current_thread
 
+Callback = T.Callable[..., None]
+Task = T.Tuple[Callback, T.Any, T.Any]
+TaskQueue = queue.Queue
+
 
 class Worker(Thread):
     """Thread executing tasks from a given tasks queue"""
-    def __init__(self, tasks: queue.Queue):
+    def __init__(self, tasks: queue.Queue[Task]):
         super().__init__()
         self.tasks = tasks
 
@@ -30,7 +34,7 @@ class ThreadPool:
     """Pool of threads consuming tasks from a queue"""
     def __init__(self, num_threads: int):
         # setting up the queue to put tasks
-        self.tasks = queue.Queue(num_threads)
+        self.tasks: TaskQueue = queue.Queue(num_threads)
         self.num_threads = num_threads
 
         # create long-running threads
@@ -39,7 +43,7 @@ class ThreadPool:
             worker.setDaemon(True)
             worker.start()
 
-    def add_task(self, func: T.Callable, *args, **kargs) -> None:
+    def submit(self, func: Callback, *args, **kargs) -> None:
         """Add a task to the queue"""
         self.tasks.put((func, args, kargs))
 
@@ -59,7 +63,7 @@ def cpu_waster(i: int) -> None:
 def main() -> None:
     pool = ThreadPool(num_threads=5)
     for i in range(20):
-        pool.add_task(cpu_waster, i)
+        pool.submit(cpu_waster, i)
 
     print("All work requests sent")
     pool.wait_completion()

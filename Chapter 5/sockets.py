@@ -14,21 +14,23 @@ BUFFER_SIZE = 1024
 
 class Sender(Thread):
     def run(self) -> None:
+        self.name = "Sender"
         # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants represent
         # the socket family and socket type respectively
         client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         client.connect(SOCK_FILE)
 
-        messages = [b"Hello", b" ", b"world!"]
+        messages = ["Hello", " ", "world!"]
         for msg in messages:
-            print(f"Thread({current_thread().ident}): Send: {msg}")
-            client.sendall(msg)
+            print(f"{current_thread().name}: Send: '{msg}'")
+            client.sendall(str.encode(msg))
 
         client.close()
 
 
 class Receiver(Thread):
     def run(self) -> None:
+        self.name = "Receiver"
         # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants represent
         # the socket family and socket type respectively
         server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
@@ -37,7 +39,7 @@ class Receiver(Thread):
         # let's start listening mode for this socket
         server.listen()
 
-        print(f"Thread({current_thread().ident}): Listening of incoming messages...")
+        print(f"{current_thread().name}: Listening of incoming messages...")
         # accept a connection
         conn, addr = server.accept()
 
@@ -47,7 +49,7 @@ class Receiver(Thread):
             if not data:
                 break
             message = data.decode()
-            print(f"Thread({current_thread().ident}): Received: `{message}`")
+            print(f"{current_thread().name}: Received: '{message}'")
 
         server.close()
 

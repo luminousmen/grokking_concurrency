@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 
-"""Program for cracking the password consisting with only numbers
-using brute force approach concurrently"""
+"""Program for cracking the password consisting of only numbers using multi
+cores in parallel"""
 
 import os
 import math
 import time
 import typing as T
 import hashlib
-from multiprocessing import cpu_count, Manager
-# WARNING: Python have problems with running CPU-bound operations using threads so it will
-# not be as efficient as in other languages
-from multiprocessing.pool import ThreadPool
+from multiprocessing import Pool, Manager
 
 
-def get_combinations(*, length: int, min_number: int = 0, max_number: int = None) -> T.List[str]:
+def get_combinations(
+    *, length: int, min_number: int = 0, max_number: T.Optional[int] = None
+) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []
     if not max_number:
         # calculating maximum number based on the length
         max_number = int(math.pow(10, length) - 1)
+
     # go through all possible combinations in a given range
     for i in range(min_number, max_number + 1):
         str_num = str(i)
@@ -30,73 +30,72 @@ def get_combinations(*, length: int, min_number: int = 0, max_number: int = None
 
 
 def get_crypto_hash(password: str) -> str:
-    """Calculating cryptographic hash of the password"""
+    """"Calculating cryptographic hash of the password"""
     return hashlib.sha256(password.encode()).hexdigest()
 
 
-def check_password(expected_crypto_hash: str, password: str) -> bool:
-    # calculating cryptographic hash of the password
-    crypto_hash = get_crypto_hash(password)
+def check_password(expected_crypto_hash: str, possible_password: str) -> bool:
+    actual_crypto_hash = get_crypto_hash(possible_password)
     # compare the resulted cryptographic hash with the one stored on the system
-    if expected_crypto_hash.upper() == crypto_hash.upper():
-        return True
-    return False
+    return expected_crypto_hash == actual_crypto_hash
 
 
-def crack_password(crypto_hash: str, length: int, min_number: int, max_number: int, event) -> None:
+def get_ranges(num_ranges: int, length: int) -> T.Iterator[T.Tuple[int, int]]:
+    """Splitting the passwords into batches using break points"""
+    max_number = int(math.pow(10, length) - 1)
+    start_points = [int(max_number / num_ranges * i) for i in range(num_ranges)]
+    end_points = [start_point - 1 for start_point in start_points[1:]] + \
+                 [max_number]  # creating a range of numbers for each process
+    return zip(start_points, end_points)
+
+
+def crack_batch(crypto_hash: str, length: int, start: int, end: int,
+                flag, result: T.List[str]) -> None:
     """Brute force the password combinations"""
-    combinations = get_combinations(length=length, min_number=min_number, max_number=max_number)
-    print(f"Processing {len(combinations)} combinations from {min_number} to {max_number} in process {os.getpid()}")
+    print(f'checking {start} to {end}')
+    combinations = get_combinations(
+        length=length, min_number=start, max_number=end)
     for combination in combinations:
-        # checking if the password has been found already in any of the processes
-        if not event.is_set():
-            if check_password(crypto_hash, combination):
-                print(f"PASSWORD CRACKED: {combination}")
-                event.set()
-        else:
-            break
-
-
-def get_chunks(num_cores: int, length: int) -> T.List[T.Tuple[int, int]]:
-    """Splitting the passwords into chunks using break points"""
-    max_number = int(math.pow(10, length))
-    chunks = []
-    # creating a range of numbers for each process     
-    for i in range(num_cores):  
-        chunks.append((math.ceil(max_number/num_cores * i), math.ceil(max_number/num_cores * (i + 1)) - 1))
-    return chunks
+        if flag.is_set():  # some other process found it
+            return
+        if check_password(crypto_hash, combination):  # found it
+            result.append(combination)
+            flag.set()
+            return
+    return  # not found
 
 
 def crack_password_parallel(crypto_hash: str, length: int) -> None:
     """Orchestrate cracking the password between different processes"""
     # getting number of available processors
-    num_cores = cpu_count()
-    # creating a pool of threads
-    pool = ThreadPool(num_cores)  # for using processes - mp.Pool(num_cores)
-    m = Manager()
-    event = m.Event()
+    num_cores = os.cpu_count()
+    if not num_cores:
+        num_cores = 4
 
-    # creates start and stopping points based on the number of cores
-    chunks = get_chunks(num_cores, length)
-
-    print(f"Processing number combinations concurrently")
+    print("Processing number combinations concurrently")
     start_time = time.perf_counter()
 
-    # processing each chunk in a separate process concurrently
-    pool.starmap(crack_password, [(crypto_hash, length, start, stop, event) for start, stop in chunks])
-    pool.close()
+    # set up inter-process communication
+    shared = Manager()
+    flag = shared.Event()
+    result: T.List[str] = shared.list()
 
-    # waiting for the event to be set - to find a password
-    event.wait()
-    # terminate all the processes in the pool once the password found
-    pool.terminate()
+    # processing each batch in a separate process concurrently
+    with Pool() as pool:
+        for start_point, end_point in get_ranges(num_cores, length):
+            pool.apply_async(
+                crack_batch, (crypto_hash, length, start_point, end_point, flag, result))
+            print(f"Batch submitted checking {start_point} to {end_point}")
+        print("Waiting for batches to finish")
+        pool.close()
+        pool.join()
 
+    print(f"PASSWORD CRACKED: {result[0]}")
     process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")
 
 
 if __name__ == "__main__":
     crypto_hash = "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4"
-    max_length = 8
-    crack_password_parallel(crypto_hash, max_length)
-
+    length = 8
+    crack_password_parallel(crypto_hash, length)

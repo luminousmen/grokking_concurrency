@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" Shared IPC """
+"""Using shared memory IPC between threads"""
 
 import time
 from threading import Thread, current_thread
@@ -12,14 +12,16 @@ shared_memory = [-1] * SIZE
 
 class Producer(Thread):
     def run(self) -> None:
+        self.name = "Producer"
         global shared_memory
         for i in range(SIZE):
-            print(f"Thread({current_thread().ident}): Writing {int(i)}")
+            print(f"{current_thread().name}: Writing {int(i)}")
             shared_memory[i - 1] = i
 
 
 class Consumer(Thread):
     def run(self) -> None:
+        self.name = "Consumer"
         global shared_memory
         for i in range(SIZE):
             # try reading the data until succession
@@ -27,11 +29,11 @@ class Consumer(Thread):
                 line = shared_memory[i]
                 if line == -1:
                     # data hasn't change - waiting for a second
-                    print(f"Thread({current_thread().ident}): "
+                    print(f"{current_thread().name}: "
                           f"Data not available sleeping for 1 second before retrying")
                     time.sleep(1)
                     continue
-                print(f"Thread({current_thread().ident}): Read: {int(line)}")
+                print(f"{current_thread().name}: Read: {int(line)}")
                 break
 
 

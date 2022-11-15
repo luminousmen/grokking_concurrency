@@ -10,7 +10,7 @@ import typing as T
 
 
 def get_combinations(
-    *, length: int, min_number: int = 0, max_number: int = None
+    *, length: int, min_number: int = 0, max_number: T.Optional[int] = None
 ) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []

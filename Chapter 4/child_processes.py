@@ -14,9 +14,9 @@ def run_child() -> None:
 
 
 def start_parent(num_children: int) -> None:
-    """Spawning new processes"""
     print("Parent : I am the parent process")
     print(f"Parent : Parent’s PID: {os.getpid()}")
+    # spawning new processes
     for i in range(num_children):
         print(f"Starting Process {i}")
         Process(target=run_child).start()

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" Using message queues for IPC """
+"""Using message queues for IPC between threads"""
 
 import time
 from queue import Queue
