@@ -1,79 +1,96 @@
 #!/usr/bin/env python3
 
-#
 """Task parallelism using Pipeline processing pattern"""
 import time
-from multiprocessing import Queue
+from queue import Queue
 from threading import Thread
+
+Washload = str
 
 
 class Washer(Thread):
-    def __init__(self, out_queue: Queue):
+    """ A thread representing a Washing Machine. """
+
+    def __init__(self, in_queue: Queue[Washload], out_queue: Queue[Washload]):
         super().__init__()
+        self.in_queue = in_queue
         self.out_queue = out_queue
 
     def run(self) -> None:
-        for msg in range(100):
-            print(f"GENERATING: {msg}")
+        while True:
+            # get the wash  load from the previous stage.
+            Washload = self.in_queue.get()
+            print(f"Washing {Washload}")
             time.sleep(1)
-            msg = msg
-            # send the message to the next stage
-            self.out_queue.put(msg)
+            # send the wash load to the next stage
+            self.out_queue.put(f'{Washload}')
+            self.in_queue.task_done()
 
 
 class Dryer(Thread):
-    def __init__(self, in_queue: Queue, out_queue: Queue):
+    """ A thread representing a Dryer. """
+
+    def __init__(self, in_queue: Queue[Washload], out_queue: Queue[Washload]):
         super().__init__()
         self.in_queue = in_queue
         self.out_queue = out_queue
 
-    def process(self, msg: int) -> int:
-        print(f"PROCESSING: {msg}")
-        time.sleep(2)
-        msg = msg * 2
-        return msg
-
     def run(self) -> None:
         while True:
-            # get the message from the previous stage.
-            msg = self.in_queue.get()
-            # process the message
-            out = self.process(msg)
-            # send message to next stage
-            self.out_queue.put(out)
+            # get the wash load from the previous stage.
+            Washload = self.in_queue.get()
+            # dry the Washload
+            print(f"\tDrying {Washload}")
+            time.sleep(2)
+            # send the wash load to next stage
+            self.out_queue.put(f'{Washload}')
+            self.in_queue.task_done()
 
 
 class Folder(Thread):
-    def __init__(self, in_queue: Queue):
+    """ A thread representing the folding action. """
+
+    def __init__(self, in_queue: Queue[Washload]):
         super().__init__()
         self.in_queue = in_queue
 
-    def consume(self, msg: str) -> None:
-        time.sleep(1)
-        print(f"RECEIVED: {msg}")
-
     def run(self) -> None:
         while True:
-            # get the message from the previous stage
-            msg = self.in_queue.get()
-            # consume the message
-            self.consume(msg)
+            # get the wash load from the previous stage.
+            Washload = self.in_queue.get()
+            # fold the Washload
+            print(f"\t\tFolding {Washload}")
+            time.sleep(1)
+            print(f"\t\t\t{Washload} done")
+            self.in_queue.task_done()
 
 
 class Pipeline:
+    """ Represents a washer, dryer and folder linked by queues. """
+
+    def assemble_laundry_for_washing(self) -> Queue[Washload]:
+        Washload_count = 8
+        Washloads_in: Queue[Washload] = Queue(Washload_count)
+        for Washload_num in range(Washload_count):
+            Washloads_in.put(f'Washload no {Washload_num}')
+        return Washloads_in
+
     def run_parallel(self) -> None:
-        queues = [Queue() for _ in range(2)]
-        threads = [
-            Washer(queues[0]),
-            Dryer(queues[0], queues[1]),
-            Folder(queues[1])
-        ]
+        # set up the queues in the pipeline
+        to_be_washed = self.assemble_laundry_for_washing()
+        to_be_dried: Queue[Washload] = Queue()
+        to_be_folded: Queue[Washload] = Queue()
 
-        for thread in threads:
-            thread.start()
+        # start the threads linked by the queues
+        Washer(to_be_washed, to_be_dried).start()
+        Dryer(to_be_dried, to_be_folded).start()
+        Folder(to_be_folded).start()
 
-        for thread in threads:
-            thread.join()
+        # wait for washing to finish
+        to_be_washed.join()
+        to_be_dried.join()
+        to_be_folded.join()
+        print("All done!")
 
 
 if __name__ == "__main__":

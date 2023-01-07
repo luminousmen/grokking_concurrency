@@ -5,7 +5,7 @@ import random
 import typing as T
 from pprint import pprint
 
-ROWS = 4
+ROWS = 3
 COLS = 2
 
 
@@ -29,6 +29,8 @@ def matrix_multiply(A: T.List[T.List[int]], B: T.List[T.List[int]]):
 
 if __name__ == "__main__":
     A = [[random.randint(0, 10) for i in range(COLS)] for j in range(ROWS)]
+    pprint(f"matrix A: {A}")
     B = [[random.randint(0, 10) for i in range(ROWS)] for j in range(COLS)]
+    pprint(f"matrix B: {B}")
     C = matrix_multiply(A, B)
-    pprint(C)
+    pprint(f"matrix C: {C}")

@@ -3,9 +3,10 @@
 
 import sys
 import time
-
 from threading import Thread
+from typing import List
 
+from bank_account import BankAccount
 from synced_bank_account import SyncedBankAccount
 from unsynced_bank_account import UnsyncedBankAccount
 
@@ -15,7 +16,7 @@ THREAD_DELAY = 1e-16
 class ATM(Thread):
     """Automated teller machine (ATM) or cash machine"""
 
-    def __init__(self, bank_account):
+    def __init__(self, bank_account: BankAccount):
         super().__init__()
         self.bank_account = bank_account
 
@@ -25,12 +26,12 @@ class ATM(Thread):
         time.sleep(0.001)
         self.bank_account.withdraw(10)
 
-    def run(self):
+    def run(self) -> None:
         self.transaction()
 
 
-def test_atms(account, atm_number: int = 1000) -> None:
-    atms = []
+def test_atms(account: BankAccount, atm_number: int = 1000) -> None:
+    atms: List[ATM] = []
     # create `atm_number` threads that will deposit and withdraw money
     # from account concurrently
     for _ in range(atm_number):

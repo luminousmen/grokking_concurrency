@@ -4,8 +4,8 @@
 time sharing """
 
 import typing as T
-from threading import Thread, Timer, Event
 from sys import setswitchinterval
+from threading import Thread, Timer, Event
 
 from pacman import get_user_input, compute_game_world, render_next_screen
 

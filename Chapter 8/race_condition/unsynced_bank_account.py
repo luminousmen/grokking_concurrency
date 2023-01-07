@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 """Bank account without synchronization cause race condition """
 
+from bank_account import BankAccount
 
-class UnsyncedBankAccount:
+
+class UnsyncedBankAccount(BankAccount):
     """Bank account without synchronization"""
-
-    balance: float
-
-    def __init__(self, balance: float = 0):
-        self.balance: float = balance
 
     def deposit(self, amount: float) -> None:
         if amount > 0:

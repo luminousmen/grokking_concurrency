@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Three philosophers thinking and eating dumplings - fighting deadlock
+"""Philosophers thinking and eating dumplings - fighting deadlock
 by setting priorities"""
 
 from lock_with_name import LockWithName

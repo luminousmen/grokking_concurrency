@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Three philosophers thinking and eating dumplings - deadlock happens"""
+"""Philosophers thinking and eating dumplings - deadlock happens"""
 
 import time
 from threading import Thread
@@ -23,18 +23,16 @@ class Philosopher(Thread):
         global dumplings
 
         while dumplings > 0:
-            self.left_chopstick.lock.acquire()
-            print(f"{self.left_chopstick.name} chopstick grabbed by {self.name}")
-            self.right_chopstick.lock.acquire()
-            print(f"{self.right_chopstick.name} chopstick grabbed by {self.name}")
-
+            self.left_chopstick.acquire()
+            print(f"{self.left_chopstick.name} grabbed by {self.name} now needs {self.right_chopstick.name}")
+            self.right_chopstick.acquire()
+            print(f"{self.right_chopstick.name} grabbed by {self.name}")
             dumplings -= 1
-            print(f"{self.name} eat a dumpling. Dumplings left: {dumplings}")
-
-            self.right_chopstick.lock.release()
-            print(f"{self.right_chopstick.name} chopstick released by {self.name}")
-            self.left_chopstick.lock.release()
-            print(f"{self.left_chopstick.name} chopstick released by {self.name}")
+            print(f"{self.name} eats a dumpling. Dumplings left: {dumplings}")
+            self.right_chopstick.release()
+            print(f"{self.right_chopstick.name} released by {self.name}")
+            self.left_chopstick.release()
+            print(f"{self.left_chopstick.name} released by {self.name}")
             time.sleep(THREAD_DELAY)
 
 

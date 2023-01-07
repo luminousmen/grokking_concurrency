@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Three philosophers thinking and eating dumplings - avoiding deadlock
+"""Philosophers thinking and eating dumplings - avoiding deadlock
 by introducing arbitrary"""
 
 import time
@@ -9,26 +9,28 @@ from threading import Thread, Lock
 from lock_with_name import LockWithName
 
 THREAD_DELAY = 0.1
-dumplings = 100
+dumplings = 20
 
 
 class Waiter:
-    def __init__(self):
+    def __init__(self) -> None:
         self.mutex = Lock()
 
-    def ask_for_chopsticks(self, left_chopstick: LockWithName, right_chopstick: LockWithName):
+    def ask_for_chopsticks(self,
+                           left_chopstick: LockWithName,
+                           right_chopstick: LockWithName) -> None:
         with self.mutex:
-            left_chopstick.lock.acquire()
-            print(f"{left_chopstick.name} chopstick grabbed")
-            right_chopstick.lock.acquire()
-            print(f"{right_chopstick.name} chopstick grabbed")
+            left_chopstick.acquire()
+            print(f"{left_chopstick.name} grabbed")
+            right_chopstick.acquire()
+            print(f"{right_chopstick.name} grabbed")
 
     def release_chopsticks(self, left_chopstick: LockWithName,
                            right_chopstick: LockWithName) -> None:
-        right_chopstick.lock.release()
-        print(f"{right_chopstick.name} chopstick released")
-        left_chopstick.lock.release()
-        print(f"{left_chopstick.name} chopstick released")
+        right_chopstick.release()
+        print(f"{right_chopstick.name} released")
+        left_chopstick.release()
+        print(f"{left_chopstick.name} released\n")
 
 
 class Philosopher(Thread):
@@ -45,12 +47,15 @@ class Philosopher(Thread):
         global dumplings
 
         while dumplings > 0:
-            self.waiter.ask_for_chopsticks(self.left_chopstick, self.right_chopstick)
+            print(f"{self.name} asks waiter for chopsticks")
+            self.waiter.ask_for_chopsticks(
+                self.left_chopstick, self.right_chopstick)
 
             dumplings -= 1
-            print(f"{self.name} eat a dumpling. Dumplings left: {dumplings}")
-
-            self.waiter.release_chopsticks(self.left_chopstick, self.right_chopstick)
+            print(f"{self.name} eats a dumpling. Dumplings left: {dumplings}")
+            print(f"{self.name} returns chopsticks to waiter")
+            self.waiter.release_chopsticks(
+                self.left_chopstick, self.right_chopstick)
             time.sleep(THREAD_DELAY)
 
 
@@ -59,8 +64,10 @@ if __name__ == "__main__":
     chopstick_b = LockWithName("chopstick_b")
 
     waiter = Waiter()
-    philosopher_1 = Philosopher("Philosopher #1", waiter, chopstick_a, chopstick_b)
-    philosopher_2 = Philosopher("Philosopher #2", waiter, chopstick_b, chopstick_a)
+    philosopher_1 = Philosopher(
+        "Philosopher #1", waiter, chopstick_a, chopstick_b)
+    philosopher_2 = Philosopher(
+        "Philosopher #2", waiter, chopstick_b, chopstick_a)
 
     philosopher_1.start()
     philosopher_2.start()

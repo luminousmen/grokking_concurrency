@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Three philosophers, thinking and eating sushi - but some has been starving"""
+"""Philosophers, thinking and eating sushi - but some has been starving"""
 import time
 from threading import Thread
 
@@ -10,7 +10,10 @@ THREAD_DELAY = 1e-16
 
 
 class Philosopher(Thread):
-    def __init__(self, name: str, left_chopstick: LockWithName, right_chopstick: LockWithName):
+    def __init__(
+            self, name: str,
+            left_chopstick: LockWithName,
+            right_chopstick: LockWithName):
         super().__init__()
         self.name = name
         self.left_chopstick = left_chopstick
@@ -22,14 +25,14 @@ class Philosopher(Thread):
 
         dumplings_eaten = 0
         while dumplings > 0:
-            self.left_chopstick.lock.acquire()
-            self.right_chopstick.lock.acquire()
+            self.left_chopstick.acquire()
+            self.right_chopstick.acquire()
             if dumplings > 0:
                 dumplings -= 1
                 dumplings_eaten += 1
                 time.sleep(THREAD_DELAY)
-            self.right_chopstick.lock.release()
-            self.left_chopstick.lock.release()
+            self.right_chopstick.release()
+            self.left_chopstick.release()
         print(f"{self.name} took {dumplings_eaten} pieces")
 
 

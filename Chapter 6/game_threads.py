@@ -2,8 +2,8 @@
 
 """Implementing the game program using threads without multitasking using
 blocking thread """
-from threading import Thread
 import typing as T
+from threading import Thread
 
 from pacman import get_user_input, compute_game_world, render_next_screen
 
