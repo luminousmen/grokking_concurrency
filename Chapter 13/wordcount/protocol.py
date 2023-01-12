@@ -22,7 +22,7 @@ class Protocol(asyncio.Protocol):
         self.buffer = self.buffer + data
         print(self.buffer)
         if END_MSG in self.buffer:
-            if b':' not in data:
+            if b":" not in data:
                 command, _ = self.buffer.split(END_MSG, 1)
                 data = None
             else:

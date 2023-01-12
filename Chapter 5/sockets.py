@@ -62,7 +62,7 @@ def main() -> None:
     # receiver will create a socket and socket file
     receiver = Receiver()
     receiver.start()
-    # waiting till the socket has been created
+    # waiting untill the socket has been created
     time.sleep(1)
     sender = Sender()
     sender.start()

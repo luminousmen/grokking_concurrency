@@ -52,7 +52,7 @@ def get_ranges(num_ranges: int, length: int) -> T.Iterator[T.Tuple[int, int]]:
 def crack_batch(crypto_hash: str, length: int, start: int, end: int,
                 flag, result: T.List[str]) -> None:
     """Brute force the password combinations"""
-    print(f'checking {start} to {end}')
+    print(f"checking {start} to {end}")
     combinations = get_combinations(
         length=length, min_number=start, max_number=end)
     for combination in combinations:

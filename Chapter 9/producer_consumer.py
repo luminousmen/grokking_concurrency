@@ -31,7 +31,7 @@ class Producer(Thread):
     def run(self) -> None:
         global producer_idx
         while self.counter < self.maximum_items:
-            # wait till the buffer have some empty slots
+            # wait untill the buffer have some empty slots
             empty.acquire()
             # critical section for changing the buffer
             mutex.acquire()
@@ -63,7 +63,7 @@ class Consumer(Thread):
 
     def run(self) -> None:
         while self.counter < self.maximum_items:
-            # wait till the buffer has some new items to consume
+            # wait untill the buffer has some new items to consume
             full.acquire()
             # critical section for changing the buffer
             mutex.acquire()
@@ -81,9 +81,9 @@ class Consumer(Thread):
 
 if __name__ == "__main__":
     threads = [
-        Producer("John"),
-        Producer("Sara"),
-        Consumer("Bob")
+        Producer("Kirill"),
+        Producer("Ekaterina"),
+        Consumer("Ian")
     ]
 
     for thread in threads:

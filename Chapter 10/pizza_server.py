@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """Simple one connection TCP/IP socket server"""
-import socket
+from socket import socket, create_server
 
 # the maximum amount of data to be received at once
 BUFFER_SIZE = 1024
@@ -9,10 +9,10 @@ ADDRESS = ("127.0.0.1", 12345)   # address and port of the host machine
 
 
 class Server:
-    def __init__(self):
+    def __init__(self) -> None:
         try:
             print(f"Starting up at: {ADDRESS}")
-            self.server_socket = socket.create_server(ADDRESS)
+            self.server_socket: socket = create_server(ADDRESS)
             print("Listen for incoming connections")
             # on server side let's start listening mode for this socket
             self.server_socket.listen()
@@ -21,15 +21,15 @@ class Server:
             self.server_socket.close()
             print("\nServer stopped.")
 
-    def accept(self):
+    def accept(self) -> socket:
         # accepting the incoming connection, blocking
         # conn = is a new socket object usable to send and receive data on the connection
-        # addr = is the address bound to the socket on the other end of connection
+        # client_address = is the address bound to the socket on the other end of connection
         conn, client_address = self.server_socket.accept()
         print(f"Connected to {client_address}")
         return conn
 
-    def serve(self, conn):
+    def serve(self, conn: socket) -> None:
         try:
             while True:
                 data = conn.recv(BUFFER_SIZE)
@@ -37,19 +37,20 @@ class Server:
                     break
                 try:
                     order = int(data.decode())
-                    response = f"Thank you for ordering {order} pizzas\n"
+                    response = f"Thank you for ordering {order} pizzas!\n"
                 except ValueError:
-                    response = f"Unrecognisable order, '{data}' - please try again\n"
+                    response = "Wrong number of pizzas, please try again\n"
                 print(f"Sending message to {conn.getpeername()}")
+                # send a response
                 conn.send(response.encode())
         finally:
-            # server expects the client to close its side of the connection when it’s done.
-            # In a real application, we should use timeout for clients if they don’t send
-            # a request after a certain amount of time.
+            # server expects the client to close its side of the connection
+            # when it’s done. In a real application, we should use timeout for
+            # clients if they don’t send a request after a certain amount of time.
             print(f"Connection with {conn.getpeername()} has been closed")
             conn.close()
 
-    def start(self):
+    def start(self) -> None:
         try:
             while True:
                 conn = self.accept()

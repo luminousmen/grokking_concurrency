@@ -4,6 +4,6 @@ __pycache__/
 
 .idea/
 .DS_Store
-/Chapter 12/wordcount/input_files/
-/Chapter 12/wordcount/temp/
-/Chapter 12/wordcount/result.json
+/Chapter 13/wordcount/input_files/
+/Chapter 13/wordcount/temp/
+/Chapter 13/wordcount/result.json

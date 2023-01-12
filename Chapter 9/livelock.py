@@ -28,7 +28,7 @@ class Philosopher(Thread):
             self.left_chopstick.acquire()
             print(f"{self.left_chopstick.name} chopstick grabbed by {self.name}")
             if self.right_chopstick.locked():
-                print(f"{self.name} cannot get the {self.right_chopstick.name} chopstick, giving up...")
+                print(f"{self.name} cannot get the {self.right_chopstick.name} chopstick, politely concedes...")
             else:
                 self.right_chopstick.acquire()
                 print(f"{self.right_chopstick.name} chopstick grabbed by {self.name}")

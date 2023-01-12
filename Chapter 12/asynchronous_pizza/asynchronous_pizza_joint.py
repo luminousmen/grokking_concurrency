@@ -2,13 +2,13 @@
 
 import socket
 import time
+from typing import NoReturn
 
 from async_socket import AsyncSocket
 from event_loop_with_pool import EventLoop
 
 BUFFER_SIZE = 1024
-HOST = "127.0.0.1"  # address of the host machine
-PORT = 12345  # port to listen on (non-privileged ports are > 1023)
+ADDRESS = ("127.0.0.1", 12345)   # address and port of the host machine
 
 
 class Kitchen:
@@ -20,19 +20,17 @@ class Kitchen:
 
 
 class Server:
-    def __init__(self, loop):
+    def __init__(self, loop) -> None:
         self.loop = loop
-        # AF_UNIX and SOCK_STREAM are constants represent the protocol and socket type respectively
-        # here we create a TCP/IP socket
         self.server_socket = AsyncSocket(
             sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM), loop=loop)
         # allows multiple sockets to be bound to an identical socket address
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         try:
-            print(f"Starting up on: {HOST}:{PORT}")
+            print(f"Starting up on: {ADDRESS}")
             # bind a socket to a specific network interface and port number
-            self.server_socket.bind((HOST, PORT))
+            self.server_socket.bind(ADDRESS)
             print("Listen for incoming connections")
             # on server side let"s start listening mode for this socket
             self.server_socket.listen()
@@ -43,7 +41,7 @@ class Server:
             print("\nServer stopped.")
         self.loop.add_coroutine(self.serve_forever())
 
-    async def serve_forever(self):
+    async def serve_forever(self) -> NoReturn:
         try:
             while True:
                 conn, address = await self.server_socket.accept()
@@ -53,7 +51,7 @@ class Server:
             self.server_socket.close()
             print("\nServer stopped.")
 
-    async def serve(self, conn):
+    async def serve(self, conn) -> None:
         try:
             while True:
                 data = await conn.recv(BUFFER_SIZE)
@@ -61,16 +59,15 @@ class Server:
                     break
                 try:
                     order = int(data.decode())
-                    response = f"Thank you for ordering {order} pizzas\n"
+                    response = f"Thank you for ordering {order} pizzas!\n"
                     print(f"Sending message to {conn.getpeername()}")
                     await conn.send(response.encode())
                     await self.loop.run_in_executor(Kitchen.cook_pizza, order)
-                    print(f"Sending message to {conn.getpeername()}")
-                    await conn.send(f"You order on {order} pizzas is ready!\n".encode())
+                    response = f"You order on {order} pizzas is ready!\n"
                 except ValueError:
-                    response = "Wrong number of orders, please try again\n"
-                    print(f"Sending message to {conn.getpeername()}")
-                    await conn.send(response.encode())
+                    response = "Wrong number of pizzas, please try again\n"
+                print(f"Sending message to {conn.getpeername()}")
+                await conn.send(response.encode())
             print(f"Connection with {conn.getpeername()} has been closed")
             conn.close()
         except Exception:
