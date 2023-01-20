@@ -14,6 +14,8 @@ Burger = Result  # our Burger is a string!
 class Future:
     def __init__(self) -> None:
         self.done = False
+        self.coroutine = None
+        self.result = None
 
     def set_coroutine(self, coroutine: Coroutine[T.Any, T.Any, Result]) -> None:
         self.coroutine = coroutine

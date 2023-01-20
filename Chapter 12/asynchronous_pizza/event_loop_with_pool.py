@@ -65,6 +65,8 @@ class EventLoop:
         self.event_notifier.unregister(source)
 
     def add_coroutine(self, co: T.Coroutine[T.Any, T.Any, T.Any]) -> None:
+        # this method will be called from the main class to add a new coroutine
+        # to be executed
         self.tasks.append(co)
 
     def run_coroutine(self, co: T.Coroutine[T.Any, T.Any, T.Any]) -> None:

@@ -3,9 +3,10 @@
 import re
 import os
 import glob
+import typing as T
 
 
-def wordcount(filenames):
+def wordcount(filenames: T.List[str]) -> T.Dict[str, int]:
     d = {}
     for filename in filenames:
         print(f"Calculating {filename}")

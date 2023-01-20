@@ -10,12 +10,11 @@ from asynchronous_pizza_joint import Kitchen
 
 # the maximum amount of data to be received at once
 BUFFER_SIZE = 1024
-HOST = "127.0.0.1"  # address of the host machine
-PORT = 12345  # port to listen on (non-privileged ports are > 1023)
+ADDRESS = ("127.0.0.1", 12345)   # address and port of the host machine
 
 
 class Server:
-    def __init__(self, loop) -> None:
+    def __init__(self, loop: asyncio.AbstractEventLoop) -> None:
         self.loop = loop
         # AF_UNIX and SOCK_STREAM are constants represent the protocol and
         # socket type respectively here we create a TCP/IP socket
@@ -23,9 +22,9 @@ class Server:
         try:
             # set socket to non-blocking mode
             self.server_socket.setblocking(False)
-            print(f"Starting up on: {HOST}:{PORT}")
+            print(f"Starting up on: {ADDRESS}")
             # bind a socket to a specific network interface and port number
-            self.server_socket.bind((HOST, PORT))
+            self.server_socket.bind(ADDRESS)
             print("Listen for incoming connections")
             # on server side let's start listening mode for this socket
             self.server_socket.listen()

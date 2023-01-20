@@ -1,36 +1,39 @@
 #!/usr/bin/env python3
-"""Multiply two matrices sequentially"""
+""" Multiply two matrices sequentially """
 
 import random
-import typing as T
-from pprint import pprint
+from typing import List
 
-ROWS = 3
-COLS = 2
+Row = List[int]
+Matrix = List[Row]
 
 
-def matrix_multiply(A: T.List[T.List[int]], B: T.List[T.List[int]]):
-    num_rows_A = len(A)
-    num_cols_A = len(A[0])
-    num_rows_B = len(B)
-    num_cols_B = len(B[0])
-    if num_cols_A != num_rows_B:
+def matrix_multiply(matrix_a: Matrix, matrix_b: Matrix) -> Matrix:
+    """ Multiply two matrices as a sequential calculation """
+    num_rows_a = len(matrix_a)
+    num_cols_a = len(matrix_a[0])
+    num_rows_b = len(matrix_b)
+    num_cols_b = len(matrix_b[0])
+    if num_cols_a != num_rows_b:
         raise ArithmeticError(
             f"Invalid dimensions; Cannot multiply "
-            f"{num_rows_A}x{num_cols_A}*{num_rows_B}x{num_cols_B}"
+            f"{num_rows_a}x{num_cols_a}*{num_rows_b}x{num_cols_b}"
         )
-    C = [[0] * num_cols_B for i in range(num_rows_A)]
-    for i in range(num_rows_A):
-        for j in range(num_cols_B):
-            for k in range(num_cols_A):
-                C[i][j] += A[i][k] * B[k][j]
-    return C
+    solution_matrix = [[0] * num_cols_b for _ in range(num_rows_a)]
+    for i in range(num_rows_a):         # for each row in matrix_a
+        for j in range(num_cols_b):     # for each col in matrix_b
+            for k in range(num_cols_a):  # for each col in matrix a
+                solution_matrix[i][j] += matrix_a[i][k] * matrix_b[k][j]
+    return solution_matrix
 
 
 if __name__ == "__main__":
-    A = [[random.randint(0, 10) for i in range(COLS)] for j in range(ROWS)]
-    pprint(f"matrix A: {A}")
-    B = [[random.randint(0, 10) for i in range(ROWS)] for j in range(COLS)]
-    pprint(f"matrix B: {B}")
+    cols = 3
+    rows = 2
+    A = [[random.randint(0, 10) for i in range(cols)] for j in range(rows)]
+    print(f"matrix A: {A}")
+    B = [[random.randint(0, 10) for i in range(rows)] for j in range(cols)]
+    print(f"matrix B: {B}")
     C = matrix_multiply(A, B)
-    pprint(f"matrix C: {C}")
+    print(f"matrix C: {C}")
+

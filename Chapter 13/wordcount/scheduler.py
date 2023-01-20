@@ -1,5 +1,8 @@
 import asyncio
 from enum import Enum
+import typing as T
+
+from protocol import FileWithId
 
 
 class State(Enum):
@@ -10,16 +13,16 @@ class State(Enum):
 
 
 class Scheduler:
-    def __init__(self, datasource):
+    def __init__(self, datasource: T.List[str]) -> None:
         self.state = State.START
         self.data_len = len(datasource)
-        self.datasource = iter(dict(enumerate(datasource)).items())
+        self.datasource: T.Iterator = iter(enumerate(datasource))
 
-    def next_task(self):
+    def next_task(self) -> T.Tuple[bytes, T.Any]:
         if self.state == State.START:
             print("STARTED")
-            self.working_maps = {}
-            self.map_results = {}
+            self.working_maps: T.Dict[int, str] = {}
+            self.map_results: T.Dict[int, str] = {}
             self.state = State.MAPPING
 
         if self.state == State.MAPPING:
@@ -43,14 +46,14 @@ class Scheduler:
             asyncio.get_running_loop().stop()
             return b"disconnect", None
 
-    def map_done(self, data):
+    def map_done(self, data: FileWithId) -> None:
         if not data[0] in self.working_maps:
             return
         self.map_results[data[0]] = data[1]
         del self.working_maps[data[0]]
         print(f"MAPPING {len(self.map_results)}/{self.data_len}")
 
-    def reduce_done(self, data):
+    def reduce_done(self, data: FileWithId) -> None:
         print("REDUCING 1/1")
         self.state = State.FINISHED
         self.results[data[0]] = data[1]
