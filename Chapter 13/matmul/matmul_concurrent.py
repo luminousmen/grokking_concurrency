@@ -52,5 +52,8 @@ if __name__ == "__main__":
     cols = 4
     rows = 2
     A = [[random.randint(0, 10) for i in range(cols)] for j in range(rows)]
+    print(f"matrix A: {A}")
     B = [[random.randint(0, 10) for i in range(rows)] for j in range(cols)]
-    parallel_result = matrix_multiply(A, B)
+    print(f"matrix B: {B}")
+    C = matrix_multiply(A, B)
+    print(f"matrix C: {C}")
