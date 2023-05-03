@@ -9,9 +9,8 @@ import hashlib
 import typing as T
 
 
-def get_combinations(
-    *, length: int, min_number: int = 0, max_number: T.Optional[int] = None
-) -> T.List[str]:
+def get_combinations(*, length: int, min_number: int = 0,
+                     max_number: T.Optional[int] = None) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []
     if not max_number:
@@ -32,9 +31,10 @@ def get_crypto_hash(password: str) -> str:
     return hashlib.sha256(password.encode()).hexdigest()
 
 
-def check_password(expected_crypto_hash: str, possible_password: str) -> bool:
+def check_password(expected_crypto_hash: str,
+                   possible_password: str) -> bool:
     actual_crypto_hash = get_crypto_hash(possible_password)
-    # compare the resulted cryptographic hash with the one stored on the system
+    # compare the resulted cryptographic hash with the one stored in the system
     return expected_crypto_hash == actual_crypto_hash
 
 

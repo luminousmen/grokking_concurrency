@@ -49,7 +49,8 @@ class ThreadPool:
 
     def wait_completion(self) -> None:
         """Wait for completion of all the tasks in the queue"""
-        # join method that blocks the main thread until the child threads has finished
+        # join method that blocks the main thread until the child
+        # threads has finished
         self.tasks.join()
 
 

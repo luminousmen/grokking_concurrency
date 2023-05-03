@@ -8,12 +8,13 @@ import math
 import time
 import typing as T
 import hashlib
-from multiprocessing import Pool, Manager
+from multiprocessing import Pool
+
+ChunkRange = T.Tuple[int, int]
 
 
-def get_combinations(
-    *, length: int, min_number: int = 0, max_number: T.Optional[int] = None
-) -> T.List[str]:
+def get_combinations(*, length: int, min_number: int = 0,
+                     max_number: T.Optional[int] = None) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []
     if not max_number:
@@ -34,34 +35,31 @@ def get_crypto_hash(password: str) -> str:
     return hashlib.sha256(password.encode()).hexdigest()
 
 
-def check_password(expected_crypto_hash: str, possible_password: str) -> bool:
+def check_password(expected_crypto_hash: str,
+                   possible_password: str) -> bool:
     actual_crypto_hash = get_crypto_hash(possible_password)
     # compare the resulted cryptographic hash with the one stored on the system
     return expected_crypto_hash == actual_crypto_hash
 
 
-def get_ranges(num_ranges: int, length: int) -> T.Iterator[T.Tuple[int, int]]:
-    """Splitting the passwords into batches using break points"""
+def get_chunks(num_ranges: int, length: int) -> T.Iterator[ChunkRange]:
+    """Splitting the passwords into chunks using break points"""
     max_number = int(math.pow(10, length) - 1)
-    start_points = [int(max_number / num_ranges * i) for i in range(num_ranges)]
-    end_points = [start_point - 1 for start_point in start_points[1:]] + \
-                 [max_number]  # creating a range of numbers for each process
-    return zip(start_points, end_points)
+    chunk_starts = [int(max_number / num_ranges * i) for i in
+                    range(num_ranges)]
+    chunk_ends = [start_point - 1 for start_point in chunk_starts[1:]] + [
+        max_number]
+    return zip(chunk_starts, chunk_ends)
 
 
-def crack_batch(crypto_hash: str, length: int, start: int, end: int,
-                flag, result: T.List[str]) -> None:
+def crack_chunk(crypto_hash: str, length: int, chunk_start: int,
+                chunk_end: int) -> T.Union[str, None]:
     """Brute force the password combinations"""
-    print(f"checking {start} to {end}")
-    combinations = get_combinations(
-        length=length, min_number=start, max_number=end)
+    combinations = get_combinations(length=length, min_number=chunk_start,
+                                    max_number=chunk_end)
     for combination in combinations:
-        if flag.is_set():  # some other process found it
-            return
-        if check_password(crypto_hash, combination):  # found it
-            result.append(combination)
-            flag.set()
-            return
+        if check_password(crypto_hash, combination):
+            return combination  # found it
     return  # not found
 
 
@@ -69,27 +67,21 @@ def crack_password_parallel(crypto_hash: str, length: int) -> None:
     """Orchestrate cracking the password between different processes"""
     # getting number of available processors
     num_cores = os.cpu_count()
-    if not num_cores:
-        num_cores = 4
-
     print("Processing number combinations concurrently")
     start_time = time.perf_counter()
 
-    # set up inter-process communication
-    shared = Manager()
-    flag = shared.Event()
-    result: T.List[str] = shared.list()
-
-    # processing each batch in a separate process concurrently
+    # processing each chunk in a separate process concurrently
+    results = []
     with Pool() as pool:
-        for start_point, end_point in get_ranges(num_cores, length):
-            pool.apply_async(
-                crack_batch, (crypto_hash, length, start_point, end_point, flag, result))
-            print(f"Batch submitted checking {start_point} to {end_point}")
-        print("Waiting for batches to finish")
+        for start_point, end_point in get_chunks(num_cores, length):
+            results.append(pool.apply_async(
+                crack_chunk, (crypto_hash, length, start_point, end_point)))
+            print(f"Chunk submitted checking {start_point} to {end_point}")
+        print("Waiting for chunks to finish")
         pool.close()
         pool.join()
 
+    result = [res.get() for res in results if res.get()]
     print(f"PASSWORD CRACKED: {result[0]}")
     process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")

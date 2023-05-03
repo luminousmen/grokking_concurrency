@@ -15,8 +15,8 @@ BUFFER_SIZE = 1024
 class Sender(Thread):
     def run(self) -> None:
         self.name = "Sender"
-        # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants represent
-        # the socket family and socket type respectively
+        # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants
+        # that represent the socket family and socket type respectively
         client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         client.connect(SOCK_FILE)
 
@@ -31,8 +31,6 @@ class Sender(Thread):
 class Receiver(Thread):
     def run(self) -> None:
         self.name = "Receiver"
-        # AF_UNIX (Unix domain socket) and SOCK_STREAM are constants represent
-        # the socket family and socket type respectively
         server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         # bind socket to the file
         server.bind(SOCK_FILE)

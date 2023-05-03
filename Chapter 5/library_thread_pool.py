@@ -17,7 +17,10 @@ def cpu_waster(i: int) -> str:
 
 
 def main() -> None:
-    with ThreadPoolExecutor(max_workers=os.cpu_count(), thread_name_prefix="Pool_Thread") as pool:
+    with ThreadPoolExecutor(
+        max_workers=os.cpu_count(),
+        thread_name_prefix="Pool_Thread"
+    ) as pool:
         tasks = []
         for i in range(20):
             tasks.append(pool.submit(cpu_waster, i))

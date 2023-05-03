@@ -29,8 +29,8 @@ class Consumer(Thread):
                 line = shared_memory[i]
                 if line == -1:
                     # data hasn't change - waiting for a second
-                    print(f"{current_thread().name}: "
-                          f"Data not available sleeping for 1 second before retrying")
+                    print(f"{current_thread().name}: Data not available\n"
+                          f"Sleeping for 1 second before retrying")
                     time.sleep(1)
                     continue
                 print(f"{current_thread().name}: Read: {int(line)}")

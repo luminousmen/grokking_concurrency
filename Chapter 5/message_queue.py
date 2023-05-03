@@ -16,7 +16,8 @@ class Worker(Thread):
         while not self.queue.empty():
             # getting new data for processing from the queue
             item = self.queue.get()
-            print(f"Thread {current_thread().name} : processing item {item} from the queue")
+            print(f"Thread {current_thread().name}: "
+                  f"processing item {item} from the queue")
             time.sleep(2)
 
 
