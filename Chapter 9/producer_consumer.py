@@ -37,7 +37,8 @@ class Producer(Thread):
             mutex.acquire()
             self.counter += 1
             BUFFER[producer_idx] = f"{self.name}-{self.counter}"
-            print(f"{self.name} produced: '{BUFFER[producer_idx]}' into slot {producer_idx}")
+            print(f"{self.name} produced: "
+                  f"'{BUFFER[producer_idx]}' into slot {producer_idx}")
             producer_idx = self.next_index(producer_idx)
             # leaving critical section
             mutex.release()
@@ -68,7 +69,8 @@ class Consumer(Thread):
             # critical section for changing the buffer
             mutex.acquire()
             item = BUFFER[self.idx]
-            print(f"{self.name} consumed item: '{item}' from slot {self.idx}")
+            print(f"{self.name} consumed item: "
+                  f"'{item}' from slot {self.idx}")
             self.idx = self.next_index()
             self.counter += 1
             # leaving critical section
@@ -81,9 +83,9 @@ class Consumer(Thread):
 
 if __name__ == "__main__":
     threads = [
-        Producer("Kirill"),
-        Producer("Ekaterina"),
-        Consumer("Ian")
+        Producer("Spongebob"),
+        Producer("Patrick"),
+        Consumer("Squidward")
     ]
 
     for thread in threads:

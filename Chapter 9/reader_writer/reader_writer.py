@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 """Readers-writers problem using mutex:
-    Readers may proceed if no writer is writing.
-    Writers may proceed if no reader is reading and no other writer is writing.
-    With a simple RWLock, Readers may be starved by a Writer.
+Readers may proceed if no writer is writing.
+Writers may proceed if no reader is reading and no other writer is writing.
+With a simple RWLock, Readers may be starved by a Writer.
 """
 
 import time
@@ -11,6 +11,7 @@ import random
 from threading import Thread
 
 from rwlock import RWLock
+# try fair RWLock
 # from rwlock_fair import RWLockFair as RWLock
 
 # shared memory

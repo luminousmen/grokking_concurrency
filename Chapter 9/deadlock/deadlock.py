@@ -7,7 +7,6 @@ from threading import Thread
 
 from lock_with_name import LockWithName
 
-THREAD_DELAY = 0.1
 dumplings = 20
 
 
@@ -20,6 +19,9 @@ class Philosopher(Thread):
         self.right_chopstick = right_chopstick
 
     def run(self) -> None:
+        """Defines the behavior of the philosopher in the thread.
+        Acquires the left and right chopsticks, then eats a dumpling.
+        """
         # using globally shared variable
         global dumplings
 
@@ -36,7 +38,7 @@ class Philosopher(Thread):
             print(f"{self.right_chopstick.name} released by {self.name}")
             self.left_chopstick.release()
             print(f"{self.left_chopstick.name} released by {self.name}")
-            time.sleep(THREAD_DELAY)
+            time.sleep(0.1)
 
 
 if __name__ == "__main__":

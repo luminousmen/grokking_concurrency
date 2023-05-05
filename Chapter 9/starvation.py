@@ -6,14 +6,11 @@ from threading import Thread
 from deadlock.lock_with_name import LockWithName
 
 dumplings = 1000
-THREAD_DELAY = 1e-16
 
 
 class Philosopher(Thread):
-    def __init__(
-            self, name: str,
-            left_chopstick: LockWithName,
-            right_chopstick: LockWithName):
+    def __init__(self, name: str, left_chopstick: LockWithName,
+                 right_chopstick: LockWithName):
         super().__init__()
         self.name = name
         self.left_chopstick = left_chopstick
@@ -30,7 +27,7 @@ class Philosopher(Thread):
             if dumplings > 0:
                 dumplings -= 1
                 dumplings_eaten += 1
-                time.sleep(THREAD_DELAY)
+                time.sleep(1e-16)
             self.right_chopstick.release()
             self.left_chopstick.release()
         print(f"{self.name} took {dumplings_eaten} pieces")
@@ -42,7 +39,8 @@ if __name__ == "__main__":
 
     threads = []
     for i in range(10):
-        threads.append(Philosopher(f"Philosopher #{i}", chopstick_a, chopstick_b))
+        threads.append(
+            Philosopher(f"Philosopher #{i}", chopstick_a, chopstick_b))
 
     for thread in threads:
         thread.start()

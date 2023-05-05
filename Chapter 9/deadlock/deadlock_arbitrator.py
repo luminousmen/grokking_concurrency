@@ -8,7 +8,6 @@ from threading import Thread, Lock
 
 from lock_with_name import LockWithName
 
-THREAD_DELAY = 0.1
 dumplings = 20
 
 
@@ -16,8 +15,7 @@ class Waiter:
     def __init__(self) -> None:
         self.mutex = Lock()
 
-    def ask_for_chopsticks(self,
-                           left_chopstick: LockWithName,
+    def ask_for_chopsticks(self, left_chopstick: LockWithName,
                            right_chopstick: LockWithName) -> None:
         with self.mutex:
             left_chopstick.acquire()
@@ -34,7 +32,8 @@ class Waiter:
 
 
 class Philosopher(Thread):
-    def __init__(self, name: str, waiter: Waiter, left_chopstick: LockWithName,
+    def __init__(self, name: str, waiter: Waiter,
+                 left_chopstick: LockWithName,
                  right_chopstick: LockWithName):
         super().__init__()
         self.name = name
@@ -56,7 +55,7 @@ class Philosopher(Thread):
             print(f"{self.name} returns chopsticks to waiter")
             self.waiter.release_chopsticks(
                 self.left_chopstick, self.right_chopstick)
-            time.sleep(THREAD_DELAY)
+            time.sleep(0.1)
 
 
 if __name__ == "__main__":
@@ -64,10 +63,10 @@ if __name__ == "__main__":
     chopstick_b = LockWithName("chopstick_b")
 
     waiter = Waiter()
-    philosopher_1 = Philosopher(
-        "Philosopher #1", waiter, chopstick_a, chopstick_b)
-    philosopher_2 = Philosopher(
-        "Philosopher #2", waiter, chopstick_b, chopstick_a)
+    philosopher_1 = Philosopher("Philosopher #1", waiter, chopstick_a,
+                                chopstick_b)
+    philosopher_2 = Philosopher("Philosopher #2", waiter, chopstick_b,
+                                chopstick_a)
 
     philosopher_1.start()
     philosopher_2.start()

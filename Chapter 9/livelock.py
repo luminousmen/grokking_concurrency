@@ -1,20 +1,17 @@
 #!/usr/bin/env python3
-"""Two polite philosophers, thinking and eating sushi - but some has been starving"""
+"""Two polite philosophers, thinking and eating dumplings - but some has been starving"""
 
 import time
 from threading import Thread
 
 from deadlock.lock_with_name import LockWithName
 
-THREAD_DELAY = 1
 dumplings = 20
 
 
 class Philosopher(Thread):
-    def __init__(
-            self, name: str,
-            left_chopstick: LockWithName,
-            right_chopstick: LockWithName):
+    def __init__(self, name: str, left_chopstick: LockWithName,
+                 right_chopstick: LockWithName):
         super().__init__()
         self.name = name
         self.left_chopstick = left_chopstick
@@ -26,15 +23,20 @@ class Philosopher(Thread):
 
         while dumplings > 0:
             self.left_chopstick.acquire()
-            print(f"{self.left_chopstick.name} chopstick grabbed by {self.name}")
+            print(f"{self.left_chopstick.name} chopstick "
+                  f"grabbed by {self.name}")
             if self.right_chopstick.locked():
-                print(f"{self.name} cannot get the {self.right_chopstick.name} chopstick, politely concedes...")
+                print(f"{self.name} cannot get the "
+                      f"{self.right_chopstick.name} chopstick, "
+                      f"politely concedes...")
             else:
                 self.right_chopstick.acquire()
-                print(f"{self.right_chopstick.name} chopstick grabbed by {self.name}")
+                print(f"{self.right_chopstick.name} chopstick "
+                      f"grabbed by {self.name}")
                 dumplings -= 1
-                print(f"{self.name} eat a dumpling. Dumplings left: {dumplings}")
-                time.sleep(THREAD_DELAY)
+                print(f"{self.name} eat a dumpling. Dumplings "
+                      f"left: {dumplings}")
+                time.sleep(1)
                 self.right_chopstick.release()
             self.left_chopstick.release()
 
