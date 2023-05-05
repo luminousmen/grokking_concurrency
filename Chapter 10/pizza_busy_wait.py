@@ -2,8 +2,8 @@
 
 """Busy-waiting non-blocking server implementation"""
 
+import typing as T
 from socket import socket, create_server
-from typing import Set
 
 # the maximum amount of data to be received at once
 BUFFER_SIZE = 1024
@@ -11,7 +11,7 @@ ADDRESS = ("127.0.0.1", 12345)   # address and port of the host machine
 
 
 class Server:
-    clients: Set[socket] = set()
+    clients: T.Set[socket] = set()
 
     def __init__(self) -> None:
         try:
@@ -19,10 +19,8 @@ class Server:
             self.server_socket = create_server(ADDRESS)
             # set socket to non-blocking mode
             self.server_socket.setblocking(False)
-            print("Listen for incoming connections")
             # on server side let's start listening mode for this socket
             self.server_socket.listen()
-            print("Waiting for a connection")
         except OSError:
             self.server_socket.close()
             print("\nServer stopped.")
@@ -45,12 +43,10 @@ class Server:
 
     def serve(self, conn: socket) -> None:
         try:
-            data: bytes = conn.recv(BUFFER_SIZE)
-            if not data:   # recv didn't block, but returned nothing
-                self.clients.remove(conn)
-                print(f"Connection with {conn.getpeername()} has been closed")
-                conn.close()
-            else:
+            while True:
+                data = conn.recv(BUFFER_SIZE)
+                if not data:
+                    break
                 try:
                     order = int(data.decode())
                     response = f"Thank you for ordering {order} pizzas!\n"
@@ -65,6 +61,7 @@ class Server:
 
     def start(self) -> None:
         try:
+            print("Server listening for incoming connections")
             while True:
                 self.accept()
                 for conn in self.clients.copy():

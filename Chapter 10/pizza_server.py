@@ -5,7 +5,7 @@ from socket import socket, create_server
 
 # the maximum amount of data to be received at once
 BUFFER_SIZE = 1024
-ADDRESS = ("127.0.0.1", 12345)   # address and port of the host machine
+ADDRESS = ("127.0.0.1", 12345)  # address and port of the host machine
 
 
 class Server:
@@ -13,10 +13,8 @@ class Server:
         try:
             print(f"Starting up at: {ADDRESS}")
             self.server_socket: socket = create_server(ADDRESS)
-            print("Listen for incoming connections")
             # on server side let's start listening mode for this socket
             self.server_socket.listen()
-            print("Waiting for a connection")
         except OSError:
             self.server_socket.close()
             print("\nServer stopped.")
@@ -30,6 +28,7 @@ class Server:
         return conn
 
     def serve(self, conn: socket) -> None:
+        """Serve the incoming connection by sending and receiving data."""
         try:
             while True:
                 data = conn.recv(BUFFER_SIZE)
@@ -51,7 +50,10 @@ class Server:
             conn.close()
 
     def start(self) -> None:
+        """Start the server by continuously accepting and serving incoming
+        connections."""
         try:
+            print("Server listening for incoming connections")
             while True:
                 conn = self.accept()
                 self.serve(conn)

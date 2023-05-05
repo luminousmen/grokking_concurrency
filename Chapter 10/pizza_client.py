@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-"""
-Simple Pizza Client
-"""
+"""Simple Pizza Client"""
 
 from socket import create_connection
 
