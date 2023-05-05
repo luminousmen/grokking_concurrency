@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 """Task parallelism using Pipeline processing pattern"""
+
 import time
 from queue import Queue
 from threading import Thread
@@ -18,12 +19,12 @@ class Washer(Thread):
 
     def run(self) -> None:
         while True:
-            # get the wash  load from the previous stage.
-            Washload = self.in_queue.get()
-            print(f"Washing {Washload}")
-            time.sleep(1)
-            # send the wash load to the next stage
-            self.out_queue.put(f'{Washload}')
+            # get the washload from the previous stage
+            washload = self.in_queue.get()
+            print(f"Washer: washing {washload}...")
+            time.sleep(4)
+            # send the washload to the next stage
+            self.out_queue.put(f'{washload}')
             self.in_queue.task_done()
 
 
@@ -37,10 +38,10 @@ class Dryer(Thread):
 
     def run(self) -> None:
         while True:
-            # get the wash load from the previous stage.
+            # get the washload from the previous stage
             washload = self.in_queue.get()
             # dry the washload
-            print(f"\tDrying {washload}")
+            print(f"Dryer: drying {washload}...")
             time.sleep(2)
             # send the wash load to next stage
             self.out_queue.put(f'{washload}')
@@ -56,12 +57,12 @@ class Folder(Thread):
 
     def run(self) -> None:
         while True:
-            # get the wash load from the previous stage.
+            # get the washload from the previous stage
             washload = self.in_queue.get()
             # fold the washload
-            print(f"\t\tFolding {washload}")
+            print(f"Folder: folding {washload}...")
             time.sleep(1)
-            print(f"\t\t\t{washload} done")
+            print(f"Folder: {washload} done!")
             self.in_queue.task_done()
 
 
@@ -69,13 +70,13 @@ class Pipeline:
     """ Represents a washer, dryer and folder linked by queues. """
 
     def assemble_laundry_for_washing(self) -> Queue[Washload]:
-        washload_count = 8
+        washload_count = 4
         washloads_in: Queue[Washload] = Queue(washload_count)
         for washload_num in range(washload_count):
-            washloads_in.put(f'Washload no {washload_num}')
+            washloads_in.put(f'Washload #{washload_num}')
         return washloads_in
 
-    def run_parallel(self) -> None:
+    def run_concurrently(self) -> None:
         # set up the queues in the pipeline
         to_be_washed = self.assemble_laundry_for_washing()
         to_be_dried: Queue[Washload] = Queue()
@@ -95,4 +96,4 @@ class Pipeline:
 
 if __name__ == "__main__":
     pipeline = Pipeline()
-    pipeline.run_parallel()
+    pipeline.run_concurrently()
