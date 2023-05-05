@@ -55,6 +55,7 @@ def get_chunks(num_ranges: int, length: int) -> T.Iterator[ChunkRange]:
 def crack_chunk(crypto_hash: str, length: int, chunk_start: int,
                 chunk_end: int) -> T.Union[str, None]:
     """Brute force the password combinations"""
+    print(f"Processing {chunk_start} to {chunk_end}")
     combinations = get_combinations(length=length, min_number=chunk_start,
                                     max_number=chunk_end)
     for combination in combinations:
@@ -71,17 +72,16 @@ def crack_password_parallel(crypto_hash: str, length: int) -> None:
     start_time = time.perf_counter()
 
     # processing each chunk in a separate process concurrently
-    results = []
     with Pool() as pool:
-        for start_point, end_point in get_chunks(num_cores, length):
-            results.append(pool.apply_async(
-                crack_chunk, (crypto_hash, length, start_point, end_point)))
-            print(f"Chunk submitted checking {start_point} to {end_point}")
+        arguments = ((crypto_hash, length, chunk_start, chunk_end) for
+                     chunk_start, chunk_end in
+                     get_chunks(num_cores, length))
+        results = pool.starmap(crack_chunk, arguments)
         print("Waiting for chunks to finish")
         pool.close()
         pool.join()
 
-    result = [res.get() for res in results if res.get()]
+    result = [res for res in results if res]
     print(f"PASSWORD CRACKED: {result[0]}")
     process_time = time.perf_counter() - start_time
     print(f"PROCESS TIME: {process_time}")

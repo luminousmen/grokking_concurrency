@@ -12,7 +12,8 @@ dumplings = 20
 
 
 class Philosopher(Thread):
-    def __init__(self, name: str, left_chopstick: LockWithName, right_chopstick: LockWithName):
+    def __init__(self, name: str, left_chopstick: LockWithName,
+                 right_chopstick: LockWithName):
         super().__init__()
         self.name = name
         self.left_chopstick = left_chopstick
@@ -24,11 +25,13 @@ class Philosopher(Thread):
 
         while dumplings > 0:
             self.left_chopstick.acquire()
-            print(f"{self.left_chopstick.name} grabbed by {self.name} now needs {self.right_chopstick.name}")
+            print(f"{self.left_chopstick.name} grabbed by {self.name} "
+                  f"now needs {self.right_chopstick.name}")
             self.right_chopstick.acquire()
             print(f"{self.right_chopstick.name} grabbed by {self.name}")
             dumplings -= 1
-            print(f"{self.name} eats a dumpling. Dumplings left: {dumplings}")
+            print(
+                f"{self.name} eats a dumpling. Dumplings left: {dumplings}")
             self.right_chopstick.release()
             print(f"{self.right_chopstick.name} released by {self.name}")
             self.left_chopstick.release()

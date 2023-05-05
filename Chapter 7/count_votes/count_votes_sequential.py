@@ -5,8 +5,10 @@
 import typing as T
 import random
 
+Summary = T.Mapping[int, int]
 
-def process_votes(votes: T.List[int]) -> T.Mapping[int, int]:
+
+def process_votes(votes: T.List[int]) -> Summary:
     total_summary = {}
     for candidate in votes:
         if total_summary.get(candidate):
@@ -21,6 +23,6 @@ if __name__ == "__main__":
     num_voters = 100000
     # generating a huge list of votes
     # each vote is an integer represents the selected candidate
-    votes: T.List[int] = [random.randint(1, num_candidates) for _ in range(num_voters)]
+    votes = [random.randint(1, num_candidates) for _ in range(num_voters)]
     counts = process_votes(votes)
-    print(counts)
+    print(f"Total number of votes: {counts}")

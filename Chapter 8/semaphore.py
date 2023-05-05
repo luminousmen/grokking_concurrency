@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Implementing parking garage using semaphore for control critical section"""
+"""Implementing parking garage using semaphore to control critical section"""
 
 import typing as T
 import time
@@ -47,7 +47,8 @@ def park_car(garage: Garage, car_name: str) -> None:
 def test_garage(garage: Garage, number_of_cars: int = 10) -> None:
     threads = []
     for car_num in range(number_of_cars):
-        t = threading.Thread(target=park_car, args=(garage, f"car-{car_num}"))
+        t = threading.Thread(target=park_car,
+                             args=(garage, f"car-{car_num}"))
         threads.append(t)
         t.start()
 
