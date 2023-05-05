@@ -4,7 +4,7 @@
 import sys
 import time
 from threading import Thread
-from typing import List
+import typing as T
 
 from bank_account import BankAccount
 from synced_bank_account import SyncedBankAccount
@@ -31,7 +31,7 @@ class ATM(Thread):
 
 
 def test_atms(account: BankAccount, atm_number: int = 1000) -> None:
-    atms: List[ATM] = []
+    atms: T.List[ATM] = []
     # create `atm_number` threads that will deposit and withdraw money
     # from account concurrently
     for _ in range(atm_number):

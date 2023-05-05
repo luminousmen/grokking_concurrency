@@ -5,7 +5,7 @@
 import typing as T
 import time
 import random
-import threading
+from threading import Thread, Semaphore, Lock
 
 TOTAL_SPOTS = 3
 
@@ -13,8 +13,8 @@ TOTAL_SPOTS = 3
 class Garage:
 
     def __init__(self) -> None:
-        self.semaphore = threading.Semaphore(TOTAL_SPOTS)
-        self.cars_lock = threading.Lock()
+        self.semaphore = Semaphore(TOTAL_SPOTS)
+        self.cars_lock = Lock()
         self.parked_cars: T.List[str] = []
 
     def count_parked_cars(self) -> int:
@@ -25,7 +25,7 @@ class Garage:
         self.semaphore.acquire()
         self.cars_lock.acquire()
         self.parked_cars.append(car_name)
-        print(f"{car_name} car parked")
+        print(f"{car_name} parked")
         self.cars_lock.release()
 
     def exit(self, car_name: str) -> None:
@@ -47,8 +47,8 @@ def park_car(garage: Garage, car_name: str) -> None:
 def test_garage(garage: Garage, number_of_cars: int = 10) -> None:
     threads = []
     for car_num in range(number_of_cars):
-        t = threading.Thread(target=park_car,
-                             args=(garage, f"car-{car_num}"))
+        t = Thread(target=park_car,
+                   args=(garage, f"Car #{car_num}"))
         threads.append(t)
         t.start()
 

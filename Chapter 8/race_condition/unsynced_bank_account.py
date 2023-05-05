@@ -17,4 +17,4 @@ class UnsyncedBankAccount(BankAccount):
         if 0 < amount <= self.balance:
             self.balance -= amount
         else:
-            raise ValueError("Account does not contain sufficient funds")
+            raise ValueError("Account does not have sufficient funds")
