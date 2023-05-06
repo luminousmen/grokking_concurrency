@@ -19,18 +19,12 @@ class Server:
             self.server_socket = create_server(ADDRESS)
             # set socket to non-blocking mode
             self.server_socket.setblocking(False)
-            # on server side let's start listening mode for this socket
-            self.server_socket.listen()
         except OSError:
             self.server_socket.close()
             print("\nServer stopped.")
 
     def accept(self) -> None:
         try:
-            # accepting the incoming connection
-            # conn = is a new socket object usable to send and receive data on the
-            # connection
-            # addr = is the address bound to the socket on the other end of connection
             conn, address = self.server_socket.accept()
             print(f"Connected to {address}")
             # making this connection non-blocking
@@ -42,6 +36,7 @@ class Server:
             pass
 
     def serve(self, conn: socket) -> None:
+        """Serve the incoming connection by sending and receiving data."""
         try:
             while True:
                 data = conn.recv(BUFFER_SIZE)
@@ -60,8 +55,10 @@ class Server:
             pass
 
     def start(self) -> None:
+        """Start the server by continuously accepting and serving incoming
+        connections."""
+        print("Server listening for incoming connections")
         try:
-            print("Server listening for incoming connections")
             while True:
                 self.accept()
                 for conn in self.clients.copy():

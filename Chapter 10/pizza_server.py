@@ -13,8 +13,6 @@ class Server:
         try:
             print(f"Starting up at: {ADDRESS}")
             self.server_socket: socket = create_server(ADDRESS)
-            # on server side let's start listening mode for this socket
-            self.server_socket.listen()
         except OSError:
             self.server_socket.close()
             print("\nServer stopped.")
@@ -52,8 +50,8 @@ class Server:
     def start(self) -> None:
         """Start the server by continuously accepting and serving incoming
         connections."""
+        print("Server listening for incoming connections")
         try:
-            print("Server listening for incoming connections")
             while True:
                 conn = self.accept()
                 self.serve(conn)

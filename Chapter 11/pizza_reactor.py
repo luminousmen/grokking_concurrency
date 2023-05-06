@@ -3,7 +3,7 @@
 """Implementation of event-based concurrency using Reactor pattern"""
 
 import typing as T
-from selectors import DefaultSelector, EVENT_READ, EVENT_WRITE
+import select
 from socket import socket, create_server
 
 Data = bytes
@@ -17,43 +17,40 @@ ADDRESS = ("127.0.0.1", 12345)  # address and port of the host machine
 
 class EventLoop:
     def __init__(self) -> None:
-        # Python library offers us two modules that support synchronous
-        # I/O multiplexing: select and selectors.
-        # select is more low level and exposes you to the specific select-family
-        # syscalls, selectors is a higher level module that choose the best
-        # implementation on your system,
-        # roughly epoll|kqueue|devpoll > poll > select
-        self.event_notifier = DefaultSelector()
+        self.writers = {}
+        self.readers = {}
 
     def register_event(self, source: socket, event: int,
                        action: Action) -> None:
-        """Registers an event to the event notifier with the given source,
-        event, and action. If the event already exists, modifies the action
-        of the event."""
-        try:
-            self.event_notifier.register(source, event, action)
-        except KeyError:  # already exists so modify
-            self.event_notifier.modify(source, event, action)
+        """Registers the given socket for the given event type
+        with the given to be executed when the event occurs."""
+        key = source.fileno()
+        if event & select.POLLIN:
+            self.readers[key] = (source, event, action)
+        elif event & select.POLLOUT:
+            self.writers[key] = (source, event, action)
 
     def unregister_event(self, source: socket) -> None:
-        """Unregisters the event with the given source from the event
-        notifier."""
-        self.event_notifier.unregister(source)
+        key = source.fileno()
+        if self.readers.get(key):
+            del self.readers[key]
+        if self.writers.get(key):
+            del self.writers[key]
 
     def run_forever(self) -> None:
         """Runs the event loop indefinitely, waiting for registered events
         and executing their associated actions when they occur"""
         while True:
-            # select() blocks until there are sockets ready for I/O.
-            events = self.event_notifier.select()
-            for (source, _, _, action), event in events:
-                if event & EVENT_READ:
-                    action(source)
-                elif event & EVENT_WRITE:
-                    action, msg = action  # separate callable and data
-                    action(source, msg)
-                else:
-                    raise RuntimeError("No such event")
+            readers, writers, _ = select.select(
+                self.readers, self.writers, [])
+            for reader in readers:
+                source, event, action = self.readers.pop(reader)
+                action(source)
+
+            for writer in writers:
+                source, event, action = self.writers.pop(writer)
+                action, msg = action
+                action(source, msg)
 
 
 class Server:
@@ -64,12 +61,9 @@ class Server:
         self.event_loop = event_loop
         try:
             print(f"Starting up at: {ADDRESS}")
-            # On POSIX platforms the SO_REUSEADDR socket option is set
             self.server_socket = create_server(ADDRESS)
             # set socket to non-blocking mode
             self.server_socket.setblocking(False)
-            # on server side let's start listening mode for this socket
-            self.server_socket.listen()
         except OSError:
             self.server_socket.close()
             print("\nServer stopped.")
@@ -86,7 +80,7 @@ class Server:
         print(f"Connected to {client_address}")
         # future calls to the self.event_notifier.select() will be notified
         # whether this socket connection has any pending I/O events
-        self.event_loop.register_event(conn, EVENT_READ, self._on_read)
+        self.event_loop.register_event(conn, select.POLLIN, self._on_read)
 
     def _on_read(self, conn: socket) -> None:
         """Callback that is called when the connected socket has incoming
@@ -103,7 +97,7 @@ class Server:
             conn.close()
             return
         message = data.decode().strip()
-        self.event_loop.register_event(conn, EVENT_WRITE,
+        self.event_loop.register_event(conn, select.POLLOUT,
                                        (self._on_write, message))
 
     def _on_write(self, conn: socket, message: bytes) -> None:
@@ -120,19 +114,15 @@ class Server:
             conn.send(response.encode())
         except BlockingIOError:
             return
-        self.event_loop.register_event(conn, EVENT_READ, self._on_read)
+        self.event_loop.register_event(conn, select.POLLIN, self._on_read)
 
     def start(self) -> None:
-        # registering the server socket for the OS to monitor
-        # Once register is done future calls to the self.event_notifier.select()
-        # will be notified whether server socket has any pending accept events
-        # from the clients
         print("Server listening for incoming connections")
-        self.event_loop.register_event(
-            self.server_socket, EVENT_READ, self._on_accept)
+        self.event_loop.register_event(self.server_socket, select.POLLIN,
+                                       self._on_accept)
 
 
 if __name__ == "__main__":
     loop = EventLoop()
-    Server(loop).start()
+    Server(event_loop=loop).start()
     loop.run_forever()
