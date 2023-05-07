@@ -1,64 +1,56 @@
 """Event loop implementation with futures and coroutines"""
 
-from selectors import DefaultSelector
 from collections import deque
 import typing as T
-from socket import socket
-
+import socket
+import select
 from future import Future
 
-Data = bytes
-Action = T.Callable[[socket, T.Any], None]
-Mask = int  # selectors constants EVENT_READ & EVENT_WRITE
-
-BUFFER_SIZE = 1024
+Action = T.Callable[[socket.socket, T.Any], Future]
+Coroutine = T.Generator[T.Any, T.Any, T.Any]
 
 
 class EventLoop:
-    def __init__(self) -> None:
-        self.event_notifier = DefaultSelector()
-        self.tasks: T.Deque[T.Coroutine[T.Any, T.Any, T.Any]] = deque()
+    def __init__(self):
+        self._numtasks = 0
+        self._ready = deque()
+        self._read_waiting = {}
+        self._write_waiting = {}
 
-    def register_event(self, source: socket, event: int, action: Action) -> None:
+    def register_event(self, source: socket.socket, event: int, future,
+                       task: Action) -> None:
+        key = source.fileno()
+        if event & select.POLLIN:
+            self._read_waiting[key] = (future, task)
+        elif event & select.POLLOUT:
+            self._write_waiting[key] = (future, task)
+
+    def add_coroutine(self, task: Coroutine) -> None:
+        self._ready.append((task, None))
+        self._numtasks += 1
+
+    def add_ready(self, task: Coroutine, msg=None):
+        self._ready.append((task, msg))
+
+    def run_coroutine(self, task: Coroutine, msg) -> None:
         try:
-            self.event_notifier.register(source, event, action)
-        except KeyError:  # already exists so modify
-            self.event_notifier.modify(source, event, action)
-
-    def unregister_event(self, source: socket) -> None:
-        self.event_notifier.unregister(source)
-
-    def create_future_for_events(self, sock: socket, events: Mask) -> Future:
-        future = Future(loop=self)
-
-        def handler(sock: socket, result: T.Any) -> None:
-            self.unregister_event(sock)
-            future.set_result(result)
-
-        self.register_event(sock, events, handler)
-        return future
-
-    def add_coroutine(self, co: T.Coroutine[T.Any, T.Any, T.Any]) -> None:
-        # this method will be called from the main class to add a new coroutine
-        # to be executed
-        self.tasks.append(co)
-
-    def run_coroutine(self, co: T.Coroutine[T.Any, T.Any, T.Any]) -> None:
-        try:
-            future = co.send(None)
-            future.set_coroutine(co)
+            future = task.send(msg)
+            future.coroutine(self, task)
         except StopIteration:
-            pass
+            self._numtasks -= 1
 
-    def run_forever(self) -> T.NoReturn:
-        while True:
-            while not self.tasks:
-                try:
-                    events = self.event_notifier.select()
-                    for (source, _, _, action), _ in events:
-                        action(source, events)
-                except OSError:
-                    pass
+    def run_forever(self) -> None:
+        while self._numtasks:
+            if not self._ready:
+                readers, writers, _ = select.select(self._read_waiting,
+                                                    self._write_waiting, [])
+                for reader in readers:
+                    future, task = self._read_waiting.pop(reader)
+                    future.coroutine(self, task)
 
-            while self.tasks:
-                self.run_coroutine(co=self.tasks.popleft())
+                for writer in writers:
+                    future, task = self._write_waiting.pop(writer)
+                    future.coroutine(self, task)
+
+            task, msg = self._ready.popleft()
+            self.run_coroutine(task, msg)

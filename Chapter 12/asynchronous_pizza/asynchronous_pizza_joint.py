@@ -2,7 +2,6 @@
 
 import socket
 import time
-from typing import NoReturn
 
 from async_socket import AsyncSocket
 from event_loop_with_pool import EventLoop
@@ -20,62 +19,46 @@ class Kitchen:
 
 
 class Server:
-    def __init__(self, loop) -> None:
-        self.loop = loop
-        self.server_socket = AsyncSocket(
-            sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM), loop=loop)
-        # allows multiple sockets to be bound to an identical socket address
-        self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    def __init__(self, event_loop: EventLoop):
+        self.event_loop = event_loop
+        print(f"Starting up on: {ADDRESS}")
+        self.server_socket = AsyncSocket(socket.create_server(ADDRESS))
+        self.event_loop.add_coroutine(self.serve_forever())
 
-        try:
-            print(f"Starting up on: {ADDRESS}")
-            # bind a socket to a specific network interface and port number
-            self.server_socket.bind(ADDRESS)
-            print("Listen for incoming connections")
-            # on server side let"s start listening mode for this socket
-            self.server_socket.listen()
-            print("Waiting for a connection")
-            self.server_socket.setblocking(False)
-        except Exception:
-            self.server_socket.close()
-            print("\nServer stopped.")
-        self.loop.add_coroutine(self.serve_forever())
-
-    async def serve_forever(self) -> NoReturn:
+    def serve_forever(self):
+        print("Server listening for incoming connections")
         try:
             while True:
-                conn, address = await self.server_socket.accept()
+                conn, address = yield self.server_socket.accept()
                 print(f"Connected to {address}")
-                self.loop.add_coroutine(self.serve(conn))
-        finally:
-            self.server_socket.close()
-            print("\nServer stopped.")
-
-    async def serve(self, conn) -> None:
-        try:
-            while True:
-                data = await conn.recv(BUFFER_SIZE)
-                if not data:
-                    break
-                try:
-                    order = int(data.decode())
-                    response = f"Thank you for ordering {order} pizzas!\n"
-                    print(f"Sending message to {conn.getpeername()}")
-                    await conn.send(response.encode())
-                    await self.loop.run_in_executor(Kitchen.cook_pizza, order)
-                    response = f"You order on {order} pizzas is ready!\n"
-                except ValueError:
-                    response = "Wrong number of pizzas, please try again\n"
-                print(f"Sending message to {conn.getpeername()}")
-                await conn.send(response.encode())
-            print(f"Connection with {conn.getpeername()} has been closed")
-            conn.close()
+                self.event_loop.add_coroutine(self.serve(AsyncSocket(conn)))
         except Exception:
             self.server_socket.close()
             print("\nServer stopped.")
+
+    def serve(self, conn: AsyncSocket):
+        while True:
+            data = yield conn.recv(BUFFER_SIZE)
+            if not data:
+                break
+
+            try:
+                order = int(data.decode())
+                response = f"Thank you for ordering {order} pizzas!\n"
+                print(f"Sending message to {conn.getpeername()}")
+                yield conn.send(response.encode())
+                yield self.event_loop.run_in_executor(Kitchen.cook_pizza, order)
+                response = f"You order on {order} pizzas is ready!\n"
+            except ValueError:
+                response = "Wrong number of pizzas, please try again\n"
+
+            print(f"Sending message to {conn.getpeername()}")
+            yield conn.send(response.encode())
+        print(f"Connection with {conn.getpeername()} has been closed")
+        conn.close()
 
 
 if __name__ == "__main__":
     loop = EventLoop()
-    server = Server(loop=loop)
+    server = Server(event_loop=loop)
     loop.run_forever()

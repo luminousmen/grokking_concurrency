@@ -78,8 +78,6 @@ class Server:
             return
         conn.setblocking(False)
         print(f"Connected to {client_address}")
-        # future calls to the self.event_notifier.select() will be notified
-        # whether this socket connection has any pending I/O events
         self.event_loop.register_event(conn, select.POLLIN, self._on_read)
 
     def _on_read(self, conn: socket) -> None:

@@ -3,48 +3,67 @@ but with asynchronous flavour! """
 # Allow forward references in type hints (Python>=3.7)
 from __future__ import annotations
 
-import selectors
+import select
 import typing as T
-from socket import socket
+import socket
 
-from event_loop import EventLoop
+from future import Future
 
-Address = int  # IPAddress
+Data = bytes
 
 
 class AsyncSocket:
-    def __init__(self, sock: socket, loop: EventLoop) -> None:
-        sock.setblocking(False)
+    def __init__(self, sock: socket.socket):
         self._sock = sock
-        self._loop = loop
+        self._sock.setblocking(False)
 
-    async def accept(self) -> T.Tuple[AsyncSocket, Address]:
-        while True:
-            try:
-                client_sock, client_addr = self._sock.accept()
-                return AsyncSocket(client_sock, self._loop), client_addr
-            except BlockingIOError:
-                future = self._loop.create_future_for_events(
-                    self._sock, selectors.EVENT_READ)
-                await future
+    def recv(self, bufsize: int) -> Future:
+        future = Future()
 
-    async def recv(self, bufsize: int) -> bytes:
-        while True:
+        def handle_yield(loop, task) -> None:
             try:
-                return self._sock.recv(bufsize)
+                data = self._sock.recv(bufsize)
+                loop.add_ready(task, data)
             except BlockingIOError:
-                future = self._loop.create_future_for_events(
-                    self._sock, selectors.EVENT_READ)
-                await future
+                loop.register_event(self._sock, select.POLLIN, future, task)
 
-    async def send(self, data: bytes) -> int:
-        while True:
+        future.set_coroutine(handle_yield)
+        return future
+
+    def send(self, data: Data) -> Future:
+        future = Future()
+
+        def handle_yield(loop, task):
             try:
-                return self._sock.send(data)
+                nsent = self._sock.send(data)
+                loop.add_ready(task, nsent)
             except BlockingIOError:
-                future = self._loop.create_future_for_events(
-                    self._sock, selectors.EVENT_WRITE)
-                await future
+                loop.register_event(self._sock, select.POLLOUT, future, task)
+
+        future.set_coroutine(handle_yield)
+        return future
+
+    def accept(self) -> Future:
+        future = Future()
+
+        def handle_yield(loop, task):
+            try:
+                r = self._sock.accept()
+                loop.add_ready(task, r)
+            except BlockingIOError:
+                loop.register_event(self._sock, select.POLLIN, future, task)
+
+        future.set_coroutine(handle_yield)
+        return future
+
+    def close(self) -> Future:
+        future = Future()
+
+        def handle_yield(*args):
+            self._sock.close()
+
+        future.set_coroutine(handle_yield)
+        return future
 
     def __getattr__(self, name: str) -> T.Any:
         return getattr(self._sock, name)
