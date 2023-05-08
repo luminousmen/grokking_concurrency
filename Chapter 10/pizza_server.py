@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Simple one connection TCP/IP socket server"""
 from socket import socket, create_server

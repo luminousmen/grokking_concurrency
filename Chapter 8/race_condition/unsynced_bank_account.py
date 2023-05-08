@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 """Bank account without synchronization cause race condition """
 
 from bank_account import BankAccount

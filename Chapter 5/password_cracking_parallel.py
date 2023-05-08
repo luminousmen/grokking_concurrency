@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Program for cracking the password consisting of only numbers using multi
 cores in parallel"""

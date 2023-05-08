@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Implementing parking garage using semaphore for control critical section"""
 

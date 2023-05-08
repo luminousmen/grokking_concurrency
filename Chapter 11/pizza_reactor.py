@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Implementation of event-based concurrency using Reactor pattern"""
 

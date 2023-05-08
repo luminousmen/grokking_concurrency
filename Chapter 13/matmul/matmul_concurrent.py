@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 """ Multiply two matrices concurrently """
 
 from typing import List
 import random
-from concurrent.futures import ProcessPoolExecutor, wait, Future
+from multiprocessing import Pool
 
 Row = List[int]
 Column = List[int]
@@ -11,8 +11,8 @@ Matrix = List[Row]
 
 
 def matrix_multiply(matrix_a: Matrix, matrix_b: Matrix) -> Matrix:
-    """ Multiply two matrices,
-            calculating each column of the solution concurrently. """
+    """ Multiply two matrices, calculating each column of the solution
+    concurrently. """
     num_rows_a = len(matrix_a)
     num_cols_a = len(matrix_a[0])
     num_rows_b = len(matrix_b)
@@ -23,21 +23,18 @@ def matrix_multiply(matrix_a: Matrix, matrix_b: Matrix) -> Matrix:
             f"{num_rows_a}x{num_cols_a}*{num_rows_b}x{num_cols_b}"
         )
 
-    with ProcessPoolExecutor() as pool:
-        futures: List[Future[Column]] = []
-
-        for row_index in range(num_rows_a):
-            futures.append(
-                pool.submit(process_1_row, matrix_a, matrix_b, row_index))
-
-        wait(futures)
-        solution_matrix = [future.result() for future in futures]
-
-    return solution_matrix
+    pool = Pool()
+    results = pool.map(
+        process_row,
+        [(matrix_a, matrix_b, i) for i in range(num_rows_a)])
+    pool.close()
+    pool.join()
+    return results
 
 
-def process_1_row(matrix_a: Matrix, matrix_b: Matrix, row_idx: int) -> Column:
+def process_row(args: tuple) -> Column:
     """ Creates 1 column of the solution_matrix """
+    matrix_a, matrix_b, row_idx = args
     num_cols_a = len(matrix_a[0])
     num_cols_b = len(matrix_b[0])
 

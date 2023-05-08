@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """ Search for a specific word in multiple files within a specified
 directory using data decomposition technique(Loop-level parallelism)"""

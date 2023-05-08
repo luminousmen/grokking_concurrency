@@ -8,7 +8,7 @@ The official page for this book can be found here:
 
 All the code examples have been tested with Python 3.9 on MacOS(12.0.1) and Linux Ubuntu(16.04). No additional libraries necessary.
 
-NOTE: This code is not production ready and adapted to the non-Python devs so please be patient with fully not-pythonic code.
+NOTE: This code is not production ready and adapted to the non-Python devs so please be patient with not fully pythonic code.
 
 To install Python 3.9 please follow instructions from [https://www.python.org/downloads/](https://www.python.org/downloads/).
 

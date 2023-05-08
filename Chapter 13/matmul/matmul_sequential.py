@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 """ Multiply two matrices sequentially """
 
 import random

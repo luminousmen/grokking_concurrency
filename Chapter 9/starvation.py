@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 """Philosophers, thinking and eating sushi - but some has been starving"""
 import time
 from threading import Thread

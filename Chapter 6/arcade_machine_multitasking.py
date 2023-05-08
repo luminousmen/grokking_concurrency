@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Implementing the game program using threads without multitasking using
 blocking threads """

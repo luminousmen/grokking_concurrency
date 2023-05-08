@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Philosophers thinking and eating dumplings - fighting deadlock
 by setting priorities"""

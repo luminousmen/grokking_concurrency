@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 """Two polite philosophers, thinking and eating dumplings - but some has been starving"""
 
 import time

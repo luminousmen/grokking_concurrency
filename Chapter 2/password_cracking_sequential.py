@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.9
 
 """Program for cracking the password consisting with only numbers using brute
 force approach sequentially"""
