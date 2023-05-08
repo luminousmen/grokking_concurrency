@@ -39,7 +39,7 @@ class EventLoop:
         self._write_waiting = {}
         self.executor = Executor()
 
-    def register_event(self, source: socket.socket, event: int, future,
+    def register_event(self, source: socket.socket, event: Mask, future,
                        task: Action) -> None:
         key = source.fileno()
         if event & select.POLLIN:
@@ -62,7 +62,7 @@ class EventLoop:
         except StopIteration:
             self._numtasks -= 1
 
-    def run_in_executor(self, func, *args):
+    def run_in_executor(self, func, *args) -> Future:
         future_event = self.executor.execute(func, *args)
         future = Future()
 
@@ -71,7 +71,8 @@ class EventLoop:
                 data = future_event.recv(BUFFER_SIZE)
                 loop.add_ready(task, data)
             except BlockingIOError:
-                loop.register_event(future_event, select.POLLIN, future, task)
+                loop.register_event(
+                    future_event, select.POLLIN, future, task)
 
         future.set_coroutine(handle_yield)
         return future
@@ -79,8 +80,8 @@ class EventLoop:
     def run_forever(self) -> None:
         while self._numtasks:
             if not self._ready:
-                readers, writers, _ = select.select(self._read_waiting,
-                                                    self._write_waiting, [])
+                readers, writers, _ = select.select(
+                    self._read_waiting, self._write_waiting, [])
                 for reader in readers:
                     future, task = self._read_waiting.pop(reader)
                     future.coroutine(self, task)

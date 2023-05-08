@@ -8,6 +8,7 @@ from future import Future
 
 Action = T.Callable[[socket.socket, T.Any], Future]
 Coroutine = T.Generator[T.Any, T.Any, T.Any]
+Mask = int  # selectors constants EVENT_READ & EVENT_WRITE
 
 
 class EventLoop:
@@ -17,7 +18,7 @@ class EventLoop:
         self._read_waiting = {}
         self._write_waiting = {}
 
-    def register_event(self, source: socket.socket, event: int, future,
+    def register_event(self, source: socket.socket, event: Mask, future,
                        task: Action) -> None:
         key = source.fileno()
         if event & select.POLLIN:
@@ -34,6 +35,7 @@ class EventLoop:
 
     def run_coroutine(self, task: Coroutine, msg) -> None:
         try:
+            # run the coroutine to the next yield
             future = task.send(msg)
             future.coroutine(self, task)
         except StopIteration:
@@ -42,8 +44,8 @@ class EventLoop:
     def run_forever(self) -> None:
         while self._numtasks:
             if not self._ready:
-                readers, writers, _ = select.select(self._read_waiting,
-                                                    self._write_waiting, [])
+                readers, writers, _ = select.select(
+                    self._read_waiting, self._write_waiting, [])
                 for reader in readers:
                     future, task = self._read_waiting.pop(reader)
                     future.coroutine(self, task)
