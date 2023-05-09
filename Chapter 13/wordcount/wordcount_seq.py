@@ -5,19 +5,26 @@ import os
 import glob
 import typing as T
 
+Occurrences = T.Dict[str, int]
 
-def wordcount(filenames: T.List[str]) -> T.Dict[str, int]:
-    d = {}
+ENCODING = "ISO-8859-1"
+
+
+def wordcount(filenames: T.List[str]) -> Occurrences:
+    """Calculates the word count of given files."""
+    word_counts = {}
     for filename in filenames:
         print(f"Calculating {filename}")
-        with open(filename, "r") as f:
-            for line in f:
+        with open(filename, "r", encoding=ENCODING) as file:
+            for line in file:
+                # Split line into words using regex
                 words = re.split("\W+", line)
                 for word in words:
                     word = word.lower()
+                    # Count the word if it is not empty
                     if word != "":
-                        d[word] = 1 + d.get(word, 0)
-    return d
+                        word_counts[word] = 1 + word_counts.get(word, 0)
+    return word_counts
 
 
 if __name__ == "__main__":

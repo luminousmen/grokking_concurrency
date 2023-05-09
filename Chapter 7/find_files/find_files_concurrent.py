@@ -34,7 +34,8 @@ if __name__ == "__main__":
     # get input from user
     search_dir = input("Where would you like me to search?: ")
     # removing hidden files just in case, and ignore subdirs
-    file_locations = []
+    file_locations = list(
+        glob.glob(f"{os.path.abspath(os.getcwd())}/Warren_buffet_letters/*.txt"))
     for f in os.listdir(search_dir):
         # assuming flat folder structure
         if os.path.isfile(os.path.join(search_dir, f)) \

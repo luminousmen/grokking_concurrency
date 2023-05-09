@@ -1,0 +1,1195 @@
+Note: The following table appears in the printed Annual Report on the facing page of the Chairman's Letter  
+2 Berkshire’s Corporate Performance vs. the S&P 500 
+ 
+   Annual Percentage Change   
+  in Per-Share in S&P 500  
+  Book Value of with Dividends Relative 
+  Berkshire Included Results 
+Year    (1)   (2)   (1)-(2)  
+1965 .................................................. 23.8 10.0 13.8 
+1966 .................................................. 20.3 (11.7) 32.0 
+1967 .................................................. 11.0 30.9 (19.9) 
+1968  .................................................. 19.0 11.0 8.0 
+1969 .................................................. 16.2 (8.4) 24.6 
+1970 .................................................. 12.0 3.9 8.1 
+1971 .................................................. 16.4 14.6 1.8 
+1972 .................................................. 21.7 18.9 2.8 
+1973 .................................................. 4.7 (14.8) 19.5 
+1974 .................................................. 5.5 (26.4) 31.9 
+1975 .................................................. 21.9 37.2 (15.3) 
+1976 .................................................. 59.3 23.6 35.7 
+1977 .................................................. 31.9 (7.4) 39.3 
+1978 .................................................. 24.0 6.4 17.6 
+1979 .................................................. 35.7 18.2 17.5 
+1980 .................................................. 19.3 32.3 (13.0) 
+1981 .................................................. 31.4 (5.0) 36.4 
+1982 .................................................. 40.0 21.4 18.6 
+1983 .................................................. 32.3 22.4 9.9 
+1984 .................................................. 13.6 6.1 7.5 
+1985 .................................................. 48.2 31.6 16.6 
+1986 .................................................. 26.1 18.6 7.5 
+1987 .................................................. 19.5 5.1 14.4 
+1988 .................................................. 20.1 16.6 3.5 
+1989 .................................................. 44.4 31.7 12.7 
+1990 .................................................. 7.4 (3.1) 10.5 
+1991 .................................................. 39.6 30.5 9.1 
+1992 .................................................. 20.3 7.6 12.7 
+1993 .................................................. 14.3 10.1 4.2 
+1994 .................................................. 13.9 1.3 12.6 
+1995 .................................................. 43.1 37.6 5.5 
+1996 .................................................. 31.8 23.0 8.8 
+1997 .................................................. 34.1 33.4 .7 
+1998 .................................................. 48.3 28.6 19.7 
+1999 .................................................. .5 21.0 (20.5) 
+2000 .................................................. 6.5 (9.1) 15.6 
+2001 .................................................. (6.2) (11.9) 5.7 
+2002 .................................................. 10.0 (22.1) 32.1 
+2003 .................................................. 21.0 28.7 (7.7) 
+2004 .................................................. 10.5 10.9 (.4) 
+2005 .................................................. 6.4 4.9 1.5 
+Average Annual Gain — 1965-2005 21.5 10.3 11.2 
+Overall Gain — 1964-2005 305,134 5,583  
+Notes: Data are for calendar years with these exceptions:  1965 and 1966, year ended 9/30; 1967, 15 months ended 12/31. 
+ Starting in 1979, accounting rules required insurance companie s to value the equity securities they hold at market rather than at the lower of cost or market, which was prev iously the requirement.  In this table, Berkshire’s results through 1978 have been restated to conform to the changed rule s.  In all other respects, the results are calculated using the numbers originally reported. 
+The S&P 500 numbers are pre-tax whereas the Berkshire numbers are after-tax.  If a corporation such as Berkshire were simply to have owned the S&P 500 and accrued the appr opriate taxes, its results would have lagged the S&P 500 in years when that index showed a positive return, but would have exceeded the S&P 500 in years when the index showed a negative return.  Over the years, the tax cost s would have caused the aggregate lag to be substantial.
+  
+BER KSHIR E HATHAWAY  INC. 
+ 
+ 
+To the Shareholders of Berkshire Hath away Inc. : 
+ 
+ Our gain in net worth du ring 2005 was $5.6 billion, which increased  the per-share book  value of 
+both our Class A an d Class B stock by 6.4%.  Over the last 41 y ears (that is, since present  managem ent 
+took over) book value has grown from  $19 t o $59,377, a rate of 21.5% c ompounded annually.* 
+ 
+ Berkshire ha d a decent year in 2005.  We initiated five acquisitions (two of whic h have yet to  
+close) an d most of ou r operating su bsidiaries pros pered.  Even o ur insurance b usiness in its entirety did 
+well, th ough Hurrican e Kat rina in flicted  record  losses on both Berk shire an d the indu stry.  We estim ate our 
+loss fro m Katrin a at $2.5 billion – and  her ugly sisters, Rit a and Wilma, co st us an additional $.9 billion.  
+ 
+ Cred it GEICO – and its brillian t CEO, To ny Nicely –  for our stellar in surance resu lts in a d isaster-
+ridden year.  One statistic stan ds out: In  just two  years, GEICO im proved its p roductivity b y 32%.  
+Remarkabl y, employment fell by 4% eve n as pol icy count grew by 26% – an d more gai ns are i n store.  
+When we dri ve un it co sts d own in such a dram atic manner, we can offer ever-greater value to our 
+customers.  The payoff: Last year, GEICO gained market-share, earned commenda ble profits and 
+strengthened its brand.  If you have a new son or grandson in 2006, name him Tony . 
+* * * * * * * * * * * * 
+ My g oal in writin g this report is to  give you the info rmatio n you need to estimate Berk shire’s 
+intrinsic value .  I say  “estimate” becaus e calculations  of intrinsic value, t hough all-im porta nt, are  
+necessa rily impreci se and often seriously wrong.  The  more unce rtain the future of a business, the more 
+possibility th ere is th at the calculation will b e wild ly off-base.  (Fo r an explanation  of intrinsic v alue, see 
+page s 77 – 78.)  Here B erkshire has s ome adva ntages: a wide vari ety of relatively-stable earni ngs streams, 
+combined with great  liquidity and minimum debt.  These factors m ean that Berks hire’s in trinsic v alue can  
+be m ore precis ely calculated than can th e intrinsic value of m ost companies. 
+ 
+ Yet if preci sion is aided by Berkshire’s financial ch aracteristics, th e job o f calcu lating in trinsic 
+value has bee n made more com plex by the mere prese nce of s o many earni ngs st reams.  Back i n 1965, 
+when we own ed only a sm all textile o peration , the task  of calcu lating intrinsic v alue was a sn ap.  No w we 
+own 68 distinct businesses  with widely disparat e operating and financial charact eristics.  T his array of 
+unrelated enterprises, coupled with our massive invest ment holdings, makes i t impossi ble for you to simply 
+examine our consolidated financial state ments and arriv e at an  informed estimate of intrinsic value. 
+ 
+ We h ave at tempted to ease t his problem by clustering our businesses into four logical groups, each 
+of which we discu ss later in  this repo rt.  In th ese d iscussions, we will p rovide the key figures for bo th the 
+group and its important com ponents.  Of course, the value of B erkshire may be ei ther great er or less than 
+the sum  of these fo ur parts.  The o utcome depen ds on whether o ur many units function better or worse by 
+being part of a larger e nterprise and whether capi tal allocation improves or deteriorates wh en it is un der the 
+direction of a holding company.  In other words, does Berkshire ownership bring anything to the party, or 
+would our s harehol ders be better off if they directly owne d sha res in each  of our 68 busi nesses ?  These are 
+important questio ns but ones that you  will h ave to answer for you rself. 
+ 
+ Before we look at our individual businesses, however, let’s review two sets of figures that show 
+where we ’ve c ome from  and whe re we are now.  The fi rst set is the am ount of invest ments (including cash 
+and cash-equivalents) we o wn on a per-share basi s.  In making this calculation, we excl ude investments 
+held in our fina nce ope ration because these are largely offs et by borrowi ngs: 
+  
+ * All fi gures used in t his report ap ply to Berkshi re’s A shares, the successor to the  only stock that  
+the company had  outstan ding before 1996.  The B shares hav e an econ omic interest equal to  1/30th that of 
+the A. 
+ 
+ 
+ 3 
+Year 
+Per-Sha re Inve stments* 
+  
+1965 .....................................................................  $         4 
+1975 .....................................................................  159 
+1985 .....................................................................  2,407 
+1995 .....................................................................  21,817 
+2005 .....................................................................  $74,129
+Com pound G rowth Rate 1965 -2005....................        28.0% 
+Com pound G rowth Rate 1995 -2005....................        13.0% 
+  * Net of minority interests 
+ 
+ In add ition to th ese m arketable securities, wh ich with m inor exceptions are held in our insurance 
+companies, w e own a w ide variety o f non- insurance bu sinesses.  Belo w, we show the pre-tax earn ings 
+(excluding good will am ortization) of these businesses, ag ain on a per-share b asis: 
+ 
+Year 
+Per-Sha re Earnings * 
+  
+1965 .....................................................................  $        4 
+1975 .....................................................................  4 
+1985 .....................................................................  52 
+1995 .....................................................................  175 
+2005 .....................................................................  $2,441
+Com pound G rowth Rate 1965 -2005....................        17.2% 
+Com pound G rowth Rate 1995 -2005....................        30.2% 
+  *Pre-tax and net of minority interests 
+ 
+ When growth  rates are un der discussion , it will pay you  to be suspicious as to  why the beginning 
+and term inal years h ave been selected .  If eith er year was aberratio nal, an y calcu lation of growth  will be 
+distorted.  In part icular, a base y ear i n whi ch ear nings were poor can produce a breat htaking, but 
+meaningless, growth rate.  In the table above, however, the base year of 1965 was abnormally good; 
+Berk shire earned  more money in that year th an it d id in all bu t one of the previous ten. 
+ 
+ As you can see f rom the two tab les, the com parative growth rates of Berkshire’s two elements of 
+value have change d in the last decade, a  result re flecting our e ver-increasi ng em phasis on business  
+acquisition s.  Nev ertheless, Ch arlie Mu nger, Berk shire’s Vice Ch airman and my p artner, and  I wan t to 
+increase t he figures i n both tables.  In this ambition, we hope – metaphori cally – to avoid the fate of the 
+elderly couple who had been  rom antically challenged for some time.  As they finished dinner on their 50th 
+anniversa ry, however, the wife – st imulated by  soft music, wi ne and candlelight – felt a long-absent tickle 
+and demurely suggested to her husband that they go u pstairs and m ake love.  He ag onized f or a m oment 
+and then replied, “I can do one or the other, but not both.” 
+ 
+Acquisiti ons 
+ 
+ Over the years, our current businesses, in aggregate, should del iver modest growth in operating 
+earnings.  Bu t they will n ot in themselves produce tru ly satisfacto ry gains.  We will n eed major acq uisitions 
+to get that job done. 
+ 
+ In this quest, 2005 was encouraging.  We agreed  to five purch ases: two  that were co mpleted  last 
+year, one that closed after ye arend a nd two others that we expect  to cl ose soon.  None of the deals invo lve 
+the issuance of Berkshi re sha res.  That ’s a c rucial, but often ignored, point: Whe n a managem ent proudly 
+acqui res a nother company for stock, the shareholders of the acquirer are concurrently selling part of their 
+interest in  everyth ing they own.  I’ve made this kind of deal a few times myse lf – and, on balance, my 
+actions have cost you money . 
+ 
+ 4 Here  are last y ear’s  purchases :  
+ 
+• On June 3 0 we bo ught Medical Protective Com pany (“MedPro”), a 106-year- old medical 
+malp ractice insurer b ased in Fort Wayne.  Malp ractice insura nce is tough to underwri te and has 
+proved to be a graveyard  for many insurers.  Med Pro nevertheless shou ld do well.  It will h ave the 
+attitu dinal advantage that all Berk shire in surers share, wherein  underwri ting discipline trumps all 
+other goals.  Additionally, as part of Berk shire, MedPro has financial streng th far ex ceeding that of 
+its co mpetitors, a quality assu ring doctors t hat lon g-to-set tle clai ms will not end up back on their 
+doorstep because their ins urer failed.  Fi nally, the com pany has a sm art and e nergetic CEO, Tim 
+Kenesey, who instinctively thin ks like a Berk shire manager. 
+ 
+• Forest Riv er, our seco nd acquisition , closed on Augu st 31.  A co uple of months earlier, on  June 
+21, I recei ved a two-pa ge fa x telling me – point by point – why Forest River m et the ac quisition 
+criteria we set  fort h on page 25 o f this report.  I ha d not  before he ard of the co mpany, a 
+recreation al vehicle manufacturer with  $1.6 billion of sales, nor of Pete Lieg l, its owner and 
+manager .  But the fax made sense, a nd I immediately asked for m ore figures.  T hese ca me the next  
+morning, and that afternoon I made Pet e an offer.  On June 28, we shook hands on a deal. 
+ 
+Pete is a remarkable en trepreneur.  So me years back, he sold his business, then far smaller than 
+today, to a n LBO operat or who prom ptly bega n telling him how to run th e place.  Before long, 
+Pete left, and the business soon sunk into bankruptcy.  Pete then repurchased i t.  You can be sure 
+that I won’t be telling Pet e how to manage hi s operation. 
+ 
+Forest River has 60 plants, 5,400 em ployees and has c onsistently gained share in the RV business, 
+while also e xpandi ng into other areas s uch as boats .  Pete is 61 – and definitely in an acceleration 
+mode.  Read the piece from  RV Business  that accom panies this report , and you’ll see why Pete and 
+Berks hire are made for ea ch other. 
+ 
+• On November 12, 2005, an article ran  in The Wall Street Journal deal ing with Berkshire’s unusual 
+acquisition  and managerial practices.  In  it Pete d eclared, “It was easier to  sell my b usiness th an to 
+renew my driver’s license.” 
+ 
+In New Yo rk, Cath y Baro n Tamraz read  the article, and it struc k a chord.  On Novem ber 21, she 
+sent m e a letter that  began, “As  president  of Business Wire, I’d lik e to introduce you to my 
+company, as I believe it fits th e profile o f Berkshire Hath away sub sidiary companies as d etailed  in 
+a recen t Wall Street Jou rnal article.” 
+ 
+By th e time I finished Cathy’s two-p age letter, I felt Busi ness Wire  and Berk shire  were a fit.  I 
+particula rly lik ed her penultimate paragra ph: “We run a tight shi p and keep  unnecessary spendi ng 
+under wraps.  No secret aries or m anagem ent layers he re.  Yet  we’ll invest big dollars to gain a 
+technological a dvantage  and move the busi ness forward.” 
+ 
+I prom ptly gave Cathy a call, and before l ong Berks hire had reache d agreem ent with Busi ness 
+Wire’s controlling shareholder, Lorry Lokey, who founded the com pany in 1961 (and who had 
+just made Cathy CEO).  I love success st ories like Lorry’s.  Today  78, he  has built a com pany t hat 
+dissem inates inf ormation in 150 co untries for 25,000 clients.  Hi s story, like those of m any 
+entrepreneurs who have sel ected B erkshire as a hom e for their life’s work, is  an exam ple of what  
+can happe n when a good i dea, a talented  individual and hard work converge. 
+ 
+• In Decem ber we agreed to buy 81% of Applied Underwriters, a  com pany that offe rs a combination 
+of pay roll services a nd workers’ compensation insurance to small businesses.   A majority of 
+Applied’s c ustomers are located in Californ ia. 
+ 
+ 
+ 
+ 5In 1998, though, when the company had 12 em ployees, it acqui red a n Om aha-base d operation 
+with 24 em ployees that offe red a som ewhat-similar service.  Sid Ferenc and St eve Menzies, wh o 
+have built App lied’s remarkable bu siness, co ncluded that O maha had many advantages as an 
+operation al base – a brillia nt insight, I might add  – and tod ay 400  of the co mpany’s 479 
+employees are located here . 
+ 
+Less than a year ago, Appl ied entere d into a large rein suran ce con tract with  Ajit Jain , the 
+extraordinary manager of Natio nal Ind emnity’s re insuran ce division.  Ajit was im pressed  by Sid 
+and Steve, a nd they liked Berk shire’s method of operation.  So  we decide d to join forces .  We are 
+pleased that Si d and Steve  retain 19% of Applied.  They started on a s hoestring only 12  years ago , 
+and it will b e fun to see what they can  accom plish with Berk shire’s backing. 
+ 
+• Last spri ng, MidAm erican Ener gy, our 80.5% owned subsidiary, agreed t o buy PacifiCorp, a 
+major electric u tility serv ing six Western states.  An acquisition  of this so rt requires m any 
+regulatory approvals, bu t we’ve now obtained these and expect to close this tran sactio n soon . 
+Berk shire will then buy $3.4 billion of MidAm erican ’s commo n stock, which MidAmerican  will 
+supplement with  $1.7 billion of borro wing to complete th e purchase.  You can’t ex pect to earn 
+outsized  profits in  regulated utilities, b ut the in dustry offers own ers the opportun ity to  deploy large 
+sums at fai r returns – an d therefore, it makes go od se nse for Berks hire.  A few years back, I said 
+that we hoped to make some very larg e purchases in the utility field .  No te the plural – we’ll b e 
+looking for more. 
+ 
+ In addition to buying these new op eration s, we co ntinue to make “bolt-on” acquisition s.  So me 
+aren’t so sm all: Sh aw, our  carpet operation , spent abou t $550 million last year  on two pu rchases that 
+furth ered its vertical in tegration and shou ld improve its profit m argin in th e future.  XTRA and  Clayto n 
+Hom es also m ade value-enhancing acquisitions. 
+ 
+ Unlike many business buyers, Berkshire has no “exi t strategy.”  We buy to keep .  We do, though, 
+have an entrance strateg y, look ing for businesses in  this coun try or abroad that meet our s ix criteria and are 
+availab le at a p rice th at will p roduce a reaso nable return.  If you  have a business that fits, g ive me a call.   
+Like a hopeful teenage girl, I’ll b e waitin g by the phone. 
+ 
+Insur ance 
+ 
+ Let’s now  talk abo ut our four sector s and  start with insuran ce, our core business.  What coun ts 
+here is the am ount of “fl oat” and its cost over tim e. 
+ 
+ For new rea ders, let m e explain.  “Floa t” is money that do esn’t belo ng to us but that we 
+temporarily hold.  Most of our fl oat arises because (1) pre miums are pa id upfront though  the servic e we  
+provide – insurance protection – i s delivered over a pe riod that usual ly cove rs a y ear and; (2) loss events 
+that occur toda y do not always resu lt in our immediately p aying claim s, because it sometim es takes many 
+years for lo sses to  be repo rted (asb estos lo sses wou ld be an example), negotiated  and settled .  Th e $20 
+million of flo at that ca me with our 1967 entry in to insurance has n ow increased – both by way  of internal 
+growth and acquisition s – to $49 billion. 
+ 
+ Float is wonderful – if it doesn’t come at a high price.  Its co st is d etermined by underwritin g 
+results, m eaning how th e expen ses an d losses we will ultimatel y pay com pare with  the premiums we h ave 
+receive d.  Whe n an insurer earns a n unde rwriting profit – as has been t he case at Be rkshire in a bout hal f of 
+the 39 y ears we ha ve bee n in the insurance b usiness – float is b etter th an free.  In su ch years, we are  
+actually paid for holding other people’s money .  Fo r most insure rs, howeve r, life  has bee n far more 
+diffic ult: In aggre gate, the prope rty-casualty indust ry alm ost inva riably operates at an underwriting l oss.  
+When that loss is larg e, float becomes exp ensive, sometimes devastatin gly so. 
+ 
+ 
+ 
+ 6 In 2004 our float cost  us less than nothing, and I told you that we had a chance  – absent a mega-
+catastrophe – of no-cost float in 200 5.  B ut we had the mega-cat, and as a specialis t in that coverage, 
+Berk shire suffered  hurrican e losses o f $3.4 billion.  Nev ertheless, o ur float was costless in 2005 because of 
+the superb results we had in our other insurance activ ities, particularly at GEIC O. 
+* * * * * * * * * * * * 
+ Auto policies in force gre w by 12.1% at GE ICO, a gain i ncreasing its m arket s hare of U.S. private 
+passe nger aut o busi ness f rom about 5.6% t o about 6.1%.  Aut o insurance is a bi g business:  Each s hare-
+point equates to $1.6 billion in sales. 
+ 
+ While ou r brand streng th is not quantifiab le, I b elieve it also  grew sign ifican tly.  W hen Berk shire 
+acqui red c ontrol of GEICO in 1996, its annual advertising expenditures were $31 m illion.  Last  year we 
+were up  to $502 million.  And I can ’t wait to spend more. 
+ 
+ Our adve rtising works because we ha ve a great  story to tell: More pe ople can sa ve money by 
+insuring  with  us than is th e case with  any other national carrier offering  policies to  all co mers.  (So me 
+specialized aut o insure rs do partic ularly well for a pplicants fitting i nto their niches; also, because our  
+national competitors use rati ng system s that differ from ours, they will so metimes b eat o ur price.)  Last 
+year, we ac hieved by far the highest conversion rate – the perce ntage of internet and phone quotes turned 
+into sales – in ou r history.  This is po werfu l evidence that our prices a re more attract ive relativ e to the 
+competitio n than ever before.  Test us by going to GEIC O.co m or by callin g 800-847-7536.  Be su re to 
+indicate you  are a sh areholder because that fact will o ften qualify you  for a discount. 
+ 
+ I told you last year abo ut GEICO’s en try into  New Jersey in  August, 2004.  Drivers in that state 
+love us.  Our retention rate there for new policyholders is running higher than in any other state, an d by 
+sometime in  2007, GEIC O is likely to  become the third largest au to insu rer in New Jersey.  There, as 
+elsewh ere, our low co sts allow low prices that lead  to steady g ains in profitab le business. 
+ 
+ That simple form ula im mediately impressed m e 55 y ears ago when I first discovered GEIC O.  
+Indeed, at age 21, I wrote an article about the company – it’s reproduced on page 24 – when its market 
+value was $ 7 million.  As y ou can see , I cal led GE ICO “T he Sec urity I Like B est.”  An d that’s what I still 
+call it.  
+* * * * * * * * * * * * 
+ We ha ve m ajor reins urance operatio ns at G eneral Re and National Indemnity.  The fo rmer is run 
+by Joe Brandon and Tad Montross, the latter by Ajit Jain.  Bo th un its performed well in  2005 considering 
+the extraordinary hu rrican e losses th at battered  the ind ustry. 
+ 
+ It’s a n open question whet her atm ospheric, ocea nic or other causal factors ha ve dra matically 
+change d the freque ncy or int ensity of hurri canes.  R ecent expe rience is worris ome.  We know, for ins tance, 
+that in  the 100  year s before 2004, abou t 59 hurricanes of Catego ry 3 strength, or  greater , hit th e 
+Southeastern a nd Gulf Coast states, and that  only three of these we re Catego ry 5s.  We f urther k now that in 
+2004 there were three C ategory 3 storms that ham mered those areas  and that these were foll owed by four 
+more in 2005, one of them, Katrina, the most destructive hurricane in industry history.  Mor eover, there 
+were th ree Categ ory 5s near th e coast last ye ar that fortunat ely weak ened before landfall. 
+ 
+ Was t his on slaught of more frequ ent and  more in tense sto rms merely an anomaly?  Or was it 
+cause d by changes in climate, wat er temperature or other variables we don’t fully understand?  And could 
+these fact ors be d eveloping in a manner that will soo n prod uce disasters dwarfing Katrina?  
+ 
+ Joe, Ajit and I don’t know the an swer t o these all-i mportant questio ns.  What  we do k now is that 
+our ign orance means we must fo llow th e course prescrib ed by Pascal in  his fam ous wag er abou t the 
+existence o f God.  As y ou may recal l, he concl uded that since he di dn’t know the answer, his per sonal 
+gain/loss ratio dictated  an affirmative conclusion. 
+ 
+ 
+ 7 So guided, we’ve concluded that we s hould now write mega-cat  policies onl y at prices f ar higher 
+than prev ailed  last year –  and then only with  an aggregate expos ure that woul d not cau se us distres s if shifts  
+in some important variable produ ce far m ore co stly sto rms in  the near future.  To  a lesser d egree, we felt 
+this way  after 2004 – and cut back our writings when prices didn’t move.  No w our caution has i ntensified.  
+If prices seem  appropriate, howev er, we contin ue to have both the ability an d the app etite to  be the larges t 
+writer of mega-cat  coverage in the world. 
+* * * * * * * * * * * * 
+ Our sm aller in surers, with MedPro added to the fold, delivered  truly outstan ding results last year.  
+Howe ver, what you see in the  table be low does not do full jus tice to their perform ance.  That’s because  we 
+increased  the l oss reserv es of MedPro by about $125 million immed iately after our purchase. 
+ 
+ No one knows with any precisio n what amo unt will be required to  pay the claim s we in herited.  
+Medical malpractice insura nce is a “l ong-tai l” line, meaning that claim s often take m any years to settle.  In  
+addition, there are o ther losses th at have occurred, but that we won ’t even hear abou t for some time.  On e 
+thing, though, we h ave learn ed – the hard way –  after m any years in  the business: Su rprises in  insuran ce are 
+far from symmetr ical.  Y ou ar e lucky if yo u get one that is pleasan t for ev ery ten th at go the other way.  
+Too often, howeve r, insurers react to  loom ing loss  proble ms with optim ism.  They be have like  the fellow in 
+a swi tchblade fight who, after his opponent has t aken a  mighty swipe at his throat, excl aimed, “Y ou never 
+touched me.”  H is adversary ’s rep ly: “Ju st wait until yo u try to  shake your head.” 
+ 
+ Excluding the reser ves we a dded for prior periods, MedPro wrote at an underwriting profit.  And 
+our other primary com panies, in aggregate, had a n underwriting profit of $324 million on $1,270 m illion of 
+volume.  Th is is an  extraordinary result, and ou r thanks go  to Rod Eldred of Berk shire Hathaway  
+Homestate Co mpanies, Joh n Kizer of Cen tral States In demnity, To m Nern ey of U. S. Liability, Don  Towle 
+of Kansas B ankers Surety and Don Wurster of National Indemnity. 
+ 
+ Here ’s the overall tally on our underwriting and float for each m ajor sector of insurance: 
+ 
+ (in $ millio ns) 
+ Underwriting  Profit (Loss) Yearend Float 
+Insurance Ope rations 2005 2004 2005 2004 
+Gene ral Re .......................  $(   334) $       3 $22,920 $23,120 
+B-H Rei nsurance..............  (1,069) 417 16,233 15,278 
+GEIC O.............................  1,221 970 6,692 5,960 
+Othe r Primary...................       235*      161    3,442     1,736 
+Total .................................  $      53 $1,551 $49,287 $46,094 
+ 
+*Includes M edPro from June 30, 2005. 
+ 
+Regulated Uti lity Business 
+ 
+ We ha ve an 80.5% (fully diluted) interest in MidAm erican Ene rgy Holdings, which owns a wide 
+variety o f utility o peration s.  The larg est of these are (1 ) Yorkshire Electricity  and Northern Electric, wh ose 
+3.7 million electric cu stomers m ake it t he third larg est d istribu tor of electricity in  the U.K.; (2) 
+MidAm erican Energy, whic h serves 706,000 electric customers,  primarily in Iowa; an d (3) Kern  River and 
+Northern Natural pipelines, w hich car ry 7.8% of the natural gas co nsum ed in the U.S.  Whe n our Paci fiCorp 
+acquisition  closes, we will ad d 1.6 million electric cu stomers in six Western  states, with Orego n and Utah 
+providing us the most business.  Th is tran sactio n will increase Mid American ’s rev enues by $3.3 billion and  
+its assets b y $14.1 billion. 
+ 
+ 
+ 
+ 
+ 
+ 8 The Pub lic Utili ty Ho lding Co mpany Act (“PUHC A”) was rep ealed o n Aug ust 8, 2 005, a 
+milesto ne that allo wed Berk shire to  convert its Mid American p referred stock i nto voting com mon share s on 
+February 9, 2 006.  Thi s conversion ended a con voluted corporate arrangem ent that PUHC A ha d forced  
+upon us.  No w we have 83.4% of b oth the com mon st ock and t he votes at MidAm erican, w hich allows us 
+to cons olidate the com pany’s inc ome for fina ncial accounting a nd tax purposes .  Our true ec onom ic 
+interest, howe ver, is the aforem entioned 80.5%, since t here are options outstanding that are sure t o be 
+exercised  within a few years an d that upon exercise will d ilute our ownership. 
+ 
+ Though our voting pow er has in creased  dramatically, the dynamics of our four-party ownership 
+have  not changed at all.  We view M idAm erican as a  partnership am ong Berkshire, Walter Scott, and two 
+terrific m anagers, Dave Sokol and Greg Abel.  It’s unimportant how many votes each party has; we  will 
+make major m oves only whe n we a re unanimous i n thinking them wise.  Five years o f working with Dave , 
+Greg and Walter have  underscored my original belief: Berkshire couldn’t have better partners. 
+ 
+ You will n otice th at this year  we h ave provided you with  two balance sheets, o ne representing our 
+actual figures per GAAP on Decem ber 31, 2005 (which does not consolidate MidAm erican) a nd one  that 
+reflects th e sub sequent conversion  of our preferred .  All fu ture fin ancial repo rts of Berk shire will in clude 
+MidAm erican’s figures. 
+ 
+ Somewhat incongruously, Mid American owns the seco nd largest real estate b rokerage firm  in the 
+U.S.  And it’s a gem .  The parent com pany’s nam e is HomeServices of  America, bu t our 19,200 agen ts 
+operate through 18 locally-branded firms.  Aided by three small acqui sitions, we participated in $64 billion 
+of transactions last year, u p 6.5% from 2004. 
+ 
+ Currently, th e white-ho t market in residential real estate of rece nt years i s cool ing down, and that 
+should lead  to ad ditional acqu isition possibilities fo r us.  Both we and  Ron Peltier, t he company’s CEO,  
+expect Hom eServices to be fa r larger a deca de from  now. 
+ 
+  Here  are some key fi gures on MidAm erican’s operations: 
+ 
+ Earnings (in $ millio ns) 
+ 2005 2004 
+U.K. utilitie s.......................................................................................................  $     308 $     326 
+Iowa u tility .........................................................................................................  288 268 
+Pipelines .............................................................................................................  309 288 
+Hom eServices .....................................................................................................  148 130 
+Othe r (net)..........................................................................................................  107 172 
+Income (loss)  from discontinued zi nc project ....................................................           8      (579) 
+Earni ngs before corporate i nterest and ta xes......................................................  1,168 605 
+Intere st, other  than to Berkshi re.........................................................................  (200) (212) 
+Intere st on Be rkshire junior debt ........................................................................  (157) (170) 
+Income tax..........................................................................................................       (248)        (53) 
+Net ear nings........................................................................................................  $     563 $     170 
+Earni ngs applicable to Be rkshire*......................................................................  $     523 $     237 
+Debt owed to others ............................................................................................  10,296 10,528 
+Debt owed to Berks hire......................................................................................  1,289 1,478 
+ 
+*Includes interest earne d by Berkshire (net of related income taxes) of $102 in 2005 and $110 in 2004. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 9Finance  and F inancial Prod ucts 
+ 
+ The st ar of our finance s ector is Clayton Homes, masterful ly run by Kevin Clayton.  He does not 
+owe his brillian t reco rd to a rising tide: The manufactured-housing business has been disappo inting since 
+Berks hire purc hased Clayton in 2003.  Indus try sales have  stagnate d at 40-year lows, a nd the recent uptick  
+from  Katrina-related dem and will alm ost certainly be  short-live d.  In rece nt years, m any industry  
+participants have suffered losses, and only Clayton ha s earned significant money . 
+ 
+ In this brutal e nvironm ent Clayton has bought a large am ount of manufac tured-housi ng loans from  
+major banks that found them unp rofitable and difficult to servi ce.  Clayton’s operating ex pertise and 
+Berkshire’s financi al resources have m ade this an exce llent busi ness fo r us a nd one in whi ch we are 
+preeminent.  We presen tly serv ice $17  billion of loans, com pared to $5.4 billon at th e time o f our purchase.  
+Moreover, Clayto n now own s $9.6 billion of its serv icing  portfolio, a position built up almost entirely sin ce 
+Berk shire en tered  the picture. 
+ 
+ To finance th is portfolio, Clayto n borrows money fro m Berkshire, wh ich in turn borrows th e sam e 
+amount publicly.  For t he use of its credit, Berkshire charges Clayton a o ne percent age-point markup on its 
+borrowing cos t.  In 2 005, the cost  to Clayton for this arrangem ent was $ 83 million.  That  amount is 
+included in “Other” income in the table on t he faci ng page, and C layton’s earni ngs of $416 m illion are aft er 
+deducting  this payment. 
+ 
+ On the manufacturing side, Clayton has also b een activ e.  To  its o riginal base of twen ty plants, it 
+first added twelve more in 2004 by way  of the ban kruptcy purchase of O akwood, which just  a few years 
+earlier wa s one  of the la rgest companies in t he business.  Then in 2005 Clayton purchased Karst en, a four-
+plant operation th at greatly stren gthens Clayto n’s position on the West Co ast. 
+* * * * * * * * * * * * 
+ Long ago, Mark  Twain  said: “A m an who  tries to  carry a cat h ome by its tail will lear n a lesso n 
+that can  be learned in no other way.”  If Twain were around now, he might try winding up a der ivativ es 
+business.  After a few  days, he would opt  for cats. 
+ 
+ We lo st $1 04 million pre-tax  last year in  our con tinuing atte mpt to exit Gen  Re’s derivative 
+operation.  Our aggregate losses since we began this endeavor total $404 million. 
+ 
+ Originally w e had 23,218 contracts ou tstand ing.  By th e start of 2005 we were dow n to 2,890.  
+You might expect th at ou r losses wou ld have been stemme d by this point, but the blood h as kept flowing.  
+Reducing our inventory to 741  contracts last y ear co st us the $1 04 million men tioned above. 
+ 
+ Remember th at th e rationale fo r estab lishing this un it in 19 90 was Gen Re’s wish to  meet th e 
+need s of insurance cl ients.  Yet one of the cont racts we liquidated in 2005 had a t erm of 1 00 years!  It ’s 
+diffic ult to im agine what “nee d” such a contract coul d fulfill except, perhaps, the nee d of a compensation-
+consciou s trader to h ave a lon g-dated contract o n his book s.  Long contracts, or alter natively th ose with 
+multiple variables, are the m ost difficult to mark to m arket (the stan dard proce dure use d in accounting for 
+derivatives) and  provide the most opportunity fo r “imagination” when trad ers are estimatin g their v alue.  
+Small wo nder that trad ers prom ote them. 
+ 
+ A business in which huge amounts of compensat ion flow from assum ed numbers is obviously 
+fraught with danger.  When t wo traders execute a transact ion that has se veral, som etimes esot eric, variables 
+and a far-o ff settle ment date, th eir resp ective firm s must subsequently value these co ntracts wh enever they 
+calculate their earni ngs.  A gi ven c ontract may be val ued at one price by  Firm A and at  anot her by Firm B.  
+You can bet that the val uation differences – and I’m personally fam iliar with  several that were huge – ten d 
+to be tilted in a direction fa voring hi gher e arnings at each firm .  It’s a st range worl d in which two pa rties 
+can ca rry out a paper transaction that each can promptly report  as profitable. 
+ 
+ I dwell on our expe rience  in derivative s each year for two reas ons.  One is pe rsonal and 
+unpleasant.  The hard fact is that I have c ost you a l ot of money  by not moving immediately to close do wn 
+ 10Gen Re’s trad ing operation .  Both Charlie an d I knew at  the time of the Gen  Re pu rchase th at it was a 
+problem an d told its management that we wan ted to exit the business.  It was my resp onsibility to mak e 
+sure t hat happened.  Rather than address t he situation hea d on, however, I wast ed se veral years w hile we 
+attempted to sell the operat ion.  That  was  a doom ed en deav or beca use no real istic solution could have  
+extricated  us from the maze of liab ilities th at was go ing to ex ist fo r decades.  Our obligation s were  
+particula rly worrisom e because thei r pote ntial to explode could not be measured.  More over, if s evere 
+trouble occurred, we knew it was lik ely to co rrelat e with prob lems elsewh ere in  financial markets. 
+ 
+ So I failed  in my atte mpt to exit painlessly, and  in the mean time more trad es were put on the 
+books.  Fau lt me fo r dithering.  (Charlie calls it thumb-suc king.)  When a problem exists, whet her in 
+personnel or in bu siness operations, the tim e to act is now. 
+ 
+ The seco nd reason  I reg ularly d escrib e our prob lems in this area lies in  the ho pe th at our 
+expe riences may prove instructive for m anagers , auditors and re gulators.  In a sense , we are a canary in this  
+business co al mine and should  sing  a son g of warning as we expire.  The nu mber and value of derivativ e 
+contracts out standing in the world continues to mushroom and i s now a m ultiple of wh at existed in 1998, 
+the last ti me that fin ancial ch aos erup ted. 
+ 
+ Our e xperie nce should be  particularly sobering because we we re a better-tha n-ave rage candidate  
+to exit gracefully.  Ge n Re was a  relativel y minor operat or in t he derivatives field.  It has had the good 
+fortune to unwind its supposedly liquid positions i n a benign market, all the whi le free of financial or other 
+press ures t hat might have forced it to conduct the liquidation in a less-than-efficient manner.  Our 
+accounting in the past was conventiona l and actually thought to be conser vative.  Additionally, we know of  
+no bad behavior by anyone involved. 
+ 
+ It co uld be a differen t story for others in  the future.  Imag ine, if yo u will, o ne or more fir ms 
+(troub les o ften spread) with  positions that are many multiples of ours atte mpting to liquidate in ch aotic 
+markets and unde r extrem e, and well-publicized, press ures.  Th is is a s cenario to which much atten tion 
+should be gi ven now rather than aft er the fact.  The t ime to have c onsidered – an d improved – t he reliability 
+of New Orlea ns’ levee s was before Katrin a. 
+ 
+ When we finally win d up Gen Re Securities, m y feelin gs about its d eparture will b e akin to tho se 
+expressed  in a country son g, “My w ife ran aw ay w ith m y best friend, an d I sure miss him a lo t.” 
+* * * * * * * * * * * * 
+ Belo w are th e resu lts of our various finance an d financial products activ ities: 
+ 
+ 
+(in $ millio ns) 
+Pre-Tax E arnings Interest-Bea ring Liabilities  
+ 2005 2004 2005 2004 
+Tradi ng  – ordinary i ncome............................  $    200 $   264 $1,061 $5,751 
+Gen Re Sec urities (loss ).................................  (104) (44) 2,617* 5,437* 
+Life and a nnuity operation .............................  11 (57) 2,461 2,467 
+Value Ca pital ( loss) .......................................  (33) 30 N/A N/A 
+Leasing ope rations  .........................................  173 92 370 391 
+Manufactured- housing fina nce (Clayton) .......  416 192 9,299 3,636 
+Othe r...............................................................        159      107 N/A N/A 
+Income before capital gains ............................  822 584   
+Tradi ng – capit al gains  (losses ) .....................      (234)   1,750    
+Total ..............................................................  $    588 $2,334   
+ 
+*Includes all li abilities 
+ 
+ 
+ 
+ 11Manufa cturing , Serv ice a nd Reta iling Opera tions 
+ 
+ Our activ ities in this part of Berk shire cover th e waterfro nt.  Let’s look , tho ugh, at a su mmary 
+balance sheet a nd earnings statement for the entire group. 
+ 
+Balance Sh eet 1 2/31/05 (in $ millio ns)
+    
+Assets  Liabilities an d Equity  
+Cash a nd equi valents .............................. $ 1,004 Notes  paya ble............................ $  1,469 
+Accounts a nd notes  receivabl e............... 3,287 Othe r current l iabilities ..............     5,371
+Inventory ................................................ 4,143 Total curre nt liabilities .............. 6,840 
+Othe r current a ssets ................................        342   
+Total curre nt assets ................................. 8,776   
+    
+Goodwill and other inta ngibles............... 9,260 Deferred taxes............................ 338 
+Fixed assets ............................................. 7,148 Term  debt a nd other liabilities ... 2,188 
+Othe r assets .............................................     1,021 Equity ........................................   16,839
+ $26,205  $26,205 
+ 
+ 
+    
+Earnings Statemen t (in $ millio ns)
+ 2005 2004   200 3
+Revenues .................................................................................... $46,896 $44,142 $32,106 
+Operating expenses (including depreci ation of $699 in 2005,    
+ $676 in 2004 a nd $605 in 2003) .......................................... 44,190 41,604 29,885 
+Intere st expe nse (net)..................................................................        83         57         64
+Pre-ta x earnings.......................................................................... 2,623 2,481 2,157 
+Income taxes ...............................................................................      977        941        813
+Net inc ome................................................................................. $ 1,646 $  1,540 $  1,344 
+ 
+  This eclectic co llectio n, which sells produ cts ra nging from Dilly Bars to fraction al interests in 
+Boeing 737s, e arned a very respectab le 22.2% on a verage tangible net worth last year.  It ’s noteworthy also 
+that these ope rations use d only minor fi nancial leverage i n achi eving that return.  Clearly, we o wn some 
+terrific businesses.  We purchased m any of them , howe ver, at subst antial prem iums to net wort h – a p oint 
+reflected  in the g oodwill ite m sh own on the balance sheet –  and that fact red uces th e earn ings on our 
+avera ge carrying value to 10.1%. 
+ 
+ Here  are t he pre-tax ea rnings for the  larger categories or units. 
+ 
+ Pre-Tax E arnings 
+(in $ millio ns) 
+ 2005 2004
+Building Pr oducts ....................................................................................................  $   751   $   643 
+Shaw Industri es.......................................................................................................  485 466 
+Appa rel & Footw ear................................................................................................  348 325 
+Retailing of Je welry, Home Furnishings a nd Candy ...............................................  257 215 
+Flight Se rvices.........................................................................................................  120 191 
+McLane ....................................................................................................................  217 228 
+Othe r busi nesses......................................................................................................       445      413
+ $2,623 $2,481 
+ 
+   
+   
+ 12• In both our building-products companies and  at Shaw, we continue to be hit by rising cos ts for raw 
+materials and energy.  Most of these operations a re sign ificant users of oil (o r more sp ecifically,  
+petrochemicals) and natural gas.  And prices fo r these co mmodities h ave soared. 
+  
+We, l ikewise, have raised prices on m any products, but there are often l ags be fore inc reases be-
+come effect ive.  Nevertheless, both our building-products operations and Shaw delivered respect-
+able resu lts in 2005, a fact att ributable to th eir strong business franc hises and able managements. 
+ 
+• In apparel, ou r larg est u nit, Fru it of the Lo om, again incre ased earnings and m arket-s hare.  You 
+know, of course, of our leadersh ip position in men’s and boys’ unde rwear, in which we account 
+for about 48.7% of the sales recorde d by mass-m arketers (Wal-Mart, Ta rget, etc.).  T hat’s up from  
+44.2% in 2002, whe n we ac quired the com pany.  Operating from a sm aller base, we have m ade 
+still g reater g ains in intimate apparel fo r women and girls that is so ld by the mass-mark eters, 
+climbing fr om 13.7% of t heir sales in 2002 to 24.7% in 2005.  A gai n like that in a major cat egory 
+doesn’t com e easy .  Thank John Holland, Fruit’s extraordinary CEO, for making this happen. 
+ 
+• I told you last year th at Ben  Brid ge (jewelry) a nd R. C. Willey (ho me furnishings) had same-store 
+sales gai ns far above the average o f their industries.  You might think that blow-out figures in one 
+year wo uld mak e comparison s difficu lt in the following year.  Bu t Ed and Jon  Bridge at th eir 
+operation  and Scott Hym as at R. C. Willey were m ore than up to th is challen ge.  Ben Bridge had a 
+6.6% same-store gain in 2005, and  R. C. Willey ca me in at 9.9%. 
+ 
+Our never-on-Sun day app roach at R. C. Willey co ntinues to overwh elm seven-day competitors as 
+we roll out stores in new m arkets.  The Bois e store, about which I was such a skeptic a few ye ars 
+back , had a 21% gai n in 2005, coming of f a 10% gain in 2004.  Our new Reno store, opened in 
+Novem ber, broke  out of the  gate fast with sales that exc eeded Boise’s early pace, a nd we will  
+begin busine ss in Sacram ento in June .  If thi s store succeeds as I expect it to, Californians will see 
+many more R. C. Willey sto res in the years to  come. 
+ 
+• In flight services, ea rnings improve d at FlightSafety as c orporate aviation continued its rebound.  
+To support growth, we invest h eavily in ne w sim ulators.  Our m ost recent expansi on, bri nging us 
+to 42 training cen ters, is a major facility at Farn borough, Eng land that opened in September.  
+When it is fully built ou t in 2007, we will h ave invested more th an $100 million in the building 
+and its 15  simu lators.  Bru ce Whitman, Flig htSafety’s ab le CEO, m akes sure th at no competitor 
+comes close to offering the breadth and depth of services that we do. 
+ 
+Operating res ults at NetJets were a di fferent story .  I sai d last year th at this business would earn 
+money in 2005 – and I was dead wrong. 
+ 
+Our European operat ion, it should be not ed, showed both excel lent growth and a reduce d loss.  
+Custom er cont racts there inc reased by 37% .  We are t he only fractional-ownership operation of 
+any size in Euro pe, a nd our now-pervasive prese nce there is a key  factor i n making NetJets the 
+worldwid e lead er in this ind ustry. 
+ 
+Despite a la rge increase  in c ustom ers, however, our U.S. operation dipped far into the red .  Its 
+efficien cy fell, and  costs soared.  We b elieve that our three la rgest co mpetitors suffered  similar 
+problem s, but each is owne d by ai rcraft m anufact urers that may thi nk differently than we do a bout 
+the necessi ty of m aking ade quate profits.  The combi ned value of the fleets managed by  these 
+three c ompetitors , in any ca se, continues t o be less valua ble than the fleet that we  operate. 
+ 
+Rich  Santulli, one of the most dynamic managers I’v e ever m et, will so lve our rev enue/expense 
+problem.  He won ’t do it, howev er, in  a manner that impairs th e quality o f the NetJets ex perience.  
+Both he and I are co mmitted  to a lev el of service, secu rity and safety t hat can ’t be match ed by 
+others. 
+ 
+ 13• Our retailing category includes See’s  Candies, a c ompany we bought early in 1972 (a date making 
+it our oldest non-insurance  business).  At that time, Charlie and I immediately deci ded to put 
+Chuck Huggins, th en 46, in charge.  Thoug h we were new  at th e game o f selectin g managers, 
+Charlie and  I hit a h ome run with this appo intment.  Ch uck’s love for the cu stomer and  the brand 
+perm eated the organization, which in his 34-year tenure produced a m ore-than-tenfold increase i n 
+profits.  Th is gain was ach ieved in an indu stry growing at b est slowly an d perhaps no t at all.  
+(Volume figures in this industry are hard to pin down.) 
+ 
+At yeare nd, Chuck turned the reins  at See ’s over  to Brad K instler , who pr eviously had served 
+Berkshire well while running Cypress  Insurance a nd Fec hheimer’s.  It’s unusual for us to move 
+managers a round, but Brad’s reco rd m ade hi m an obvi ous choice for the See’s j ob.  I h ope C huck 
+and his wife, Donna, a re at the annual m eeting.  If they are, sha reholders can join Cha rlie and m e 
+in giving America’s n umber one candy maker a richly-deserved round of applause. 
+* * * * * * * * * * * * 
+ Every day, in countless ways, th e competitiv e position of each  of our businesses grows eith er 
+weake r or stronger.  If we a re del ighting customers, el iminating u nnecessary  cost s and i mproving our 
+products and services, we gain strength.  B ut if we t reat customers wi th indifference or tolerate bloat, our 
+businesses will with er.  On  a daily basis, th e effects of our actio ns are im perceptible; cum ulatively, th ough, 
+their consequences a re enormous. 
+ 
+ Whe n our l ong-term  com petitive position improves as a  result of these almost unnoticeable  
+actions, we des cribe the phenomenon as “wi dening the moat.”  An d doing that is essent ial if we are t o have  
+the kind of bus iness we want a decade or two from  now .  We always, of course, hope t o earn m ore money  
+in the sho rt-term.  But when short-term  and long-term  conflict, wid ening the moat must  take precede nce.  If 
+a managem ent makes bad d ecisions i n order t o hit short-term earni ngs targets, and co nsequently gets 
+behind the eight-ball in terms of cost s, customer sat isfaction or brand strength, no am ount of s ubsequent 
+brillian ce will o vercome the damage that has b een inflicted .  Tak e a look at th e dilemmas o f managers in 
+the au to and airlin e industries to day as th ey strugg le with  the hug e problems handed them by their 
+predecessors.  Charlie is fond of quoting Ben Franklin’s “An ounce of preventi on is worth a pound of 
+cure.”  B ut someti mes n o amount of cure will o vercome the mistak es of t he past. 
+ 
+ Our m anagers focus on moat-wid ening – and are brillian t at it.  Quite sim ply, they are p assion ate 
+about their businesses.  Usually, they were ru nning those long before we cam e along; our only function 
+since has bee n to stay out  of the way .  If y ou see t hese her oes – an d our four heroines as wel l – at  the 
+annual meetin g, thank them for th e job  they do for you . 
+* * * * * * * * * * * * 
+ The attitu de of ou r managers vividly contrasts with  that of the you ng man who married  a tyco on’s 
+only child, a decidedly homely and dul l lass.  R elieved, the fath er called  in his new so n-in-law after th e 
+wedding and began to discuss the future: 
+“Son , you ’re the boy I always w anted and n ever had.  H ere’s a stoc k certificate for 50% of the 
+company.  You’re m y equal  partner from now on.” 
+“Tha nks, dad .” 
+ “Now, what would you like to run? How about sales?” 
+“I’m  afraid I couldn’t sell wa ter to a man crawlin g in the Sah ara.” 
+“Well then, how about heading human relatio ns?” 
+“I really don’t care for people .” 
+“No problem, we have  lots of other spots in the business.   What  would you like to do?” 
+“Actually, no thing appeals to m e.  Why don’t you  just buy me o ut?” 
+ 
+ 
+ 14Inves tments 
+ 
+ We sh ow below our common st ock i nvestments.  Th ose that had a m arket value of more than $700 
+million at th e end of 2005 are itemized . 
+ 
+  12/31/05 
+  Percent age of    
+Shares Company Company Owned Cost* Market
+   (in $  millio ns) 
+     
+151,610,700 American Expr ess Co mpany................... 12.2 $1,287 $  7,802 
+30,322,137 Ameriprise Finan cial, In c..................... 12.1 183 1,243 
+43,854,200 Anheuser-Busch Cos., In c.................... 5.6 2,133 1,884 
+200,000,000 The C oca-C ola Com pany........................ 8.4 1,299 8,062 
+6,708,760 M&T Bank C orporation .......................... 6.0 103 732 
+48,000, 000 Moody’s Corporation .............................. 16.2 499 2,948 
+2,338,961,000 PetroChina “H” sh ares (or equivalents)... 1.3 488 1,915 
+100,000,000  The Pro cter & G amble Company.......... 3.0 940 5,788 
+19,944,300 Wal-Mart Stores, Inc.......................... 0.5 944 933 
+1,727,765 The Washington Post Company.............. 18.0 11 1,322 
+95,092, 200 Wells Far go & Com pany......................... 5.7 2,754 5,975 
+1,724,200 White Mountains Insurance ..................... 16.0 369 963 
+ Others......................................................      4,937     7,154
+ Total Com mon Stoc ks.............................  $15,947 $46,721 
+ 
+*This is our actual purchase price and al so our tax basis; GAAP “c ost” differs in a few case s 
+because of write-ups or write-downs that ha ve bee n require d. 
+ 
+ A couple of la st year’s cha nges in our portfolio  occurred because of c orporate e vents: Gillette  was 
+merg ed into Procter & Gam ble, an d American Exp ress s pun off Am eriprise.  In  addition, we sub stantially 
+increased  our holdings in Wells Farg o, a co mpany that Dick  Kov acevich runs brillian tly, an d estab lished 
+positions in Anheuser-Bu sch and Wal-Mart. 
+ 
+ Expect no miracles fr om our equi ty portfolio.  T hough we own major interests in a number of  
+strong, highly-profitable businesses, t hey are not  selling at  anything like bargain prices.  As a g roup, they 
+may d ouble in value in ten years.  Th e likelihood is th at their p er-share earn ings, in aggregate, will g row 6-
+8% per year o ver the decade and  that their sto ck prices will more or less match that growth .  (Th eir 
+managers , of course, think my expect ations are too modest  – and I hope they’re right.) 
+* * * * * * * * * * * * 
+ The P&G-Gillette merger, cl osing in the fourth qu arter o f 2005, requ ired Berk shire to  record  a 
+$5.0 billion pre-tax  capital g ain.  Th is bookkeeping entry, d ictated  by GAAP, is mean ingless from an  
+econ omic standp oint, and you should ignore it when  you are eval uating Berkshire’s 2005 ea rnings.  We 
+didn’t intend to sell o ur Gillette sh ares b efore th e merger; we do n’t in tend to sell o ur P&G sh ares now; an d 
+we inc urred no tax when the merger t ook place. 
+ 
+ It’s h ard to overem phasize th e importance of who  is CEO o f a co mpany.  Befo re Jim Kilts arriv ed 
+at Gillette  in 2001, the com pany was strugg ling, having particularly suffered  from cap ital-allo catio n 
+blunde rs.  In the m ajor exa mple, Gillette’ s acquisiti on of Duracell cost Gillette sharehol ders billions of 
+dollars, a loss never m ade visible by conventional accounting.  Quite simply, what Gillette  received in 
+business value in this acquisition was  not equi valent to what it gave u p.  (Amazingly, this most 
+fundamental of yardsticks is alm ost always i gnored by  both managem ents and their investment bankers  
+when acqu isitio ns are und er discu ssion .) 
+ 
+ 
+ 
+ 15 Upon  taking office at Gillett e, Jim quickly in stilled  fiscal d iscipline, tig htened operations and 
+energized marketing, m oves that dramatically in creas ed th e intrinsic v alue of the company.  Gillette’s 
+merger with P&G the n expa nded the potential of bot h com panies.  For his accom plishments, Jim  was paid 
+very well – but he earned e very pe nny.  (This is no acade mic evaluati on: As a 9.7% owne r of Gillette, 
+Berk shire in  effect paid th at propo rtion  of his compensatio n.)  Indeed, it’s difficu lt to overpay th e truly 
+extraordinary CEO of a giant enterprise.  B ut this species is rare. 
+ 
+ Too often, executive compensatio n in the U.S. is ridiculously o ut of lin e with perform ance.  That 
+won’t change, moreover , because t he deck  is stacked  against investors when it comes to the CEO’s pay.  
+The u pshot is that a mediocre- or-worse CEO – ai ded by his handpicked VP of human rel ations and a 
+consultant from the ever-acc omm odating fi rm of Ratche t, Ratchet and B ingo – all too often receive s gobs 
+of money fro m an ill-d esigned compensation  arran gement. 
+ 
+ Take, for instance, ten  year, fixed-price options (and who wo uldn’t?).  If Fred Futile, CEO of 
+Stagnant, Inc., receives a bundle of these – let’s say enough to give him  an opti on on 1% of t he com pany – 
+his self-in terest is clear: He sh ould sk ip dividends entirely and instea d use all of t he company’s earnings  to 
+repurchase stock. 
+ 
+ Let’s ass ume that under Fre d’s leade rship Stagna nt lives up to its n ame.  In each  of the ten  years 
+after th e option grant, it earns $1  billion on $10 billion of net worth, which initially comes to  $10 per share 
+on the 100 m illion sha res then outstanding.  Fred esc hews dividends and regularly uses al l earni ngs to 
+repurchase sh ares.  If th e stock  constan tly sells at  ten times earn ings per share, it will h ave appreciated 
+158%  by t he end of t he option period.  T hat’s because  repurchases  would reduce t he number of s hares to 
+38.7 million by that time, and earnings per share  would ther eby increase to $25.80.  Simply by withho lding 
+earni ngs f rom owners, Fre d gets very  rich, m aking a cool  $158 m illion, des pite the business i tself 
+improving not at all.  Astonishingly, Fred coul d have m ade more than $100 million if Stagna nt’s ea rnings 
+had declined  by 20% during the ten-year period. 
+ 
+ Fred can also get a splendid resul t for himself by paying no dividends and deploying the earnings 
+he withholds from share holders into a variety of disappointing projects and acquisitions.  Even if these 
+initiativ es deliver a paltry 5% return , Fred will still make a bundle.  Specifically –  with Stagn ant’s p/e ratio 
+remaining unc hange d at ten – Fre d’s option will deliv er him $63 m illion.  Meanwh ile, his share holders will 
+wonder what happened to the “alignment of interests” that was s uppose d to occur when Fred was  issued 
+options. 
+ 
+ A “n ormal” divi dend policy, of co urse – one-third of ear nings pai d out, for e xample – pro duces 
+less ex treme resu lts bu t still can  provide lush rewards for managers who  achieve nothing. 
+ 
+ CEOs understan d this math and kno w that ev ery dime paid out in dividends reduces th e value of 
+all outstanding options.  I’ve neve r, however, seen this manager -owner conflict refe rence d in proxy 
+materials that request a pproval of a  fixed-pri ced option plan.  Though CEOs invariably preac h interna lly 
+that capital comes at a cost, they so mehow forget to tell share holders that fixed-price opt ions give them 
+capital th at is free.  
+ 
+ It does n’t have  to be this way : It’s chi ld’s play for a b oard to desi gn options that give effect to the 
+automatic build-up in valu e that occurs when ea rnings are retaine d.  But – surprise, surprise – options of 
+that kind are almost never issu ed.  Indeed, the very though t of options with strike prices th at are adj usted 
+for retained earni ngs seem s forei gn to com pensation “e xperts,” who are  nevert heless ency clopedic about 
+every  manage ment-frie ndly plan t hat exists.  (“Whose bre ad I eat, his song I sing.”) 
+ 
+ Getting fired can produce a par ticularly boun tiful payday fo r a CEO .  Indeed , he can “ear n” more 
+in that sin gle day, wh ile clean ing out his desk, than an American worker ea rns in a lifetim e of cle aning 
+toilets.  Forget  the old m axim abou t nothi ng succee ding like success: T oday, in the e xecutive s uite, the  all-
+too-prevale nt rule is th at nothing succee ds like failure . 
+ 
+ 
+ 16 Huge severance pay ments, lavish perks and outsized payments for ho-hum perf ormance often 
+occur b ecause comp committees h ave become slav es to  comparativ e data.  Th e drill is simple: Th ree o r so 
+directors – not chose n by chance – are bombarded for a few hours before a b oard meeting wi th pay 
+statistics th at perp etually ratch et upward s.  Additionally, t he committee i s told abou t new perks that other 
+managers a re receiving.  In this manner, outlandis h “goodies” are showere d upon CEOs simply becaus e of 
+a cor porate version of the argument we al l used when children: “But, Mom, all the other ki ds ha ve one.”  
+When comp commi ttees fo llow th is “log ic,” yesterd ay’s m ost egre gious  excess bec omes today ’s baseline. 
+ 
+ Comp commit tees shou ld adop t the attitu de of Hank  Greenb erg, the Detroit slu gger and  a boyhood 
+hero of mine.  Hank’s son, Steve, at one time was a player’s a gent.  Repr esenting an outfielder in 
+negotiations with a major league cl ub, Steve sou nded out his dad about the size of t he signing bonus he 
+should ask f or.  Hank , a true pay-for-performance guy , got straight to the point, “What did he hit last year?”  
+When Steve answered “.246,” Hank’s comeback was imm ediate: “As k for a uniform .” 
+ 
+ (Let me pause for a brief con fession: In criticizin g comp commit tee behavior, I do n’t speak as a 
+true insider.  Though I have served as a director of twenty public companies, only one CEO has put me on 
+his comp commit tee.  Hmmmm .  . .) 
+* * * * * * * * * * * * 
+ My views  on America’s long-term  problem in resp ect to trade imbalances, which I have laid ou t in 
+previous reports, rem ain unchange d.  My conviction, however, cost Berkshire $955 million pre-tax in 2005.  
+That amount is included in our earni ngs statement, a fact  that illustrates the differing ways in which GAAP 
+treats g ains and  losses.  When we have a lo ng-term position in stocks or bond s, year- to-year changes in  
+value a re reflected in our bal ance s heet but, as long as the asset is not s old, are rarely re flected in ea rnings.  
+For example, our Coca-Co la holdings wen t from $1 billion  in value early o n to $13.4 billion at yearen d 
+1998 and have since declin ed to  $8.1 billion – with  none of th ese m oves affecting  our earn ings statemen t.  
+Long-term  currency positions, however, are d aily m arked to m arket an d therefo re hav e an effect on 
+earni ngs i n every reporting period.  From the dat e we fi rst entered into currency contracts, we are  $2.0 
+billion in th e black. 
+ 
+ We re duced our direct position in c urrencies so mewhat during 200 5.  We p artially o ffset th is 
+change, however, by purchasing equities who se prices are denominated in a variety of foreign  currencies 
+and that earn a large part of their profits internationally.  Charlie and I prefer this method of acquiring non-
+dollar exposure.  T hat’s largely because  of cha nges in interest rates: As U.S. rates ha ve risen relative to 
+those of the rest of the world, holding most foreign currencies now involves a si gnificant negative “ca rry.”  
+The ca rry aspect of our direct currency position indee d cost us m oney  in 2005 and is likely to do so again in 
+2006.  In contrast, th e ownership of fo reign equities is lik ely, o ver time, to create a p ositive carry – perhaps 
+a sub stantial one. 
+ 
+ The underlying factors affecting the U.S. c urrent account deficit continue to worse n, and no letup 
+is in sight.  Not only did our trade deficit – the large st and most familiar item in the current account – hit an 
+all-time high in 2005, but we also can e xpect a secon d item – the bal ance of i nvestment income – to soon 
+turn negative.  As f oreigners increase t heir ownership of U.S. assets (or of claim s against us) relative to  
+U.S. inv estments abro ad, these in vestors will b egin earning more on their ho ldings than we do  on ours.  
+Finally, th e third co mponent of the current acco unt, unilateral transfers, is always negative.   
+ 
+ The U.S., it sho uld be emphasized , is ex traord inarily rich an d will g et richer.  As a resu lt, the huge 
+imbalances in its curre nt account m ay continue for a long time without their ha ving noticeable deleterious  
+effects on the U.S. eco nomy or on markets.  I doubt, however, that the situation will forev er rem ain benign.  
+Either Am erican s add ress the p roblem soon in a way we select, o r at so me point the problem will likely 
+address us in an unpleasant way of its own.  
+ 
+ 
+ 
+ 
+ 
+ 17How to Mini mize Investme nt Returns 
+ 
+ It’s b een an easy matter for Berk shire an d other own ers of Am erican  equities to  prosper ov er the 
+years.  Bet ween Decem ber 31, 1899 a nd Dece mber 31, 1999, to give a really lo ng-term  example, the Dow 
+rose from 66 to 11,497.  (Guess wh at annual g rowth rate is requ ired to produce this resu lt; th e surpri sing 
+answ er is at the end of this sect ion.)  This huge rise ca me about  for a simple reason:  Over the century 
+American busi nesses di d ext raordinarily well and i nvest ors rode the wav e of their prosperity.  Businesses 
+continue to do well.  Bu t now sh areho lders, th rough a series o f self-in flicted wounds, are in  a major way  
+cutting the return s they will realize fro m their inv estments. 
+ 
+ The exp lanation of how th is is h appening b egins with a fu ndamental tru th: With  unimportant 
+exceptions , such as ba nkruptcies in whic h some of a com pany’s los ses are  borne by cre ditors, the most that 
+owners in aggregate can earn between now and Judgment Day is what their businesse s in aggregate earn. 
+True , by buying and selling that is clever or lucky, investor A m ay take m ore than his share of the pie at the  
+expe nse of investor B.  And, yes, all invest ors feel richer when st ocks soa r.  But an owner can exit only by 
+having someone take hi s place.  If one investor sel ls high, another m ust buy high.  For owners as a whole, 
+there is sim ply no m agic – no showe r of m oney from  outer space – that will enable  them to extract wealth 
+from  their companies  beyond that cr eated by the com panies them selves. 
+ 
+ Indee d, owners must earn les s than their businesse s earn because of “fric tiona l” costs.  And that’s  
+my point: These costs are now being inc urred in  amounts that will cause share holders t o earn far less th an 
+they historically h ave. 
+ 
+ To understand h ow this toll has ballooned, imagine for a moment that all Am erican  corporation s 
+are, and  always will b e, owned by a sin gle fam ily.  We’ll call th em the Gotrocks.  After p aying taxes on 
+dividends, this family – ge neration after generation – becomes richer by the aggregate amount earned by its 
+companies.  Today  that am ount is about $700 billion a nnually.  Naturally, the  family spends s ome of these 
+dollars.  B ut the portio n it sav es stead ily co mpounds for its benefit.  In  the Go trocks ho usehold everyone 
+grows wealthier at the  same pace, and all is harm onious. 
+ 
+ But let’s now assum e that a  few fast-talki ng Help ers approach the fam ily and persuade each of its 
+members to  try to outsmart his relativ es by buying certa in of th eir holdings and  sellin g them certain  others. 
+The Help ers – for a fee, of cou rse – ob ligingly ag ree to handle these tran sactio ns.  Th e Gotrocks still o wn 
+all of c orporat e Am erica; the trades  just rearrange who ow ns w hat.  So the fam ily’s annual gain in wealth 
+diminishes, e qualing the earnings of Am erican busi ness minus commissions paid.  The more that family 
+members trade , the sm aller their sha re of the  pie a nd the larger t he slice received by  the Helpers.  This fact 
+is no t lost upon th ese broker-Helpers: Activity is th eir friend and, in a wide variety o f ways, th ey urge it on . 
+ 
+ After a while, most of the family members realize that the y are not doing so  well at th is new “b eat-
+my-brot her” game.  Ent er another set of Helpers.  These newcomers explain t o each m ember of the 
+Gotrocks clan that by himself he’ll neve r outsmart the rest of the fam ily.  The suggested cure: “Hire a 
+manager – yes, us – an d get  the job done professionally.”  Th ese manager-Hel pers co ntinue to use th e 
+broker-Hel pers to execute tra des; th e managers m ay even increase thei r activity so  as to  permit the brokers 
+to prosper still m ore.  Ov erall, a b igger slice of the pie now goes to th e two classes of Helpers. 
+ 
+ The family’s disappointment grows.  Each of its members is now em ploying professionals.  Yet 
+overall, the group’s finances have taken a turn for the worse.  Th e solution?   More help, of co urse. 
+ 
+ It arri ves in the form  of financial p lanners and  institutional consultants, who weigh  in to advise the 
+Gotrocks on selecting m anager -Helpers.  The be fuddled fam ily wel comes this assi stance.  B y now its 
+members know they ca n pick neither the right stocks nor the right stock-pickers.  Why , one might ask, 
+should they ex pect su ccess in picking the righ t con sultant?  But this question does no t occur to the 
+Gotrocks, and the consultant-Helpers certainly don’t suggest it to them. 
+ 
+ 
+ 18 The Gotrocks, now supporting three cl asses of expensive Help ers, fi nd that their results get worse, 
+and they si nk into despair.  B ut just a s hope  seem s lost, a fo urth group  – we’ll call th em the hyper-Hel pers 
+– appea rs.  T hese friendly fol k explain t o the Gotrocks that their unsatisfactory re sults are occurrin g 
+because the existing Helpers – brokers , managers , consultants – are not s ufficiently motivated and a re 
+simply going through the motions.  “ What,” the new Helpers as k, “ca n you ex pect from such a b unch of 
+zombies?” 
+ 
+ The new arri vals offer a breath takingly simple so lution: Pay more  money .  Brimmin g with self-
+confide nce, the hyper-Hel pers assert that huge c ontinge nt paym ents – in addition to s tiff fixed fees – are  
+what  each family member must fork over in order to really outmaneuve r his relatives. 
+ 
+ The more observant members of the family see that some o f the hyper-Help ers are really ju st 
+manager -Helpers weari ng n ew uni forms, beari ng sewn-on sexy nam es like HEDGE FUND  or PRIVAT E 
+EQUI TY.  The new Helpers, however, assure the Gotrocks that this change of clothing is all-important, 
+bestowing on its weare rs magical powers si milar to those acqui red by mild-mannere d Clark Kent  when he 
+chan ged into his Superm an costume.  Calmed by this explanation, the family deci des to pay up. 
+ 
+ And that’s where we are today: A rec ord portion of the earnings that would go in their entirety to 
+owners – if they all j ust stayed  in their rocking chairs – is no w going to a swelling  arm y of Helpers.  
+Particularly expensive is the recen t pandemic of profit arrangem ents under whic h Helpers receive large 
+portion s of the winn ings when they are sm art or lu cky, and  leav e fam ily members with  all o f the losses –  
+and large fi xed fees t o boot – when the Helper s are dum b or unl ucky (o r occasionally crooke d). 
+ 
+ A su fficien t number of arran gements like this – heads, the Help er tak es much of the winn ings; 
+tails, the Gotrocks lose a nd pay dear ly for the privilege of doi ng so – may make it more accurate to cal l the 
+family the Ha drocks.  Today, in fact, the family’s fri ctional cost s of al l sorts may well amount to 20% of 
+the earnings of Am erican business.  In ot her words, the burden of paying Helpe rs may cause Am erican 
+equity in vestors, ov erall, t o earn  only 80% or so  of what they wou ld earn  if they just sat still an d listen ed to 
+no one. 
+ 
+ Long a go, Sir Isaac Newt on gave us t hree la ws of motion, whic h we re the  work of genius.  But Sir 
+Isaac’s  talents didn’t e xtend t o investing: He lost a bundle in the  Sout h Sea Bubble,  explaining later, “ I can 
+calculate the movem ent of the stars, but not the madness  of men.”  If  he had not been traumatized b y this 
+loss, Sir Isaac might well have gone on to  discover the Four th La w of Motion : For i nvestors as a whole, 
+returns  decrease as  motion increa ses. 
+* * * * * * * * * * * * 
+ Here ’s the ans wer to the question posed at the begi nning of this section: To get  very  specific, the 
+Dow increase d from 65.73 to 11,497.12 in the 20th cent ury, and that amounts to a gain of 5.3% 
+compounde d annually.  (Inve stors woul d also have receive d dividends, of course.)  T o achieve a n equal rate  
+of gain in the 21st century, t he Dow will ha ve to rise by Dece mber 31, 2099 to – brace yourself – precisely 
+2,011,011.23.  Bu t I’m  willing to settle fo r 2,00 0,000 ; six years in to this cen tury, th e Dow h as gained not at 
+all. 
+ 
+Debt and Risk  
+ 
+ As we c onsolidate MidAm erican, o ur new balance s heet may suggest  that Berkshi re has expa nded 
+its tolerance for borrowing.  But that’s not so.  Exce pt for token am ounts, we shun debt, turning to it for 
+only three purposes:  
+ 
+1) We occasional ly use re pos a s a part of ce rtain s hort-term  investing st rategies that incorporate 
+ownership of U.S. governmen t (or ag ency) secu rities.  Pu rchases o f this kind are highly 
+opportunistic and i nvolve only the most liquid of sec urities.  A f ew years ag o, we e ntered i nto 
+several interest ing transactio ns th at have since been unwound or are runn ing off.  The offsettin g 
+debt has likewise bee n cut substantially and before long may be gone. 
+ 192) We borrow money agai nst portfolio s of interest-bearing receivables whose risk cha racteristics we 
+understand .  We did this in 2001 when we gu aranteed $5.6 billion  of bank debt to take over, in 
+partnership wit h Leuca dia, a bankr upt Finova (which held a broa d range  of receiva bles).  All of 
+that debt  has been repaid.  More rece ntly, we ha ve b orrowed to finance a wi dely-diversified, 
+predictably-perform ing portfolio of m anufact ured-home receiva bles managed by Clayton.  
+Alternatively, we c ould “ securitize” – that  is, sell – these  receiva bles, but re tain the  servicing of 
+them.  If we fo llowed this pro cedure, which is co mmon in the industry, we wou ld not show th e 
+debt that we do on our balance sheet, a nd we would als o accelerate the earni ngs we report.  In the  
+end, however, we w ould earn less m oney .  Were market variables t o change s o as to fa vor 
+securitizatio n (an  unlikely ev ent), we cou ld sell p art of our portfolio and eliminate th e related  debt.  
+Until then, we prefer b etter pro fits to b etter co smetics. 
+ 
+3) At Mid American , we have substantial d ebt, but it is th at co mpany’s obligation only.  Tho ugh it 
+will appear on  our consolidated balance sh eet, Berk shire does not guarantee it. 
+ 
+Even so, this debt is unquestionabl y secure beca use i t is serviced by MidAm erican’s diversified 
+stream  of highly-stab le utility  earn ings.  If t here were to  be so me bolt fro m the blue that hurt one 
+of MidAmerican ’s utility p roperties, earn ings from the others wo uld still b e more th an am ple to 
+cove r all debt requirements.  M oreover, MidAm erican  retain s all of its earn ings, an  equity-
+building practice th at is rare i n the utility field . 
+ 
+ From a risk  standpoint, it is far safer to  have earn ings from ten diverse an d uncorrelated  utility  
+operations that cove r interest char ges by, say, a 2: 1 ratio than it is to have fa r greater cove rage 
+provided by a single utility.  A catastrop hic event can  render a si ngle utility insolvent – witness 
+what Kat rina did  to the local electric u tility in New Orleans –  no matter h ow conservative its d ebt 
+policy.  A ge ographical disaster – say , an e arthquake in a West ern state – can’t  have the sam e 
+effect on MidAm erican.  And e ven a worrier lik e Ch arlie can ’t think of an event that wou ld 
+syste mically decrease utility ear nings in any major way.  Because of MidAm erican’s e ver-
+wide ning dive rsity of regulated earnings, it will always uti lize major am ounts  of debt. 
+ 
+ And that’s abo ut it.  We are no t interested  in incurring an y significan t debt at Berk shire for 
+acquisition s or operating  purposes.  Conv entional business wisd om, of cou rse, would argu e that we are 
+being too conservat ive and that there are a dded profits that coul d be sa fely earned i f we injected m oderate 
+leverage into our balance sh eet. 
+ 
+ Maybe so.  B ut many of B erkshire’s hundreds of thousands of investors have a l arge portion of 
+their net  worth in our st ock (among t hem, it shoul d be em phasized, a l arge number of ou r board and key  
+managers ) and a disaster for the com pany would be a disaster for them .  Moreove r, there are pe ople who 
+have been permanent ly injured to whom we o we insurance pay ments that stretch out for fi fty years or 
+more.  To  these an d other con stituencies we h ave promised total secu rity, wh atever co mes: fin ancial panics, 
+stock-exc hange closures (a n extended one occurre d in 1914) or even dom estic nuclear, chem ical or 
+biological attacks. 
+ 
+ We a re quite willing to acce pt huge  risks.  Indeed , more tha n any other insure r, we write high-lim it 
+policies th at are tied  to sing le catastrop hic events.  We also  own  a larg e investment portfolio whose mark et 
+value cou ld fall d ramatically and quickly under certain  conditions (as h appened on Octob er 19, 1987).  
+Whatever occurs, tho ugh, Berkshire will h ave the net worth, th e earn ings stream s and the liq uidity to  
+handle the prob lem with  ease. 
+ 
+ Any other a pproach i s dangerous.  Over the years, a n umber of very smart peo ple have learne d the 
+hard way th at a long string of im pressiv e numbers m ultiplied by a single zero always eq uals zero .  That is 
+not an equation whose ef fects I wo uld like to experience pers onally, and I would like eve n less to be 
+respon sible for imposing its penalties up on others. 
+ 
+ 
+ 
+ 20Manageme nt Succession 
+ 
+ As owners, you are naturally concerned about whether I will in sist on  continuing as C EO after I 
+begin to fade and, if so , how the board will han dle that  problem.  Yo u also wan t to know what happens if I 
+should die tonight. 
+ 
+ That second question is eas y to answer.  Most of our many busi nesses ha ve st rong m arket 
+positions, sign ifican t momentum, and terrifi c managers.  The special Berk shire culture is deeply ingrained 
+throughout our sub sidiaries, an d these op erations won’t m iss a beat whe n I die. 
+ 
+ Moreover, we have  three m anage rs at Berkshire wh o are reason ably young and fully capable  of 
+being CEO.  Any of the three w ould be much better at certain manage ment aspect s of my job t han I.  On 
+the minus si de, none has m y cross over e xperience t hat allows m e to be comfortable making deci sions in 
+either th e business aren a or in investments.  Th at problem will b e solved by having anoth er person in the 
+organizatio n handle marketable securities.  Th at’s an  interestin g job at Berk shire, and th e new CEO wil l 
+have  no problem in hiring a talented individual to do it.  Indeed , that’s what we have done at GEICO for 26 
+years, and our resu lts have been terrific. 
+ 
+ Berkshire’s board has fully discuss ed eac h of t he three CEO can didates and has unanimously 
+agree d on the person who s hould succeed me if a repl acement were needed toda y.  The directors stay 
+updated on this subject  and could alter their view as ci rcumstances cha nge – new m anage rial stars may 
+emerge and presen t ones will ag e.  Th e important point is th at the directors know now –  and will always  
+know in th e future – ex actly wh at they will do  when the need arises. 
+ 
+ The other questio n that must be addressed  is wh ether the Board will b e prepared to make a ch ange 
+if that need should arise not from my death but rathe r from  my decay, particularly  if this decay is  
+accom panied by my delusionally thi nking that I am  reac hing ne w peaks of m anage rial brilliance.  That 
+problem woul d not be uni que to me.  Charl ie and I have faced  this situ ation from t ime to time at 
+Berks hire’s subsidiaries .  Humans age at greatly varyi ng rates – b ut sooner or later their talents and vigor 
+declin e.  Some managers remain  effectiv e well in to their 80s – Charlie is a wo nder at 82 – and others 
+noticeably fade in their 60s.  When their abilities ebb, so usually do their powers of self-assessm ent.  
+Someone el se often needs  to blow the whistle. 
+ 
+ When that time co mes for me, o ur board will h ave to step up to the job.  From a financial 
+standpoint, its members are un usually m otivated to do so.  I kno w of no other board in the coun try in  which 
+the financial interests of directors are s o completely aligned wi th those of shareholders.  Few b oards even 
+come close.  On a personal level, howe ver, it is e xtraordinarily d ifficu lt for most people to  tell so meone, 
+particularly a fr iend, that he or she is no longer  capable. 
+ 
+ If I become a candidate fo r that message, however, ou r board will be d oing me a favo r by 
+delivering it.  Every  share of Berk shire th at I own  is destined  to go to philanthropies, and I want s ociety to 
+reap t he maximum good from these gi fts and bequests.  It woul d be a t ragedy  if the philanthropic potential 
+of my holdings was d iminished because my asso ciates  shirked their respo nsibility t o (tend erly, I hope) 
+show m e the door.  B ut don’t worry ab out this.  We have an outstan ding group of directo rs, an d they will 
+alway s do what’s right for shareholders. 
+ 
+ And while we are on the s ubject, I feel terrific. 
+ 
+The Annual Meeting  
+ 
+ Our m eeting this year will b e on Saturd ay, May 6 .  As always, th e doo rs will o pen at th e Qwest 
+Center at 7  a.m., and the latest Berk shire movie will b e shown at 8:30.  At 9 :30 we will g o directly to  the 
+question-and-an swer p eriod, which (with  a break for lunch at th e Qwest ’s stan ds) will last u ntil 3:00.  Then, 
+after a sho rt recess, Ch arlie an d I will co nvene the annu al meetin g at 3:15.  Th is sch edule wo rked well las t 
+year, because  it let those who wante d to attend the  form al session to do so, while freeing others to shop . 
+ 
+ 21 You certain ly did your share in  this resp ect last year.  Th e 194,300 square fo ot hall adjo ining the 
+meetin g area was filled  with th e products of Berksh ire subsidiaries, and  the 21,000 people wh o cam e to the 
+meetin g allowed every locatio n to rack up sales record s.  Kelly Bro z (neé Mu chemore), th e Flo Zieg feld of 
+Berks hire, orc hestrates both this magnificent shopping extravaga nza and the m eeting itself.  T he exhi bitors 
+love her, and so do I.  Kelly got married in October, and I gave her away.  She asked me how I wanted to 
+be listed in the wedding program.  I replied “envious of the groom,” and t hat’s the way it went  to press. 
+ 
+ This year we will showcase two Clayto n ho mes (featuring  Acm e brick, Shaw carpet, John s 
+Manville in sulation, MiTek  fasten ers, Carefree awnings and NFM furnitu re).  You will find that these  
+homes, pri ced at $79,000 and $89,000, deliver excel lent value.  In fact, three sha reholders cam e so fi rmly 
+to that con clusion last year that th ey bought the $119,000 model we t hen showcased.  Flanking the Cl ayton 
+homes on  the exhibition floor will b e RVs from Forest River. 
+ 
+ GEIC O will h ave a boo th staffed  by a nu mber of its to p counselors from around the coun try, all of 
+them read y to supply you  with auto insuran ce quotes.  In m ost cases, GEICO will b e able to give yo u a 
+special shareholder discount (us ually 8%).  This sp ecial offer is perm itted by 45 of the 50 jurisdictions in 
+which we operate.  (On e supplemental point: The discount is not additive if you  qualify fo r ano ther, such as 
+that given cert ain groups.)  Bring the details of y our existing insurance a nd check out whet her we ca n save 
+you m oney .  For at least 50% of you, I believe we ca n.  And while you’re at it, sign up for the new GEICO 
+credit ca rd.  It’s the one I now use . 
+ 
+ On Saturd ay, at the Omaha airpo rt, we will have the usual array of aircraft from NetJets® 
+availab le for your insp ection .  Stop  by the NetJets boo th at the Qwest t o learn a bout view ing these planes.  
+Come to Omaha by bus; leav e in your  new plane. 
+ 
+ The Bookworm  bouti que at the Qwest broke all rec ords last year selling Berk shire-related books .  
+An amazing 3,500 of these were Poor Charlie’s Almanack , the collected wi sdom of my part ner.  This 
+mean s that a co py was so ld every 9 second s.  And for good reaso n: You will never find a book with  more 
+useful ideas.  Word-of-mouth recom menda tions have ca used Charlie’s first printing of 20,500 copies to sell 
+out, and we wi ll therefore have a revi sed and expa nded edition on sale at our meeting.  Among t he other 22 
+titles an d DVDs av ailab le last year at t he Book worm, 4,597 cop ies were so ld for $84,746 .  Our 
+share holders are a bookseller’s dream . 
+ 
+ An attachm ent to t he proxy  material that is encl osed w ith th is report explains how you  can obtain 
+the cred ential yo u will n eed for ad mission to the meeting and other events.  As fo r plane, ho tel and car 
+reser vations, we have a gain signed up American Ex press (800-799-6634) to give you special help.  Carol 
+Pede rsen, who handles t hese matters, doe s a terrifi c job for us each year, a nd I tha nk her for it. 
+ 
+ At Ne braska  Furniture  Mart, located on a 77-ac re site on 72nd Street between Dodge  and Pacific, 
+we will ag ain be having “Berk shire Week end” pricing .  We in itiated  this special ev ent at NFM n ine years 
+ago, and sales during the “Weeken d” grew from $5.3 m illion in 1997 to $27.4 million in 2005 (up 9% f rom 
+a year earlier).  I get goose bumps just thinking abou t this volume. 
+ 
+ To obtain th e discoun t, you  must make your purchases betw een Thu rsday, May 4  and Mo nday,  
+May 8  inclusive, an d also  present your m eeting cred ential.  Th e period’s sp ecial p ricing  will ev en apply to 
+the products of several  prestigious m anufact urers that normally have i ronclad rules aga inst discounting but 
+that, in the spirit of our shareholder week end, have  made an exce ption for y ou.  We a ppreciate their 
+cooperation.  NFM  is open from 10 a.m. to 9 p.m . Monday through S aturday, and 10 a.m. to 6 p. m. on 
+Sunday .  On Saturday this year, from 5:30 p.m. to 8 p.m., we a re having a speci al affair for shareholders 
+only.  I’ll be there, eat ing barbeque, drinking Coke, and counting sales. 
+ 
+ Borsheim ’s again will have t wo shareholde r-only eve nts.  The first will be a coc ktail reception 
+from 6 p.m. to 10 p.m. on Frid ay, May 5 .  The second , the main gala, will b e from 9 a.m. to 4 p.m. o n 
+Sunday, May 7.  On Saturd ay, we will b e open until 6 p.m . 
+ 
+ 22 We w ill have h uge crow ds at Bo rsheim’s th roughout the weekend.  Fo r your con venience, 
+therefore, sh areholder prices will b e available fro m Monday, May 1  through Saturd ay, May 1 3.  During 
+that period, just identify yoursel f as a s hareholder through your m eeting c redentials or a brokerage 
+statement.   
+ 
+ Borsheim’s op erates on a gross margin that, even before the share holders’ discount, is fully twenty 
+perce ntage points below that of its major ri vals.  Last year, our sha reholder-period business increased 9% 
+from 2004, which cam e on t op of a 73% gain the year before.  The store sold 5,000 Berkshire Monopoly 
+games – and then ran ou t.  We’ve learn ed: Plenty will b e in stock this year. 
+ 
+ In a ten t outside of Borsheim’s, Patrick  Wolff, twice U.S. ch ess ch ampion, will tak e on all co mers 
+in groups of six – blindfolded.  Add itionally, we will h ave Bob  Hamm an and Sh aron Osberg, two of th e 
+world’s top bridge e xperts, available to play with our shareholders on Sunday afternoon.  They  plan to keep 
+their eyes open – but Bob never sorts his cards, eve n when playing for a national champions hip. 
+ 
+ Gorat’s – my fav orite steak house – will again  be open exclu sively for Berk shire sh areholders on 
+Sunday, May 7, and  will b e serv ing from 4 p.m. until 10 p.m.  Please re member that to come to Gorat’s o n 
+that day, you must have a reservation .  To make one, call 4 02-551-3733 on April 1 (but not before).   
+ 
+ In this schoo l year, ab out 35 university classes will co me to Omaha for sessio ns with  me.  I tak e 
+almost all – in  aggregate, perhaps 2, 000 students – to lunch at Gorat’s.  And they lov e it.  To  learn  why, 
+come join us on Sunday . 
+ 
+ We will again have a special r eception from 4:00 to 5: 30 on Saturd ay afternoon for sha reholde rs 
+who have come from outside of North America.  E very year our meeting dra ws many people from around 
+the globe, and Charlie and I want  to be sure we pe rsonally greet  those who have come so fa r.  Last  year we 
+enjoyed meeting m ore than 400 of you from many dozen s of c ountries.  Any  shareholder who comes from 
+other than the U.S. or Canada will b e given a special cred ential an d instructio ns for attend ing this function. 
+* * * * * * * * * * * * 
+ Charlie and  I are ex traord inarily lu cky.  We we re born in America; had  terrific parents who saw  
+that we go t goo d educatio ns; h ave enjoyed wond erful families an d great h ealth ; and  came eq uipped with a 
+“business” gene that allows us t o prosper in a m anner hugely disproportionate to other people who 
+contribute as much or m ore to our society’s well-being.   Moreover, we have l ong had jobs that we l ove, in 
+which we are helped every day in  countless ways b y talented and chee rful associ ates.  No wonder we  tap-
+dance t o work.  But nothing is more fu n for us than getting together with our shareholder-partners at 
+Berk shire’s annual meetin g.  So join us on May 6th at the Qwest fo r our annual Wood stock for Capitalists.   
+We’ll see y ou there. 
+ 
+ 
+February 28, 2006    Warren E. Buff ett 
+      Chairm an of the Board 
+ 
+ 
+ 23

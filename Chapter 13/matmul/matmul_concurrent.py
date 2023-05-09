@@ -11,7 +11,7 @@ Matrix = List[Row]
 
 
 def matrix_multiply(matrix_a: Matrix, matrix_b: Matrix) -> Matrix:
-    """ Multiply two matrices, calculating each column of the solution
+    """ Multiply two matrices, calculating each row of the solution
     concurrently. """
     num_rows_a = len(matrix_a)
     num_cols_a = len(matrix_a[0])
@@ -25,14 +25,14 @@ def matrix_multiply(matrix_a: Matrix, matrix_b: Matrix) -> Matrix:
 
     pool = Pool()
     results = pool.map(
-        process_row,
+        process_column,
         [(matrix_a, matrix_b, i) for i in range(num_rows_a)])
     pool.close()
     pool.join()
     return results
 
 
-def process_row(args: tuple) -> Column:
+def process_column(args: tuple) -> Column:
     """ Creates 1 column of the solution_matrix """
     matrix_a, matrix_b, row_idx = args
     num_cols_a = len(matrix_a[0])
