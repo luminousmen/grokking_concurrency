@@ -5,6 +5,7 @@ directory using data decomposition technique(Loop-level parallelism)"""
 
 import os
 import time
+import glob
 import typing as T
 from multiprocessing.pool import ThreadPool
 
@@ -33,7 +34,6 @@ def search_files_concurrently(file_locations: T.List[str],
 if __name__ == "__main__":
     # get input from user
     search_dir = input("Where would you like me to search?: ")
-    # removing hidden files just in case, and ignore subdirs
     file_locations = list(
         glob.glob(f"{os.path.abspath(os.getcwd())}/Warren_buffet_letters/*.txt"))
     for f in os.listdir(search_dir):
