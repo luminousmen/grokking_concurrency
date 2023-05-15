@@ -26,10 +26,9 @@ def search_files_sequentially(file_locations: T.List[str],
 
 
 if __name__ == "__main__":
-    # get input from user
-    search_dir = input("Where would you like me to search?: ")
     file_locations = list(
-        glob.glob(f"{os.path.abspath(os.getcwd())}/Warren_buffet_letters/*.txt"))
+        glob.glob(f"{os.path.abspath(os.getcwd())}/books/*.txt"))
+    # get input from user
     search_string = input("What word are you trying to find?: ")
 
     start_time = time.perf_counter()

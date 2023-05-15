@@ -20,7 +20,7 @@ class Writer(Thread):
 
 
 class Reader(Thread):
-    """Writer thread will write messages into the pipe"""
+    """Reader thread will read messages from the pipe"""
     def __init__(self, conn: Connection):
         super().__init__()
         self.conn = conn

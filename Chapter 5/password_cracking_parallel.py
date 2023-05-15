@@ -13,13 +13,11 @@ from multiprocessing import Pool
 ChunkRange = T.Tuple[int, int]
 
 
-def get_combinations(*, length: int, min_number: int = 0,
-                     max_number: T.Optional[int] = None) -> T.List[str]:
+def get_combinations(*, length: int, min_number: int = 0) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []
-    if not max_number:
-        # calculating maximum number based on the length
-        max_number = int(math.pow(10, length) - 1)
+    # calculating maximum number based on the length
+    max_number = int(math.pow(10, length) - 1)
 
     # go through all possible combinations in a given range
     for i in range(min_number, max_number + 1):

@@ -32,15 +32,9 @@ def search_files_concurrently(file_locations: T.List[str],
 
 
 if __name__ == "__main__":
-    # get input from user
-    search_dir = input("Where would you like me to search?: ")
     file_locations = list(
-        glob.glob(f"{os.path.abspath(os.getcwd())}/Warren_buffet_letters/*.txt"))
-    for f in os.listdir(search_dir):
-        # assuming flat folder structure
-        if os.path.isfile(os.path.join(search_dir, f)) \
-                and not f.startswith("."):
-            file_locations.append(os.path.join(search_dir, f))
+        glob.glob(f"{os.path.abspath(os.getcwd())}/books/*.txt"))
+    # get input from user
     search_string = input("What word are you trying to find?: ")
 
     start_time = time.perf_counter()
