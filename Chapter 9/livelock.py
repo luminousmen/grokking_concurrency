@@ -36,6 +36,7 @@ class Philosopher(Thread):
                 dumplings -= 1
                 print(f"{self.name} eat a dumpling. Dumplings "
                       f"left: {dumplings}")
+                print(f"{self.name} is thinking...")
                 time.sleep(1)
                 self.right_chopstick.release()
             self.left_chopstick.release()

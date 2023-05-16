@@ -32,12 +32,13 @@ class Philosopher(Thread):
             self.right_chopstick.acquire()
             print(f"{self.right_chopstick.name} grabbed by {self.name}")
             dumplings -= 1
-            print(
-                f"{self.name} eats a dumpling. Dumplings left: {dumplings}")
+            print(f"{self.name} eats a dumpling. "
+                  f"Dumplings left: {dumplings}")
             self.right_chopstick.release()
             print(f"{self.right_chopstick.name} released by {self.name}")
             self.left_chopstick.release()
             print(f"{self.left_chopstick.name} released by {self.name}")
+            print(f"{self.name} is thinking...")
             time.sleep(0.1)
 
 

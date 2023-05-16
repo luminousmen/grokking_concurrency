@@ -51,7 +51,8 @@ class Philosopher(Thread):
                 self.left_chopstick, self.right_chopstick)
 
             dumplings -= 1
-            print(f"{self.name} eats a dumpling. Dumplings left: {dumplings}")
+            print(f"{self.name} eats a dumpling. "
+                  f"Dumplings left: {dumplings}")
             print(f"{self.name} returns chopsticks to waiter")
             self.waiter.release_chopsticks(
                 self.left_chopstick, self.right_chopstick)
