@@ -9,6 +9,7 @@ from socket import socket, create_server
 Data = bytes
 Action = T.Union[T.Callable[[socket], None], T.Tuple[
     T.Callable[[socket, Data], None], str]]
+Mask = int
 
 # the maximum amount of data to be received at once
 BUFFER_SIZE = 1024
@@ -20,7 +21,7 @@ class EventLoop:
         self.writers = {}
         self.readers = {}
 
-    def register_event(self, source: socket, event: int,
+    def register_event(self, source: socket, event: Mask,
                        action: Action) -> None:
         """Registers the given socket for the given event type
         with the given to be executed when the event occurs."""
@@ -121,6 +122,6 @@ class Server:
 
 
 if __name__ == "__main__":
-    loop = EventLoop()
-    Server(event_loop=loop).start()
-    loop.run_forever()
+    event_loop = EventLoop()
+    Server(event_loop=event_loop).start()
+    event_loop.run_forever()
