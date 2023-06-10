@@ -41,13 +41,15 @@ def check_password(expected_crypto_hash: str,
     return expected_crypto_hash == actual_crypto_hash
 
 
-def get_chunks(num_ranges: int, length: int) -> T.Iterator[ChunkRange]:
+def get_chunks(num_ranges: int,
+               length: int) -> T.Iterator[ChunkRange]:
     """Splitting the passwords into chunks using break points"""
     max_number = int(math.pow(10, length) - 1)
-    chunk_starts = [int(max_number / num_ranges * i) for i in
-                    range(num_ranges)]
-    chunk_ends = [start_point - 1 for start_point in chunk_starts[1:]] + [
-        max_number]
+    chunk_starts = [int(max_number / num_ranges * i)
+                    for i in range(num_ranges)]
+    chunk_ends = [start_point - 1
+                  for start_point in
+                  chunk_starts[1:]] + [max_number]
     return zip(chunk_starts, chunk_ends)
 
 
@@ -87,6 +89,7 @@ def crack_password_parallel(crypto_hash: str, length: int) -> None:
 
 
 if __name__ == "__main__":
-    crypto_hash = "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4"
+    crypto_hash = \
+        "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4"
     length = 8
     crack_password_parallel(crypto_hash, length)

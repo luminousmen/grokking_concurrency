@@ -11,7 +11,7 @@ class UnsyncedBankAccount(BankAccount):
         if amount > 0:
             self.balance += amount
         else:
-            raise ValueError("You can't deposit negative amount of money")
+            raise ValueError("You can't deposit a negative amount of money")
 
     def withdraw(self, amount: float) -> None:
         if 0 < amount <= self.balance:

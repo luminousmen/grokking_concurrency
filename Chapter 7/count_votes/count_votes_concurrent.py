@@ -12,11 +12,14 @@ Summary = T.Mapping[int, int]
 def process_votes(pile: T.List[int], worker_count: int = 4) -> Summary:
     """Counts the number of votes each candidate received in parallel."""
     vote_count = len(pile)
-    vote_per_worker = vote_count // worker_count
+    # vote per worker
+    vpw = vote_count // worker_count
 
     # divide the votes among workers
-    vote_piles = [pile[i * vote_per_worker:(i + 1) * vote_per_worker] for i
-                  in range(worker_count)]
+    vote_piles = [
+        pile[i * vpw:(i + 1) * vpw]
+        for i in range(worker_count)
+    ]
 
     # create thread pool
     with ThreadPool(worker_count) as pool:
@@ -26,7 +29,7 @@ def process_votes(pile: T.List[int], worker_count: int = 4) -> Summary:
     # merge the worker summaries
     total_summary = {}
     for worker_summary in worker_summaries:
-        print(f"Votes from stuff member: {worker_summary}")
+        print(f"Votes from staff member: {worker_summary}")
         for candidate, count in worker_summary.items():
             if candidate in total_summary:
                 total_summary[candidate] += count

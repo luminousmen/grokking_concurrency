@@ -83,7 +83,7 @@ class Consumer(Thread):
 
 if __name__ == "__main__":
     threads = [
-        Producer("Spongebob"),
+        Producer("SpongeBob"),
         Producer("Patrick"),
         Consumer("Squidward")
     ]

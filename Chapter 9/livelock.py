@@ -34,7 +34,7 @@ class Philosopher(Thread):
                 print(f"{self.right_chopstick.name} chopstick "
                       f"grabbed by {self.name}")
                 dumplings -= 1
-                print(f"{self.name} eat a dumpling. Dumplings "
+                print(f"{self.name} eats a dumpling. Dumplings "
                       f"left: {dumplings}")
                 print(f"{self.name} is thinking...")
                 time.sleep(1)

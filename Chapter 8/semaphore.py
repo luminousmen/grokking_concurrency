@@ -62,5 +62,5 @@ if __name__ == "__main__":
     # test garage by concurrently arriving cars
     test_garage(garage, number_of_cars)
 
-    print("Number of parked car after a busy day:")
+    print("Number of parked cars after a busy day:")
     print(f"Actual: {garage.count_parked_cars()}\nExpected: 0")

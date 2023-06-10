@@ -10,7 +10,8 @@ import typing as T
 
 
 def get_combinations(*, length: int, min_number: int = 0,
-                     max_number: T.Optional[int] = None) -> T.List[str]:
+
+                     _number: T.Optional[int] = None) -> T.List[str]:
     """Generate all possible password combinations"""
     combinations = []
     if not max_number:
@@ -53,6 +54,7 @@ def crack_password(crypto_hash: str, length: int) -> None:
 
 
 if __name__ == "__main__":
-    crypto_hash = "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4"
+    crypto_hash = \
+        "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4"
     length = 8
     crack_password(crypto_hash, length)

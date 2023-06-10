@@ -37,7 +37,7 @@ class Receiver(Thread):
         # let's start listening mode for this socket
         server.listen()
 
-        print(f"{current_thread().name}: Listening of incoming messages...")
+        print(f"{current_thread().name}: Listening for incoming messages...")
         # accept a connection
         conn, addr = server.accept()
 
