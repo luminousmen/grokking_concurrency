@@ -24,8 +24,9 @@ class Server:
         print("Server listening for incoming connections")
         try:
             while True:
-                conn, client_address = await self.event_loop.sock_accept(
-                    self.server_socket)
+                conn, client_address = \
+                    await self.event_loop.sock_accept(
+                        self.server_socket)
                 self.event_loop.create_task(self.serve(conn))
         except Exception:
             self.server_socket.close()

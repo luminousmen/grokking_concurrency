@@ -45,7 +45,9 @@ def main():
     file_locations = list(
         glob.glob(f"{current_path}/input_files/*.txt"))
     scheduler = Scheduler(file_locations)
-    server = event_loop.create_server(lambda: Server(scheduler), HOST, PORT)
+def g:
+    server = event_loop.create_server(
+        lambda: Server(scheduler), HOST, PORT)
     # ensure that the server is fully set up and running
     server = event_loop.run_until_complete(server)
     print(f"Serving on {server.sockets[0].getsockname()}")

@@ -49,7 +49,7 @@ class Server:
                 yield conn.send(response.encode())
                 yield self.event_loop.run_in_executor(
                     Kitchen.cook_pizza, order)
-                response = f"You order on {order} pizzas is ready!\n"
+                response = f"You order of {order} pizzas is ready!\n"
             except ValueError:
                 response = "Wrong number of pizzas, please try again\n"
 
