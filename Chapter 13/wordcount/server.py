@@ -45,7 +45,6 @@ def main():
     file_locations = list(
         glob.glob(f"{current_path}/input_files/*.txt"))
     scheduler = Scheduler(file_locations)
-def g:
     server = event_loop.create_server(
         lambda: Server(scheduler), HOST, PORT)
     # ensure that the server is fully set up and running
