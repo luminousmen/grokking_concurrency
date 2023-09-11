@@ -80,6 +80,8 @@ class Server:
         conn.setblocking(False)
         print(f"Connected to {client_address}")
         self.event_loop.register_event(conn, select.POLLIN, self._on_read)
+        self.event_loop.register_event(self.server_socket, select.POLLIN,
+                                       self._on_accept)
 
     def _on_read(self, conn: socket) -> None:
         """Callback that is called when the connected socket has incoming
