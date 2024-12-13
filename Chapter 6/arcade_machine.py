@@ -9,7 +9,7 @@ from threading import Thread, Event
 from pacman import get_user_input, compute_game_world, render_next_screen
 
 processor_free = Event()
-
+processor_free.set()
 
 class Task(Thread):
     def __init__(self, func: T.Callable[..., None]):
@@ -21,6 +21,7 @@ class Task(Thread):
             processor_free.wait()  # block until signalled
             processor_free.clear()  # don't let other tasks resume
             self.func()
+            processor_free.set()
 
 
 def arcade_machine() -> None:
