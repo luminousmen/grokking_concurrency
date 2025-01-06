@@ -18,7 +18,7 @@ class EventLoop:
         self._read_waiting = {}
         self._write_waiting = {}
 
-    def register_event(self, source: socket.socket, event: Mask, future,
+    def register_event(self, source: socket.socket, event: Mask, future: Future,
                        task: Action) -> None:
         key = source.fileno()
         if event & select.POLLIN:
