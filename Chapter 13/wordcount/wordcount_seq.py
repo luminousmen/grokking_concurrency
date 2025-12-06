@@ -18,7 +18,7 @@ def wordcount(filenames: T.List[str]) -> Occurrences:
         with open(filename, "r", encoding=ENCODING) as file:
             for line in file:
                 # Split line into words using regex
-                words = re.split("\W+", line)
+                words = re.split(r"\W+", line)
                 for word in words:
                     word = word.lower()
                     # Count the word if it is not empty

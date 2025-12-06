@@ -38,4 +38,3 @@ if __name__ == "__main__":
     print(f"matrix B: {B}")
     C = matrix_multiply(A, B)
     print(f"matrix C: {C}")
-
