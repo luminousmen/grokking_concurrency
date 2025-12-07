@@ -11,7 +11,7 @@ from threading import Thread
 def cpu_waster(i: int) -> None:
     """Wasting the processor time, professionally"""
     # getting current thread name
-    name = threading.current_thread().getName()
+    name = threading.current_thread().name
     print(f"{name} doing {i} work")
     time.sleep(3)
 
