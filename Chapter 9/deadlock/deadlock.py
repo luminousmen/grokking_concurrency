@@ -51,3 +51,5 @@ if __name__ == "__main__":
 
     philosopher_1.start()
     philosopher_2.start()
+    philosopher_1.join()
+    philosopher_2.join()

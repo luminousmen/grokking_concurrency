@@ -56,7 +56,7 @@ class ThreadPool:
 
 def cpu_waster(i: int) -> None:
     """Wasting the processor time, professionally"""
-    name = current_thread().getName()
+    name = current_thread().name
     print(f"{name} doing {i} work")
     time.sleep(3)
 

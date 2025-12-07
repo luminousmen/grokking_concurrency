@@ -10,7 +10,7 @@ from threading import current_thread
 
 def cpu_waster(i: int) -> str:
     """Wasting the processor time, professionally"""
-    name = current_thread().getName()
+    name = current_thread().name
     print(f"{name} doing Task {i}")
     time.sleep(3)
     return f"Task {i} completed"

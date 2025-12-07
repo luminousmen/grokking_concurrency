@@ -33,6 +33,10 @@ class Philosopher(Thread):
                 self.right_chopstick.acquire()
                 print(f"{self.right_chopstick.name} chopstick "
                       f"grabbed by {self.name}")
+                if dumplings<=0:
+                    self.right_chopstick.release()
+                    self.left_chopstick.release()
+                    return
                 dumplings -= 1
                 print(f"{self.name} eats a dumpling. Dumplings "
                       f"left: {dumplings}")
