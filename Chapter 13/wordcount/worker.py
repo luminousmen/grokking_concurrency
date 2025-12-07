@@ -39,7 +39,7 @@ class Worker(Protocol):
         word_counts: T.Dict[str, T.List[int]] = {}
         with open(filename, "r", encoding=ENCODING) as f:
             for line in f:
-                words = re.split("\W+", line)
+                words = re.split(r"\W+", line)
                 for word in words:
                     word = word.lower()
                     if word != "":

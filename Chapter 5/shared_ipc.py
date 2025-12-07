@@ -13,7 +13,6 @@ shared_memory = [-1] * SIZE
 class Producer(Thread):
     def run(self) -> None:
         self.name = "Producer"
-        global shared_memory
         for i in range(SIZE):
             print(f"{current_thread().name}: Writing {int(i)}")
             shared_memory[i - 1] = i
@@ -22,7 +21,6 @@ class Producer(Thread):
 class Consumer(Thread):
     def run(self) -> None:
         self.name = "Consumer"
-        global shared_memory
         for i in range(SIZE):
             # try reading the data until succession
             while True:

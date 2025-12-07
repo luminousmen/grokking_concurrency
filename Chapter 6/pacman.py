@@ -22,7 +22,7 @@ def get_user_input() -> None:
     """Gets the input from the controllers and save it in the game internal
     state"""
     while True:
-        global pacman, ghosts, is_game_over
+        global pacman, is_game_over
         if is_game_over:
             sys.exit()
 
@@ -56,7 +56,7 @@ def compute_game_world() -> None:
     """Computes game world according to the game rules, gamer’s input and
     game internal state """
     while True:
-        global pacman, ghosts, is_game_over, score
+        global is_game_over, score
         if is_game_over:
             sys.exit()
         # Move the ghosts randomly
@@ -89,7 +89,6 @@ def compute_game_world() -> None:
 def render_next_screen() -> None:
     """Render the next frame of the game"""
     while True:
-        global pacman, ghosts, score, is_game_over, dots
         # Clear the terminal screen
         os.system("clear")
 
